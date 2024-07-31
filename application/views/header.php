@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>WaterLand - Water Park Website Template</title>
+        <title>Community Site</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -51,7 +51,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="<?=base_url()?>home" class="nav-item nav-link active">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Service</a>
                         <a href="blog.html" class="nav-item nav-link">Blog</a>

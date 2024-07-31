@@ -64,6 +64,7 @@ $route['about'] = 'landingpagecontroller/about';
 $route['contact'] = 'landingpagecontroller/contact';
 
 //User registration form
+$route['user_registration'] = 'userregistrationcontrollers/UserRegController';
 
 //business client view section
 $route['business'] = 'businesslistingcontrollers/BusinessSectionController';
