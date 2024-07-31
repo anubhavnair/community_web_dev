@@ -920,7 +920,7 @@
     
 
     <!-- Template Javascript -->
-    <script src="assets/landing_assests/js/main.js"></script>
+    <script src="assets/landing_assets/js/main.js"></script>
     </body>
 
 </html>
