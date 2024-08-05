@@ -1,10 +1,10 @@
 <style>
     .blog-img img {
-    height: 300px; /* Adjust the height as needed */
-    object-fit: cover;
-    width: 100%;
-}
-
+        height: 300px;
+        /* Adjust the height as needed */
+        object-fit: cover;
+        width: 100%;
+    }
 </style>
 <!-- Carousel Start -->
 <div class="header-carousel owl-carousel">
@@ -481,7 +481,7 @@
 <!-- Gallery End -->
 
 
-<!-- Blog Start -->
+<!-- Job Start -->
 <div class="container-fluid blog pb-5">
     <div class="container pb-5">
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
@@ -492,72 +492,96 @@
                 dolorem autem obcaecati, ipsam mollitia hic.
             </p>
         </div>
-        <div class="row g-4">
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <a href="#">
-                            <img src="uploads/landing_img/person-2.jpeg" class="img-fluid w-100 rounded-top"
-                                alt="Image">
-                        </a>
-                        <div class="blog-category py-2 px-4">Varonica</div>
-                        <div class="blog-date"><i class="fas fa-clock me-2"></i>August 19, 2025</div>
-                    </div>
-                    <div class="blog-content p-4">
-                        <a href="#" class="h4 d-inline-block mb-4">Software Developer</a>
-                        <p class="mb-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam aspernatur nam
-                            quidem porro sapiente, neque a quibusdam....
-                        </p>
-                        <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More <i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <a href="#">
-                            <img src="uploads/landing_img/person-3.jpeg" class="img-fluid w-100 rounded-top"
-                                alt="Image">
-                        </a>
-                        <div class="blog-category py-2 px-4">James</div>
-                        <div class="blog-date"><i class="fas fa-clock me-2"></i>August 19, 2025</div>
-                    </div>
-                    <div class="blog-content p-4">
-                        <a href="#" class="h4 d-inline-block mb-4">Project Manager</a>
-                        <p class="mb-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam aspernatur nam
-                            quidem porro sapiente, neque a quibusdam....
-                        </p>
-                        <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More <i
-                                class="fas fa-arrow-right ms-2"></i></a>
+
+        <div class="owl-carousel owl-theme">
+
+            <?php foreach ($job_list as $job) { ?>
+                <div class="item wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <a href="#">
+                                <img src="uploads/job_listing/<?= $job['job_image'] ?>" class="img-fluid w-100 rounded-top"
+                                    alt="<?= $job['job_title'] ?>">
+                            </a>
+                            <div class="blog-category py-2 px-4"><?= $job['job_category'] ?></div>
+                            <div class="job-content blog-date"><span> Salary:</span> <?= $job['job_minimum_salary'] ?> -
+                                <?= $job['job_maximum_salary'] ?>
+                            </div>
+                        </div>
+                        <div class="blog-content job-content p-4">
+                            <a href="#" class="h4 d-inline-block mb-4"><?= $job['job_type'] ?></a>
+                            <p class="mb-1"><span><?= $job['job_city'] ?>, <?= $job['job_country'] ?></span></p>
+                            <p class="mb-1"><span>Education:</span> <?= $job['job_education_level'] ?></p>
+                            <p class="mb-1"><span>Experience:</span> <?= $job['job_experience'] ?></p>
+                            <p class="mb-1"><span>Email:</span> <?= $job['job_email'] ?></p>
+                            <p class="mb-1"><span>Contact:</span> <?= $job['job_number'] ?></p>
+                            <p class="mb-1"><span>Shift:</span> <?= $job['job_shift'] ?></p>
+                            <a href="<?= $job['job_website'] ?>" class="mb-1"><span>Website</span></a>
+                            <!-- <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More <i
+                                    class="fas fa-arrow-right ms-2"></i></a> -->
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <a href="#">
-                            <img src="uploads/landing_img/person-1.jpeg" class="img-fluid w-100 rounded-top"
-                                alt="Image">
-                        </a>
-                        <div class="blog-category py-2 px-4">Ardan</div>
-                        <div class="blog-date"><i class="fas fa-clock me-2"></i>August 19, 2025</div>
-                    </div>
-                    <div class="blog-content p-4">
-                        <a href="#" class="h4 d-inline-block mb-4">Artist Park</a>
-                        <p class="mb-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam aspernatur nam
-                            quidem porro sapiente, neque a quibusdam....
-                        </p>
-                        <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More <i
-                                class="fas fa-arrow-right ms-2"></i></a>
-                    </div>
-                </div>
-            </div>
+
+
+            <?php } ?>
         </div>
     </div>
 </div>
 
-<!-- Blog End -->
+<!-- Job End -->
+
+
+
+<!-- Business Start -->
+<div class="container-fluid blog pb-5">
+    <div class="container pb-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-primary">Business</h4>
+            <h1 class="display-5 mb-4">Latest Businesses</h1>
+            <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
+                cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint
+                dolorem autem obcaecati, ipsam mollitia hic.
+            </p>
+        </div>
+
+        <div class="owl-carousel owl-theme">
+
+            <?php foreach ($business_list as $business) { ?>
+                <div class="item wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <a href="#">
+                                <img src="uploads/business_listing/<?= $business['business_image'] ?>" class="img-fluid w-100 rounded-top"
+                                    alt="<?= $business['company_name'] ?>">
+                            </a>
+                            <div class="blog-category py-2 px-4"><?= $business['business_category'] ?></div>
+                            <div class="blog-date job-content"><span>Time :</span> <?= $business['opening_time'] ?> -
+                                <?= $business['closing_time'] ?>
+                            </div>
+                        </div>
+                        <div class="blog-content job-content p-4">
+                            <a href="#" class="h4 d-inline-block mb-4"><span><?= $business['company_name'] ?></span></a>
+                            <p class="mb-1"><span><?= $business['city'] ?> <?= $business['pin_code'] ?>, <?= $business['country'] ?></span></p>
+                            <p class="mb-1"><span>Address 1</span>: <?= $business['address_1'] ?></p>
+                            <p class="mb-1"><span>Address 2</span>: <?= $business['address_2'] ?></p>
+                            <p class="mb-1"><span>Email:</span> <?= $business['email_address'] ?></p>
+                            <p class="mb-1"><span>Contact:</span> <?= $business['phone_number'] ?></p>
+                            <p class="mb-1"><span>fax:</span> <?= $business['fax'] ?></p>
+                            <a href="<?= $business['website'] ?>" class="mb-1"><span>Website</span></a>
+                            <!-- <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More <i
+                                    class="fas fa-arrow-right ms-2"></i></a> -->
+                        </div>
+                    </div>
+                </div>
+
+
+            <?php } ?>
+        </div>
+    </div>
+</div>
+
+<!-- Business End -->
 
 
 <!-- Team Start -->
@@ -567,7 +591,8 @@
             <h4 class="text-primary">Committee</h4>
             <h1 class="display-5 mb-4">Our xyz Community Members</h1>
             <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis
-                cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint
+                cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
+                sint
                 dolorem autem obcaecati, ipsam mollitia hic.
             </p>
         </div>
@@ -672,14 +697,17 @@
             <h4 class="text-primary">Testimonials</h4>
             <h1 class="display-5 text-white mb-4">Members Riviews</h1>
             <p class="text-white mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci
-                facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt
+                facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa
+                deserunt
                 sint dolorem autem obcaecati, ipsam mollitia hic.
             </p>
         </div>
         <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
             <div class="testimonial-item p-4">
-                <p class="text-white fs-4 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos mollitia
-                    fugiat, nihil autem reprehenderit aperiam maxime minima consequatur, nam iste eius velit perferendis
+                <p class="text-white fs-4 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+                    mollitia
+                    fugiat, nihil autem reprehenderit aperiam maxime minima consequatur, nam iste eius velit
+                    perferendis
                     voluptatem at atque neque soluta reiciendis doloremque.
                 </p>
                 <div class="testimonial-inner">
@@ -703,8 +731,10 @@
                 </div>
             </div>
             <div class="testimonial-item p-4">
-                <p class="text-white fs-4 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos mollitia
-                    fugiat, nihil autem reprehenderit aperiam maxime minima consequatur, nam iste eius velit perferendis
+                <p class="text-white fs-4 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+                    mollitia
+                    fugiat, nihil autem reprehenderit aperiam maxime minima consequatur, nam iste eius velit
+                    perferendis
                     voluptatem at atque neque soluta reiciendis doloremque.
                 </p>
                 <div class="testimonial-inner">
@@ -728,8 +758,10 @@
                 </div>
             </div>
             <div class="testimonial-item p-4">
-                <p class="text-white fs-4 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos mollitia
-                    fugiat, nihil autem reprehenderit aperiam maxime minima consequatur, nam iste eius velit perferendis
+                <p class="text-white fs-4 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+                    mollitia
+                    fugiat, nihil autem reprehenderit aperiam maxime minima consequatur, nam iste eius velit
+                    perferendis
                     voluptatem at atque neque soluta reiciendis doloremque.
                 </p>
                 <div class="testimonial-inner">

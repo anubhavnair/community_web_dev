@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  * @property CI_Input $input
@@ -9,15 +9,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @property CI_Form_validation $form_validation
  */
 
-class JobListController extends CI_Controller {
+class JobListController extends CI_Controller
+{
 
-    public function index() {
-        $this->load->view('listingviews/joblistingviews/index');
+    public function index()
+    {
+
+        $this->load->view('header');
+        $this->load->view('listing_views/job_listing/post_a_job_form');
+        $this->load->view('footer');
     }
 
-    public function job_listing() {
+    public function job_listing()
+    {
         $this->load->library('form_validation');
-        
+
         $this->form_validation->set_rules('job_title', 'Job Title', 'required');
         // $this->form_validation->set_rules('job_type', 'Job Type', 'required');
         // $this->form_validation->set_rules('job_category', 'Job Category', 'required');
@@ -33,14 +39,16 @@ class JobListController extends CI_Controller {
         // $this->form_validation->set_rules('job_gender', 'Job Gender', 'required');
         // $this->form_validation->set_rules('job_shift', 'Job Shift', 'required');
         // $this->form_validation->set_rules('job_description', 'Job Description', 'required');
-        
+
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('listingviews/joblistingviews/index');
+            $this->load->view('header');
+            $this->load->view('listing_views/job_listing/post_a_job_form');
+            $this->load->view('footer');
         } else {
             $job_data = $this->input->post();
 
             $this->load->model('joblistingmodel');
-            
+
             if (!empty($_FILES['job_image']['name'])) {
                 $upload_path = './uploads/job_listing';
                 $config['upload_path'] = $upload_path;
@@ -60,7 +68,9 @@ class JobListController extends CI_Controller {
                 } else {
                     $error = $this->upload->display_errors();
                     $this->session->set_flashdata('error', 'Upload error: ' . $error . ' Path: ' . realpath($upload_path));
-                    $this->load->view('listingviews/joblistingviews/index');
+                    $this->load->view('header');
+                    $this->load->view('listing_views/job_listing/post_a_job_form');
+                    $this->load->view('footer');
                     return;
                 }
             } else {
@@ -70,14 +80,27 @@ class JobListController extends CI_Controller {
             $isInserted = $this->joblistingmodel->job_listing($job_data);
             if ($isInserted) {
                 $this->session->set_flashdata('success', 'Job Listing Successfully');
-                $this->load->view('listingviews/joblistingviews/index');
+                $this->load->view('header');
+                $this->load->view('listing_views/job_listing/post_a_job_form');
+                $this->load->view('footer');
 
             } else {
                 $this->session->set_flashdata('error', 'Job Listing Failed...! Try after some time');
-                $this->load->view('listingviews/joblistingviews/index');
+                $this->load->view('header');
+                $this->load->view('listing_views/job_listing/post_a_job_form');
+                $this->load->view('footer');
 
             }
         }
-        }
     }
-    ?>
+
+    public function get_all_job_list()
+    {
+        $this->load->model('joblistingmodel');
+        $data['job_list'] = $this->joblistingmodel->getAllJobData();
+        $this->load->view('header');
+        $this->load->view('listing_views/job_listing/job',$data);
+        $this->load->view('footer');
+    }
+}
+?>

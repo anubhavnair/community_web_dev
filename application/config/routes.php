@@ -67,13 +67,15 @@ $route['contact'] = 'landingpagecontroller/contact';
 $route['user_registration'] = 'userregistrationcontrollers/UserRegController';
 
 //business client view section
-$route['business'] = 'businesslistingcontrollers/BusinessSectionController';
-$route['business_listing_form'] = 'businesslistingcontrollers/BusinessListController/business_listing';
+$route['business_listing_form_submit'] = 'businesslistingcontrollers/BusinessListController/business_listing';
+$route['business_listing_form'] = 'businesslistingcontrollers/BusinessListController';
+$route['business'] = 'businesslistingcontrollers/BusinessListController/get_all_business_list';
 
 
-//Job client view section
-$route['job'] = 'joblistingcontrollers/JobSectionController';
-$route['job_listing_form'] = 'joblistingcontrollers/JobListController/job_listing';
+//Job section
+$route['job_listing_form_submit'] = 'joblistingcontrollers/JobListController/job_listing';
+$route['job_listing_form'] = 'joblistingcontrollers/JobListController';
+$route['job'] = 'joblistingcontrollers/JobListController/get_all_job_list';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

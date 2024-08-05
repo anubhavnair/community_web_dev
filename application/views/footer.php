@@ -79,10 +79,10 @@
     <div class="container">
         <div class="row g-4 align-items-center" style="color:white;">
             <div class="col-md-9 text-center text-md-start mb-md-0" >
-                <span class="text-body"><a href="#" class="border-bottom text-white"><i
+                <span class=""><a href="#" class="border-bottom text-white"><i
                             class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
             </div>
-            <div class="col-md-3 text-center text-md-end text-body">
+            <div class="col-md-3 text-center text-md-end ">
                 <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
                 <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
                 <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
@@ -113,5 +113,30 @@
 <!-- Template Javascript -->
 <script src="assets/landing_assets/js/main.js"></script>
 </body>
+<script>
+    $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+            items: 4, // Number of items to display
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 2000,
+            autoplayHoverPause: true,
+            nav: false,
+            dots: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        });
+    });
+</script>
 
 </html>
