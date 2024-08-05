@@ -5,7 +5,7 @@
             <div class="col-md-6 col-lg-6 col-xl-4">
                 <div class="footer-item">
                     <a href="index.html" class="p-0">
-                        <h4 class="text-white mb-4"><i class="fas fa-swimmer text-primary me-3"></i>WaterLand</h4>
+                        <h4 class="text-white mb-4"><i class="fas fa-swimmer text-primary me-3"></i>Community Site</h4>
                         <!-- <img src="uploads/landing_img/logo.png" alt="Logo"> -->
                     </a>
                     <p class="mb-2">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet,

@@ -5,6 +5,16 @@
         object-fit: cover;
         width: 100%;
     }
+    .ellipsis {
+      white-space: nowrap; 
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 200px; /* Adjust as needed */
+      cursor: pointer;
+    }
+    .full-text {
+      display: none;
+    }
 </style>
 <!-- Carousel Start -->
 <div class="header-carousel owl-carousel">
@@ -480,7 +490,21 @@
 </div>
 <!-- Gallery End -->
 
+<style>
+    #more-description {
+        display: none;
+    }
 
+    #read-more {
+        color: #007bff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    #read-more:hover {
+        text-decoration: underline;
+    }
+</style>
 <!-- Job Start -->
 <div class="container-fluid blog pb-5">
     <div class="container pb-5">
@@ -517,6 +541,9 @@
                             <p class="mb-1"><span>Contact:</span> <?= $job['job_number'] ?></p>
                             <p class="mb-1"><span>Shift:</span> <?= $job['job_shift'] ?></p>
                             <a href="<?= $job['job_website'] ?>" class="mb-1"><span>Website</span></a>
+                            <div id="content" class="mb-1 ellipsis" onclick="toggleText()"><?= $job['job_description'] ?></div> 
+                            <div id="full-content" class="mb-1 full-text "><?= $job['job_description'] ?></div>
+
                             <!-- <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More <i
                                     class="fas fa-arrow-right ms-2"></i></a> -->
                         </div>
@@ -552,8 +579,8 @@
                     <div class="blog-item">
                         <div class="blog-img">
                             <a href="#">
-                                <img src="uploads/business_listing/<?= $business['business_image'] ?>" class="img-fluid w-100 rounded-top"
-                                    alt="<?= $business['company_name'] ?>">
+                                <img src="uploads/business_listing/<?= $business['business_image'] ?>"
+                                    class="img-fluid w-100 rounded-top" alt="<?= $business['company_name'] ?>">
                             </a>
                             <div class="blog-category py-2 px-4"><?= $business['business_category'] ?></div>
                             <div class="blog-date job-content"><span>Time :</span> <?= $business['opening_time'] ?> -
@@ -562,7 +589,8 @@
                         </div>
                         <div class="blog-content job-content p-4">
                             <a href="#" class="h4 d-inline-block mb-4"><span><?= $business['company_name'] ?></span></a>
-                            <p class="mb-1"><span><?= $business['city'] ?> <?= $business['pin_code'] ?>, <?= $business['country'] ?></span></p>
+                            <p class="mb-1"><span><?= $business['city'] ?>     <?= $business['pin_code'] ?>,
+                                    <?= $business['country'] ?></span></p>
                             <p class="mb-1"><span>Address 1</span>: <?= $business['address_1'] ?></p>
                             <p class="mb-1"><span>Address 2</span>: <?= $business['address_2'] ?></p>
                             <p class="mb-1"><span>Email:</span> <?= $business['email_address'] ?></p>
@@ -788,3 +816,17 @@
     </div>
 </div>
 <!-- Testimonial End -->
+ <script>
+      function toggleText() {
+      var ellipsis = document.getElementById("content");
+      var fullText = document.getElementById("full-content");
+
+      if (fullText.style.display === "none") {
+        fullText.style.display = "block";
+        ellipsis.style.display = "none";
+      } else {
+        fullText.style.display = "none";
+        ellipsis.style.display = "block";
+      }
+    }
+ </script>
