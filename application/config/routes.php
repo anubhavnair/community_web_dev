@@ -80,3 +80,4 @@ $route['job'] = 'joblistingcontrollers/JobListController/get_all_job_list';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// echo time();
