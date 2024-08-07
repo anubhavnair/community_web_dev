@@ -81,7 +81,7 @@ class Migration_business_listing extends CI_Migration
                 ),
                 'updated_by' => array(
                     'type' => 'TEXT',
-                    'null' => TRUE,  
+                    'null' => TRUE,
                 ),
                 'updated_on' => array(
                     'type' => 'TEXT',
@@ -89,8 +89,8 @@ class Migration_business_listing extends CI_Migration
                 ),
                 'status' => array(
                     'type' => 'INT',
-                    'default'=>1
-                    
+                    'default' => 1
+
 
                 )
             )
