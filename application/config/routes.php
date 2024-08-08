@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -49,31 +49,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'landing_page_controllers/LandingPagesController';
-// $route['404_override'] = '';
-// $route['translate_uri_dashes'] = FALSE;
+$route['default_controller'] = 'welcome';
 
 
 
 
-$route['home'] = 'landing_page_controllers/LandingPagesController';
 
+// $route['home'] = 'landing_page_controllers/LandingPagesController';
+
+// login route 
+$route['login'] = 'logincontroller/Login_Controller';
 //landing page
 
 $route['about'] = 'landingpagecontroller/about';
 $route['contact'] = 'landingpagecontroller/contact';
 
 //User registration form
+$route['user_registration'] = 'userregistrationcontrollers/UserRegController';
 
 //business client view section
-$route['business'] = 'businesslistingcontrollers/BusinessSectionController';
-$route['business_listing_form'] = 'businesslistingcontrollers/BusinessListController/business_listing';
+$route['business_listing_form_submit'] = 'businesslistingcontrollers/BusinessListController/business_listing';
+$route['business_listing_form'] = 'businesslistingcontrollers/BusinessListController';
+$route['business'] = 'businesslistingcontrollers/BusinessListController/get_all_business_list';
 
 
-//Job client view section
-$route['job'] = 'joblistingcontrollers/JobSectionController';
-$route['job_listing_form'] = 'joblistingcontrollers/JobListController/job_listing';
+//Job section
+$route['job_listing_form_submit'] = 'joblistingcontrollers/JobListController/job_listing';
+$route['job_listing_form'] = 'joblistingcontrollers/JobListController';
+$route['job'] = 'joblistingcontrollers/JobListController/get_all_job_list';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// echo time();

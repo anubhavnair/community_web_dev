@@ -132,7 +132,7 @@
 }
 
 .sticky-top .navbar-light .navbar-brand img {
-    max-height: 50px;
+    max-height: 70px;
 }
 
 .navbar .dropdown-toggle::after {
@@ -885,12 +885,14 @@
 
 .footer .footer-item a {
     line-height: 35px;
-    color: var(--bs-body);
+    color: var(--bs-white);
     transition: 0.5s;
 }
 
 .footer .footer-item p {
     line-height: 35px;
+    color: var(--bs-white);
+
 }
 
 .footer .footer-item a:hover {
@@ -929,3 +931,7 @@
 /*** copyright end ***/
 
 
+/* job contents */
+.job-content span{
+   font-weight: bold;
+}

@@ -41,4 +41,13 @@ class JobListingModel extends CI_Model
 
     }
 
+    public function getAllJobData(){
+        $this->db->select('*');
+        $this->db->from('job_listing');
+        $this->db->order_by('job_id', 'DESC');
+        $query = $this->db->get();
+        return $query->result_array();
+
+    }
+
 }

@@ -29,5 +29,13 @@ class BusinessListingModel extends CI_Model
         $q = $this->db->insert('business_listing', $businessData);
         return $q ? true : false;
     }
+    public function getAllBusinessData()
+    {
+        $this->db->select('*');
+        $this->db->from('business_listing');
+        $this->db->order_by('business_id', 'DESC');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }
 ?>
