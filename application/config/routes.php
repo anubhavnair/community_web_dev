@@ -57,6 +57,8 @@ $route['default_controller'] = 'welcome';
 
 // $route['home'] = 'landing_page_controllers/LandingPagesController';
 
+// login route 
+$route['login'] = 'logincontroller/Login_Controller';
 //landing page
 
 $route['about'] = 'landingpagecontroller/about';

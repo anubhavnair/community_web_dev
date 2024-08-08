@@ -114,8 +114,8 @@
 <script src="assets/landing_assets/js/main.js"></script>
 </body>
 <script>
-    $(document).ready(function(){
-        $(".owl-carousel").owlCarousel({
+   $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
             items: 4, // Number of items to display
             loop: true,
             margin: 10,
@@ -136,7 +136,7 @@
                 }
             }
         });
-    });
+    }); 
 </script>
 
 </html>

@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <!-- <base href="<?= base_url() ?>"> -->
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,6 +90,9 @@
                 </div>
                 <a href="<?= base_url() ?>/user_registration"
                     class="btn btn-primary rounded-pill py-2 px-4 flex-shrink-0">Register</a>
+
+                <a href="<?= base_url() ?>/login"
+                    class="btn btn-primary rounded-pill py-2 px-4 m-2 flex-shrink-0">Login</a>
             </div>
         </nav>
     </div>
