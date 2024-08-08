@@ -149,148 +149,44 @@
                             </div>
                         <?php endif; ?>
 
-                        <?php echo form_open_multipart('job_listing_form_submit'); ?>
+                        <?php echo form_open_multipart('matrimonial_form_submit'); ?>
 
-                        <h4 class="text-dark  text-center form-head">Post A New Job</h4>
+                        <h4 class="text-dark  text-center form-head">Register for Matrimonial</h4>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group app-label mt-2">
-                                    <label for="job_title" class="form-label text-muted">Job Title</label>
-                                    <input id="job_title" name="job_title" type="text" class="form-control resume"
-                                        placeholder="" value="<?php echo set_value('job_title'); ?>">
-                                    <?php echo form_error('job_title', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
+                                    <label for="job_occupation" class="form-label text-muted">Job / Occupation</label>
+                                    <input id="job_occupation" name="job_occupation" type="text" class="form-control resume"
+                                        placeholder="Doctor" value="<?php echo set_value('job_occupation'); ?>">
+                                    <?php echo form_error('job_occupation', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group app-label mt-2">
-                                    <label for="job_type" class="form-label text-muted">Job Type</label>
-                                    <div class="form-button">
-                                        <select id="job_type" name="job_type" class="nice-select form-select">
-                                            <option data-display="Job Type">Job Type</option>
-                                            <option value="1" <?php echo set_select('job_type', '1'); ?>>Full Time
-                                            </option>
-                                            <option value="2" <?php echo set_select('job_type', '2'); ?>>Part Time
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <?php echo form_error('job_type', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
+                            <div class="col-md-4">
+                            <div class="form-group app-label mt-2">
+                                    <label for="dob" class="form-label text-muted">D.O.B.</label>
+                                    <input id="dob" name="dob" type="date" class="form-control resume"
+                                        placeholder="17/5/2002" value="<?php echo set_value('dob'); ?>">
+                                    <?php echo form_error('dob', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group app-label mt-2">
-                                    <label for="job_category" class="form-label text-muted">Job Category</label>
-                                    <div class="form-button">
-                                        <select id="job_category" name="job_category" class="nice-select form-select">
-                                            <option data-display="Category">Category</option>
-                                            <option value="1" <?php echo set_select('job_category', '1'); ?>>Web
-                                                Developer</option>
-                                            <option value="2" <?php echo set_select('job_category', '2'); ?>>PHP
-                                                Developer</option>
-                                            <option value="3" <?php echo set_select('job_category', '3'); ?>>Web
-                                                Designer</option>
-                                            <option value="4" <?php echo set_select('job_category', '4'); ?>>Graphic
-                                                Designer</option>
-                                        </select>
-                                    </div>
-                                    <?php echo form_error('job_category', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
+                            <div class="col-md-4">
+                            <div class="form-group app-label mt-2">
+                                    <label for="height" class="form-label text-muted">Height</label>
+                                    <input id="height" name="height" type="text" class="form-control resume"
+                                        placeholder="5.11''" value="<?php echo set_value('height'); ?>">
+                                    <?php echo form_error('height', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group app-label mt-2">
-                                    <label for="job_city" class="form-label text-muted">City</label>
-                                    <input id="job_city" name="job_city" type="text" class="form-control resume"
-                                        placeholder="" value="<?php echo set_value('job_city'); ?>">
-                                    <?php echo form_error('job_city', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group app-label mt-2">
-                                    <label for="job_country" class="form-label text-muted">Country</label>
-                                    <div class="form-button">
-                                        <select id="job_country" name="job_country" class="nice-select form-select">
-                                            <option data-display="Country">Country</option>
-                                            <option value="1" <?php echo set_select('job_country', '1'); ?>>Afghanistan
-                                            </option>
-                                            <option value="2" <?php echo set_select('job_country', '2'); ?>>Bangladesh
-                                            </option>
-                                            <option value="3" <?php echo set_select('job_country', '3'); ?>>Canada
-                                            </option>
-                                            <option value="4" <?php echo set_select('job_country', '4'); ?>>Dominica
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <?php echo form_error('job_country', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group app-label mt-2">
-                                    <label for="job_minimum_salary" class="form-label text-muted">Minimum Salary</label>
-                                    <input id="job_minimum_salary" name="job_minimum_salary" type="text"
-                                        class="form-control resume" placeholder="8000"
-                                        value="<?php echo set_value('job_minimum_salary'); ?>">
-                                    <?php echo form_error('job_minimum_salary', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group app-label mt-2">
-                                    <label for="job_maximum_salary" class="form-label text-muted">Maximum Salary</label>
-                                    <input id="job_maximum_salary" name="job_maximum_salary" type="text"
-                                        class="form-control resume" placeholder="20000"
-                                        value="<?php echo set_value('job_maximum_salary'); ?>">
-                                    <?php echo form_error('job_maximum_salary', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group app-label mt-2">
-                                    <label for="job_education_level" class="form-label text-muted">Education
-                                        Level</label>
-                                    <div class="form-button">
-                                        <select id="job_education_level" name="job_education_level"
-                                            class="nice-select form-select">
-                                            <option data-display="Level">Level</option>
-                                            <option value="1" <?php echo set_select('job_education_level', '1'); ?>>
-                                                Level-1</option>
-                                            <option value="2" <?php echo set_select('job_education_level', '2'); ?>>
-                                                Level-2</option>
-                                            <option value="3" <?php echo set_select('job_education_level', '3'); ?>>
-                                                Level-3</option>
-                                            <option value="4" <?php echo set_select('job_education_level', '4'); ?>>
-                                                Level-4</option>
-                                        </select>
-                                    </div>
-                                    <?php echo form_error('job_education_level', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group app-label mt-2">
-                                    <label for="job_experience" class="form-label text-muted">Year of Experience</label>
-                                    <div class="form-button">
-                                        <select id="job_experience" name="job_experience"
-                                            class="nice-select form-select">
-                                            <option data-display="Experience">Experience</option>
-                                            <option value="1" <?php echo set_select('job_experience', '1'); ?>>1 Year
-                                            </option>
-                                            <option value="2" <?php echo set_select('job_experience', '2'); ?>>2 Year
-                                            </option>
-                                            <option value="3" <?php echo set_select('job_experience', '3'); ?>>3 Year
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <?php echo form_error('job_experience', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
+                            <div class="col-md-4">
+                            <div class="form-group app-label mt-2">
+                                    <label for="weight" class="form-label text-muted">Weight</label>
+                                    <input id="weight" name="weight" type="text" class="form-control resume"
+                                        placeholder="63 Kgs" value="<?php echo set_value('height'); ?>">
+                                    <?php echo form_error('weight', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
                                 </div>
                             </div>
                         </div>
@@ -298,78 +194,79 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group app-label mt-2">
-                                    <label for="job_website" class="form-label text-muted">Website</label>
-                                    <input id="job_website" name="job_website" type="url" class="form-control resume"
-                                        placeholder="" value="<?php echo set_value('job_website'); ?>">
-                                    <?php echo form_error('job_website', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group app-label mt-2">
-                                    <label for="job_email" class="form-label text-muted">Email Address</label>
-                                    <input id="job_email" name="job_email" type="text" class="form-control resume"
-                                        placeholder="" value="<?php echo set_value('job_email'); ?>">
-                                    <?php echo form_error('job_email', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group app-label mt-2">
-                                    <label for="job_number" class="form-label text-muted">Phone Number</label>
-                                    <input id="job_number" name="job_number" type="text" class="form-control resume"
-                                        placeholder="" value="<?php echo set_value('job_number'); ?>">
-                                    <?php echo form_error('job_number', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group app-label mt-2">
-                                    <label for="job_gender" class="form-label text-muted">Gender</label>
+                                    <label for="gender" class="form-label text-muted">Gender</label>
                                     <div class="form-button">
-                                        <select id="job_gender" name="job_gender" class="nice-select form-select">
+                                        <select id="gender" name="gender" class="nice-select form-select">
                                             <option data-display="Gender">Gender</option>
-                                            <option value="1" <?php echo set_select('job_gender', '1'); ?>>Male</option>
-                                            <option value="2" <?php echo set_select('job_gender', '2'); ?>>Female
+                                            <option value="1" <?php echo set_select('gender', '1'); ?>>Male</option>
+                                            <option value="2" <?php echo set_select('gender', '2'); ?>>Female
                                             </option>
                                         </select>
                                     </div>
-                                    <?php echo form_error('job_gender', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
+                                    <?php echo form_error('gender', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <div class="form-group app-label mt-2">
-                                    <label for="job_shift" class="form-label text-muted">Shift</label>
-                                    <div class="form-button">
-                                        <select id="job_shift" name="job_shift" class="nice-select form-select">
-                                            <option data-display="Shift">Shift</option>
-                                            <option value="1" <?php echo set_select('job_shift', '1'); ?>>Morning
-                                            </option>
-                                            <option value="2" <?php echo set_select('job_shift', '2'); ?>>Evening
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <?php echo form_error('job_shift', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
+                        <div class="row col-lg-12">
+                            <div class="col-md-4">
+                            <div class="form-group app-label mt-2">
+                                    <label for="mother_tongue" class="form-label text-muted">Mother Tongue</label>
+                                    <input id="mother_tongue" name="mother_tongue" type="text" class="form-control resume"
+                                        placeholder="Hindi" value="<?php echo set_value('mother_tongue'); ?>">
+                                    <?php echo form_error('mother_tongue', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                            <div class="form-group app-label mt-2">
+                                    <label for="gotram" class="form-label text-muted">Gotram</label>
+                                    <input id="gotram" name="gotram" type="text" class="form-control resume"
+                                        placeholder="" value="<?php echo set_value('gotram'); ?>">
+                                    <?php echo form_error('gotram', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                            <div class="form-group app-label mt-2">
+                                    <label for="zodiac" class="form-label text-muted">Zodiac</label>
+                                    <input id="zodiac" name="zodiac" type="text" class="form-control resume"
+                                        placeholder="Libra" value="<?php echo set_value('zodiac'); ?>">
+                                    <?php echo form_error('zodiac', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group app-label mt-2">
-                                    <label for="job_description" class="form-label text-muted">Job Description</label>
-                                    <textarea id="job_description" name="job_description" rows="6"
-                                        class="form-control resume"
-                                        placeholder=""><?php echo set_value('job_description'); ?></textarea>
-                                    <?php echo form_error('job_description', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
+                                    <label for="education" class="form-label text-muted">Education</label>
+                                    <input id="education" name="education" type="text"
+                                        class="form-control resume"placeholder="Graduation BSC"
+                                        value="<?php echo set_value('education'); ?>">
+                                    <?php echo form_error('education', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group app-label mt-2">
+                                    <label for="salary" class="form-label text-muted">Salary</label>
+                                    <input id="salary" name="salary" type="text"
+                                        class="form-control resume" placeholder="20000 Rs / month"
+                                        value="<?php echo set_value('salary'); ?>">
+                                    <?php echo form_error('salary', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
                                 </div>
                             </div>
                         </div>
+                  
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group app-label mt-2">
+                                    <label for="description" class="form-label text-muted">Description</label>
+                                    <textarea id="description" name="description" rows="6"
+                                        class="form-control resume"
+                                        placeholder="Aboout yourself..."><?php echo set_value('description'); ?></textarea>
+                                    <?php echo form_error('description', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
+                                </div>
+                            </div>
+                        </div>
+                        
 
                         <div class="row">
                             <div class="col-md-12">
@@ -377,25 +274,25 @@
                                     <li class="list-inline-item">
                                         <div class="input-group mt-2 mb-2">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="job_image"
-                                                    name="job_image" aria-describedby="inputGroupFileAddon01">
-                                                <label class="custom-file-label" for="job_image"><i
-                                                        class="mdi mdi-cloud-upload mr-1"></i> Upload Files</label>
+                                                <input type="file" class="custom-file-input" id="images"
+                                                    name="images" aria-describedby="inputGroupFileAddon01">
+                                                <label class="custom-file-label" for="images"><i
+                                                        class="mdi mdi-cloud-upload mr-1"></i> Upload Image</label>
                                             </div>
                                         </div>
                                     </li>
 
                                     <li class="list-inline-item">
-                                        <h6 class="text-muted mb-0">Upload Images Or Documents.</h6>
+                                        <h6 class="text-muted mb-0">Upload Images.</h6>
                                     </li>
                                 </ul>
-                                <?php echo form_error('job_image', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
+                                <?php echo form_error('images', '<div class="mb-4 mt-3 alert alert-danger">', '</div>'); ?>
                             </div>
                         </div>
 
                         <div class="form-group mt-2">
                             <button type="submit" class="btn animated-btn btn-primary btn-lg w-100"
-                                data-animation="fadeInUp" data-animation-delay="1000">Post a Job</button>
+                                data-animation="fadeInUp" data-animation-delay="1000">Register</button>
                         </div>
 
                         </form>

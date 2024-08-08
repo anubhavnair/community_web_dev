@@ -52,12 +52,22 @@ class CreateMatrimonialTable extends CI_Migration
             'gender' => [
                 'type' => 'TEXT',
             ],
-            'status' => [
+            'description' => [
+                'type' => 'TEXT',
+            ],
+            'flag' => [
                 'type'       => 'INT',
                 'constraint' => 11,
+                'default' =>1,
+            ],
+            'flag_admin' => [
+                'type'       => 'INT',
+                'constraint' => 11,
+                'default' =>0,
             ],
             'created_at' => [
                 'type' => 'DATETIME',
+                'default' => 'CURRENT_TIMESTAMP',
             ],
             'updated_at' => [
                 'type' => 'DATETIME',

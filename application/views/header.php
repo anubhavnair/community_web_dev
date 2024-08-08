@@ -7,7 +7,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-    <!-- <base href="<?= base_url() ?>"> -->
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +23,7 @@
     <link href="assets/landing_assets/lib/animate/animate.min.css" rel="stylesheet">
     <link href="assets/landing_assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
     <link href="assets/landing_assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
     <!-- Customized Bootstrap Stylesheet -->
@@ -59,6 +59,7 @@
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="<?= base_url() ?>job" class="nav-item nav-link">Jobs</a>
                     <a href="<?= base_url() ?>business" class="nav-item nav-link">Business</a>
+                    <a href="<?= base_url() ?>matrimonial" class="nav-item nav-link">Matrimonial</a>
 
                     <a href="service.html" class="nav-item nav-link">Service</a>
                     <a href="blog.html" class="nav-item nav-link">Blog</a>
