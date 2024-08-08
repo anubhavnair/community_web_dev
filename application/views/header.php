@@ -68,6 +68,7 @@
                         <div class="dropdown-menu m-0">
                             <a href="<?= base_url() ?>job_listing_form" class="dropdown-item">+ Post a Job</a>
                             <a href="<?= base_url() ?>business_listing_form" class="dropdown-item">+ Post a Business</a>
+                            <a href="<?= base_url() ?>matrimonial_form" class="dropdown-item">+ Matrimonial</a>
 
                             <a href="feature.html" class="dropdown-item">Our Feature</a>
                             <a href="gallery.html" class="dropdown-item">Our Gallery</a>
