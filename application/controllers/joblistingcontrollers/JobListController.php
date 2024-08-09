@@ -16,6 +16,7 @@ class JobListController extends CI_Controller
     {
 
         $this->load->view('header');
+        $this->load->view('navbar');
         $this->load->view('listing_views/job_listing/post_a_job_form');
         $this->load->view('footer');
     }
@@ -42,6 +43,7 @@ class JobListController extends CI_Controller
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('header');
+            $this->load->view('navbar');
             $this->load->view('listing_views/job_listing/post_a_job_form');
             $this->load->view('footer');
         } else {
@@ -69,6 +71,7 @@ class JobListController extends CI_Controller
                     $error = $this->upload->display_errors();
                     $this->session->set_flashdata('error', 'Upload error: ' . $error . ' Path: ' . realpath($upload_path));
                     $this->load->view('header');
+                    $this->load->view('navbar');
                     $this->load->view('listing_views/job_listing/post_a_job_form');
                     $this->load->view('footer');
                     return;
@@ -81,12 +84,14 @@ class JobListController extends CI_Controller
             if ($isInserted) {
                 $this->session->set_flashdata('success', 'Job Listing Successfully');
                 $this->load->view('header');
+                $this->load->view('navbar');
                 $this->load->view('listing_views/job_listing/post_a_job_form');
                 $this->load->view('footer');
 
             } else {
                 $this->session->set_flashdata('error', 'Job Listing Failed...! Try after some time');
                 $this->load->view('header');
+                $this->load->view('navbar');
                 $this->load->view('listing_views/job_listing/post_a_job_form');
                 $this->load->view('footer');
 
@@ -99,7 +104,8 @@ class JobListController extends CI_Controller
         $this->load->model('joblistingmodel');
         $data['job_list'] = $this->joblistingmodel->getAllJobData();
         $this->load->view('header');
-        $this->load->view('listing_views/job_listing/job',$data);
+        $this->load->view('navbar');
+        $this->load->view('listing_views/job_listing/job', $data);
         $this->load->view('footer');
     }
 }

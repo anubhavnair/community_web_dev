@@ -17,6 +17,7 @@ class UserRegController extends CI_Controller
     public function index()
     {
         $this->load->view('header');
+        $this->load->view('navbar');
         $this->load->view('listing_views/user_registration/user_registration_form');
         $this->load->view('footer');
     }
@@ -35,6 +36,7 @@ class UserRegController extends CI_Controller
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('header');
+            $this->load->view('navbar');
             $this->load->view('listing_views/user_registration/user_registration_form');
             $this->load->view('footer');
         } else {
@@ -54,10 +56,10 @@ class UserRegController extends CI_Controller
             if ($isInserted) {
                 $this->session->set_flashdata('success', 'User Registered Successfully');
                 
-                redirect('userregcontroller');
+                redirect('/user_registration');
             } else {
                 $this->session->set_flashdata('error', 'User Registration Failed...! Try after some time');
-                redirect('userregcontroller');
+                redirect('/user_registration');
             }
         }
     }

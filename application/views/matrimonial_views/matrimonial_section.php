@@ -85,6 +85,14 @@
 		right: 28px;
 		z-index: 1;
 	}
+
+	.line-dot ul li {
+		background-image: url(uploads/matrimonial_img/images/ellipse.png);
+		background-repeat: no-repeat;
+		height: 45px;
+		position: relative;
+		left: 10px;
+	}
 </style>
 </head>
 
@@ -224,7 +232,7 @@
 				<div class="row">
 					<div class="col-md-12 col-sm-12 mt-10">
 						<div class="mega-n-btn1">
-							<a href="register.html" class="Poppins-Medium color-f f-16">Get Started</a>
+							<a href="matrimonial_form" class="Poppins-Medium color-f f-16">Get Started</a>
 						</div>
 					</div>
 				</div>
@@ -280,57 +288,256 @@
 		</div>
 		<div class="row my-5">
 			<div class="col-md-4 mb-4">
-				<div class="bg-light p-4 rounded text-center">
-					<a href="success-story/details/6.html">
-						<img src="uploads/matrimonial_img/success-story/48985f81796f5fd96f04a687b6d5fdb2.jpg" alt=""
-							class="img-fluid">
-					</a>
-					<p class="h5">DR. KAPIL & KIRAN</p>
-					<p>All thanks to this site. We found our perfect match.</p>
+				<div class="vendor-main">
+					<div class="vendor">
+						<a href="success-story/details/7.html">
+							<img src="uploads/matrimonial_img/success-story/5362c1448e1f617d50ae038bab95c9b4.png" alt=""
+								class="img-fluid mega-c1">
+						</a>
+						<div class="c1-name">
+							<p class="Poppins-Semi-Bold f-18 c1-n1">DR DINESH GUPTA & DR SARITA GUPTA</p>
+						</div>
+					</div>
+					<div class="c1-t1">
+						<p class="Poppins-Regular f-15 c1-t2">I first saw his profile on the recommendation list and he
+							instantly caught my eye. The way he had described everything in this profile, the attention
+							to details really impressed me. I then initiated the talk and we decided to meet after two
+							months of talking. In the first m....<a href="success-story/details/6.html"
+								class="mega-rm Poppins-Medium">Read More</a> </p>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-4 mb-4">
-				<div class="bg-light p-4 rounded text-center">
-					<a href="success-story/details/7.html">
-						<img src="uploads/matrimonial_img/success-story/9be544dd1db238832fc379a206fa7e52.jpg" alt=""
-							class="img-fluid">
-					</a>
-					<p class="h5">AARON & NINA</p>
-					<p>Our love story began here, and we're forever grateful.</p>
+				<div class="vendor-main">
+					<div class="vendor">
+						<a href="success-story/details/7.html">
+							<img src="uploads/matrimonial_img/success-story/5939e89bb545feece836dfc63a76d286.jpg" alt=""
+								class="img-fluid mega-c1">
+						</a>
+						<div class="c1-name">
+							<p class="Poppins-Semi-Bold f-18 c1-n1">Mukesh Teli & Seema Gupta</p>
+						</div>
+					</div>
+					<div class="c1-t1">
+						<p class="Poppins-Regular f-15 c1-t2">I first saw his profile on the recommendation list and he
+							instantly caught my eye. The way he had described everything in this profile, the attention
+							to details really impressed me. I then initiated the talk and we decided to meet after two
+							months of talking. In the first m....<a href="success-story/details/6.html"
+								class="mega-rm Poppins-Medium">Read More</a> </p>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-4 mb-4">
-				<div class="bg-light p-4 rounded text-center">
-					<a href="success-story/details/8.html">
-						<img src="uploads/matrimonial_img/success-story/f57ad2d551c75012e97808c1798d1851.jpg" alt=""
-							class="img-fluid">
-					</a>
-					<p class="h5">MARK & ELENA</p>
-					<p>Thank you for making our dreams come true.</p>
+				<div class="vendor-main">
+					<div class="vendor">
+						<a href="success-story/details/7.html">
+							<img src="uploads/matrimonial_img/success-story/48985f81796f5fd96f04a687b6d5fdb2.jpg" alt=""
+								class="img-fluid mega-c1">
+						</a>
+						<div class="c1-name">
+							<p class="Poppins-Semi-Bold f-18 c1-n1">Nilesh gupta & Kiran gupta</p>
+						</div>
+					</div>
+					<div class="c1-t1">
+						<p class="Poppins-Regular f-15 c1-t2">I first saw his profile on the recommendation list and he
+							instantly caught my eye. The way he had described everything in this profile, the attention
+							to details really impressed me. I then initiated the talk and we decided to meet after two
+							months of talking. In the first m....<a href="success-story/details/6.html"
+								class="mega-rm Poppins-Medium">Read More</a> </p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<!-- Mobile App Section -->
-	<div class="container text-center my-5">
-		<div class="bg-light p-4 rounded">
-			<p class="h3">Download Our Mobile App</p>
-			<p class="lead">Get our app for better experience and access to exclusive features.</p>
-			<a href="https://play.google.com/store/apps" class="btn btn-primary me-2">
-				<i class="fab fa-google-play"></i> Google Play
-			</a>
-			<a href="https://apps.apple.com/" class="btn btn-primary">
-				<i class="fab fa-app-store-ios"></i> App Store
-			</a>
+	<!--mobile app section start-->
+	<div class="app-develop margin-top-50 hidden-sm hidden-xs pb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-xs-12 col-sm-12">
+					<p class="just-app calibri-Bold-font">Happiness is just an app away!</p>
+					<p class="just-app-p Poppins-Medium f-16">The next generation of matchmaking is here!<br>
+						Find your right match with shaadi.telisahusamaj.in with over thousands <br>
+						downloads Search Smarter, Match Faster </p>
+					<p class="app-b color-31 Poppins-Medium f-16 mt-5"> Simple &nbsp; | &nbsp; Fast &nbsp; | &nbsp;
+						Convenient &nbsp;| &nbsp;Safe &amp; Secure</p>
+					<div class="line-dot mt-6">
+						<ul>
+							<li class="margin-top-10"><a href="javascript:void(0);"
+									class="Poppins-Semi-Bold f-18 color-31">Easy registration &amp; login</a></li>
+							<li class="mt-2"><a href="javascript:void(0);" class="Poppins-Semi-Bold f-18 color-31">Quick
+									matches &amp; search criteria</a></li>
+							<li class="mt-2"><a href="javascript:void(0);" class="Poppins-Semi-Bold f-18 color-31">Find
+									your perfect better half</a></li>
+						</ul>
+					</div>
+					<div class="text-left app-av-img">
+						<div class="row">
+							<div class="col-md-5 col-sm-4">
+
+								<a target='_blank' href="https://www.google.co.in/android">
+									<img src="uploads/matrimonial_img/front_end_new/images/app-store.png"
+										class="img-responsive mega-n-app1" alt="Android App">
+								</a>
+
+							</div>
+							<div class="col-md-5 col-sm-4">
+
+								<a target='_blank' href="https://www.google.co.in/ios">
+									<img src="uploads/matrimonial_img/front_end_new/images/app-store2.png"
+										class="img-responsive mega-n-app2" alt="iOS App">
+								</a>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-xs-12 col-sm-12">
+					<img src="uploads/matrimonial_img/other_banner/3dc7d024852706fa349beb389f55607a.jpg"
+						class="img-lap-top img-responsive" alt="">
+
+				</div>
+			</div>
 		</div>
 	</div>
 
 	<!-- Wedding Planning Tools -->
-	<div class="container text-center my-5">
-		<div class="bg-light p-4 rounded">
-			<p class="h3">Explore Wedding Planning Tools</p>
-			<p class="lead">Everything you need for your special day.</p>
-			<img src="uploads/matrimonial_img/images/bottom-img.png" alt="wedding-tools" class="img-fluid">
+	<!--WEDDING PLANNING TOOLS section start-->
+
+	<div class="weding-vendor-wedding mt-6">
+		<div class="container">
+			<div class="row mt-2 row-cstm">
+				<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+					<h2 class="calibri-Bold-font mega-n3 f-40" style="color:#fff!important;">Are you trying our planning
+						tools ?</h2>
+					<p class="calibri-regular-font mega-n5 color-f f-15 new-wedding-t">Teli Samaj Yuva foundation is
+						emerging as one of the India’s most trusted brand for match making services and remarkably known
+						for world’s most deserving matchmaking website.</p>
+					<div class="mega-n-border text-center">
+						<img src="uploads/matrimonial_img/front_end_new/images/wedding-white.png" alt=""
+							class="img-responsive">
+					</div>
+				</div>
+			</div>
+
+			<div class="row mt-6" style="margin-bottom:30px;">
+				<div class="col-md-4 col-xs-12 col-sm-4">
+					<div class="vendor-main-wedding">
+						<div class="vendor-wedding text-center">
+							<img src="uploads/matrimonial_img/reason_why_to_choose/742809224d3f1e5cbb851fa2e72d05e0.png"
+								alt="10 Years  Experience" class="img-responsive img-center-wedding" />
+							<div class="c1-name-wedding">
+								<p class="f-14 c1-n1-wedding">10 Years <span class="color-d"> Experience</span></span>
+								</p>
+							</div>
+						</div>
+						<div class="c1-t1-wedding">
+							<p class="Poppins-Regular f-15 c1-t2-wedding">We have good experience in Samajik Activities.
+								Matrimonial is one of the initiative which we are driving successfully an... </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-12 col-sm-4">
+					<div class="vendor-main-wedding">
+						<div class="vendor-wedding text-center">
+							<img src="uploads/matrimonial_img/reason_why_to_choose/7e25a23b895937641c9e70b0353d5697.png"
+								alt="100+ Real  Weddings" class="img-responsive img-center-wedding" />
+							<div class="c1-name-wedding">
+								<p class="f-14 c1-n1-wedding">100+ Real <span class="color-d"> Weddings</span></span>
+								</p>
+							</div>
+						</div>
+						<div class="c1-t1-wedding">
+							<p class="Poppins-Regular f-15 c1-t2-wedding">Every wedding is unique and has a special
+								story. Share all the details of your special moments. </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-12 col-sm-4">
+					<div class="vendor-main-wedding">
+						<div class="vendor-wedding text-center">
+							<img src="uploads/matrimonial_img/reason_why_to_choose/da0e8a914a5ee72486212e545b3022e6.png"
+								alt="100 +  Wedding Suppliers" class="img-responsive img-center-wedding" />
+							<div class="c1-name-wedding">
+								<p class="f-14 c1-n1-wedding">100 + <span class="color-d"> Wedding
+										Suppliers</span></span>
+								</p>
+							</div>
+						</div>
+						<div class="c1-t1-wedding">
+							<p class="Poppins-Regular f-15 c1-t2-wedding">100+Wedding Vendor provides discounted price
+								for Teli Samaj Members. </p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+	<!--WEDDING PLANNING TOOLS section End-->
+
+	<!--why us section start-->
+	<div class="chosen_section">
+		<div class="container">
+			<div class="row">
+				<div class="choose-us-section">
+					<div class="row mt-5 row-cstm">
+						<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+							<h2 class="calibri-Bold-font mega-font-new f-47">MORE REASONS WHY TO <span
+									class="mega-font-mobile">CHOOSE US</span></h2>
+							<p class="calibri-regular-font mega-n5 f-15 hidden-xs">SIMPLE WEDDING PLANNING TOOLS TO HELP
+								YOU STAY ON TRACK.</p>
+							<div class="mega-n-border text-center">
+								<img src="assets/front_end_new/images/mega-n-border.png" alt="" class="img-responsive">
+							</div>
+						</div>
+					</div>
+					<div class="row row-cstm">
+						<div class="col-md-12 col-sm-12 col-xs-12 mt-5 pb-5">
+							<p class="Poppins-Regular f-17 color-31 w-p1">
+								Teli Samaj Shaadi portal is emerging as one of the India’s most trusted brand Teli
+								communit's match making services and remarkably known for world’s most deserving
+								matchmaking website. </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end why us section-->
+
+	<div class="container-fluid shadow-lg">
+		<div class="row hidden-xs">
+			<div class="col-md-12 col-xs-12 col-sm-12 mt-5 text-center">
+				<h4 class="text-center find-section-new calibri-Bold-font color-31 f-31">Browse Matrimonial <span
+						class="color-d">Profiles</span> By</h4>
+			</div>
+		</div>
+		<div class="row mt-5 pb-5 hidden-xs ">
+			<div class="col-xs-12 col-md-2 col-sm-6 col-x" id="p3">
+				<h5 class="f-c">Religion</h5>
+				<ul class="list-unstyled quick-links Poppins-Regular f-14">
+				</ul>
+			</div>
+			<div class="col-xs-12 col-md-2 col-sm-6 col-half-offset col-x" id="p5">
+				<h5 class="f-c">Caste</h5>
+				<ul class="list-unstyled quick-links Poppins-Regular f-14">
+				</ul>
+			</div>
+			<div class="col-xs-12 col-md-2 col-sm-6 col-half-offset col-x" id="p4">
+				<h5 class="f-c">Mother Tongue</h5>
+				<ul class="list-unstyled quick-links Poppins-Regular f-14">
+
+				</ul>
+			</div>
+			<div class="col-xs-12 col-md-2 col-sm-6 col-half-offset col-x" id="p1">
+				<h5 class="f-c">Country</h5>
+				<ul class="list-unstyled quick-links Poppins-Regular f-14">
+				</ul>
+			</div>
+			<div class="col-xs-12 col-md-2 col-sm-6 col-half-offset col-x" id="p2">
+				<h5 class="f-c">Cities</h5>
+				<ul class="list-unstyled quick-links Poppins-Regular f-14">
+				</ul>
+			</div>
+		</div>

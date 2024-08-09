@@ -841,7 +841,7 @@ ul.dropdown-menu.mega-n-dropdown li a {
 .box-step{
 	/* width:250px; */
 	    width: 70.1%;
-	min-height: 213px;
+	min-height: 253px;
 	background:#fff;
 	box-shadow:0px 0px 50px 0px rgba(0, 0, 0, 0.08);
 	margin:80px auto;
@@ -862,8 +862,8 @@ ul.dropdown-menu.mega-n-dropdown li a {
 }
 .step-number {
 	background: #FFF;
-	position: absolute;
-	    right: 7%;
+	position: relative;
+	    right: -88%;
 	/* right: 53px; */
 	width: 70px;
 	height: 70px;
@@ -871,7 +871,7 @@ ul.dropdown-menu.mega-n-dropdown li a {
 	z-index: 1024;
 	box-shadow: inset -1px 0px 3px 0px rgba(0, 0, 0, 0.42);
 	border: 5px solid #FFF;
-	top: 156px;
+	top: 88px;
 	transition: 0.7s;
 }
 .number-count {
@@ -880,7 +880,6 @@ ul.dropdown-menu.mega-n-dropdown li a {
 	color: #313131;
 }
 .fa-new{
-	margin-top: 40px;
 	font-size: 7em;
 }
 .fon-size-s{
@@ -1071,7 +1070,7 @@ ul.dropdown-menu.mega-n-dropdown li a {
 	height:auto;
 }
 .img-lap-top {
-	position: absolute;
+	/* position: absolute; */
 	left: -65px;
 	right: 0;
 	width: 626px;
@@ -1099,13 +1098,7 @@ p.app-b {
 .line-dot ul {
 	margin: 7px -60px;
 }
-.line-dot ul li {
-	background-image:url(../images/ellipse.png);
-	background-repeat: no-repeat;
-	height: 45px;
-	position: relative;
-	left: 10px;
-}
+
 .line-dot ul li a {
 	padding: 0px 61px;
 	font-size: 18px;

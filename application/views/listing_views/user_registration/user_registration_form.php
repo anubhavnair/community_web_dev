@@ -80,7 +80,7 @@
                     <?php endif; ?>
 
                     <?php $form_attributes = array('class' => 'mb-2');
-                    echo form_open_multipart('userregcontroller/register_user'); ?>
+                    echo form_open_multipart('user_registration_submit'); ?>
 
                     <div class="mb-3">
                         <label for="user_name" class="form-label">User Name</label>

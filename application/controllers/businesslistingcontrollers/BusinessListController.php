@@ -15,6 +15,7 @@ class BusinessListController extends CI_Controller
     public function index()
     {
         $this->load->view('header');
+        $this->load->view('navbar');
         $this->load->view('listing_views/business_listing/post_a_business_form');
         $this->load->view('footer');
 
@@ -42,6 +43,7 @@ class BusinessListController extends CI_Controller
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('header');
+            $this->load->view('navbar');
             $this->load->view('listing_views/business_listing/post_a_business_form');
             $this->load->view('footer');
         } else {
@@ -69,6 +71,7 @@ class BusinessListController extends CI_Controller
                     $error = $this->upload->display_errors();
                     $this->session->set_flashdata('error', 'Upload error: ' . $error);
                     $this->load->view('header');
+                    $this->load->view('navbar');
                     $this->load->view('listing_views/business_listing/post_a_business_form');
                     $this->load->view('footer');
                     return;
@@ -85,6 +88,7 @@ class BusinessListController extends CI_Controller
             }
 
             $this->load->view('header');
+            $this->load->view('navbar');
             $this->load->view('listing_views/business_listing/post_a_business_form');
             $this->load->view('footer');
         }
@@ -96,6 +100,7 @@ class BusinessListController extends CI_Controller
         $data['business_list'] = $this->businesslistingmodel->getAllBusinessData();
 
         $this->load->view('header');
+        $this->load->view('navbar');
         $this->load->view('listing_views/business_listing/business', $data);
         $this->load->view('footer');
     }

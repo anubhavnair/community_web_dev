@@ -22,7 +22,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto py-0">
-                    <a href="<?= base_url() ?>home" class="nav-item nav-link active">Home</a>
+                    <a href="<?= base_url() ?>" class="nav-item nav-link active">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="<?= base_url() ?>job" class="nav-item nav-link">Jobs</a>
                     <a href="<?= base_url() ?>business" class="nav-item nav-link">Business</a>

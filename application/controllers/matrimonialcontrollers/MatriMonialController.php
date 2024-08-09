@@ -53,6 +53,7 @@ class MatrimonialController extends CI_Controller
             if (!mkdir($uploadPath, 0755, true)) {
                 $this->session->set_flashdata('error', 'Failed to create directory: ' . realpath($uploadPath));
                 $this->load->view('header');
+                $this->load->view('navbar');
                 $this->load->view('matrimonial_views/matrimonial_form');
                 $this->load->view('footer');
                 return;
@@ -75,6 +76,7 @@ class MatrimonialController extends CI_Controller
             $error = $this->upload->display_errors();
             $this->session->set_flashdata('error', 'Upload error : ' . $error);
             $this->load->view('header');
+            $this->load->view('navbar');
             $this->load->view('matrimonial_views/matrimonial_form');
             $this->load->view('footer');
             return;
@@ -90,6 +92,7 @@ class MatrimonialController extends CI_Controller
         }
     
         $this->load->view('header');
+        $this->load->view('navbar');
         $this->load->view('matrimonial_views/matrimonial_form');
         $this->load->view('footer');
     }
