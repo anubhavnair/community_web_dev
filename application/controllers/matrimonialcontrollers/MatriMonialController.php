@@ -14,6 +14,7 @@ class MatrimonialController extends CI_Controller
     public function index()
     {
         $this->load->view('header');
+        $this->load->view('navbar');
         $this->load->view('matrimonial_views/matrimonial_form');
         $this->load->view('footer');
     }
@@ -95,8 +96,12 @@ class MatrimonialController extends CI_Controller
     
     public function matrimonial(){
         $this->load->view('header');
+        $this->load->view('matrimonial_views/matrimonial_link.php');
+        $this->load->view('navbar');
         $this->load->view('matrimonial_views/matrimonial_section');
         $this->load->view('footer');
+        $this->load->view('matrimonial_views/matrimonial_script');
+
     }
 }
 ?>

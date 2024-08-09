@@ -4,43 +4,43 @@ body{
 	}
 @font-face {
 	font-family: "Poppins-Regular";
-	src: url("../css/font/Poppins-Regular.ttf");
+	src: url("font/Poppins-Regular.ttf");
 }
 @font-face {
 	font-family: "advert-shade-regular";
-	src: url("../css/font/advert-shade-regular.ttf");
+	src: url("font/advert-shade-regular.ttf");
 }
 @font-face {
 	font-family: "Poppins-SemiBold";
-	src: url("../css/font/Poppins-SemiBold.ttf");
+	src: url("font/Poppins-SemiBold.ttf");
 }
 @font-face {
 	font-family: "Poppins-Medium";
-	src: url("../css/font/Poppins-Medium.ttf");
+	src: url("font/Poppins-Medium.ttf");
 }
 @font-face {
 	font-family: "Poppins-ExtraLight";
-	src: url("../css/font/Poppins-ExtraLight.ttf");
+	src: url("font/Poppins-ExtraLight.ttf");
 }
 @font-face {
 	font-family: "Poppins-Light";
-	src: url("../css/font/Poppins-Light.ttf");
+	src: url("font/Poppins-Light.ttf");
 }
 @font-face {
 	font-family: "Poppins-Italic";
-	src: url("../css/font/Poppins-Italic.ttf");
+	src: url("font/Poppins-Italic.ttf");
 }
 @font-face {
 	font-family: "Poppins-Bold";
-	src: url("../css/font/Poppins-Bold.ttf");
+	src: url("font/Poppins-Bold.ttf");
 }
 @font-face {
 	font-family: "calibri";
-	src: url("../css/font/calibri.ttf");
+	src: url("font/calibri.ttf");
 }
 @font-face {
 	font-family: "calibrib";
-	src: url("../css/font/calibrib.ttf");
+	src: url("font/calibrib.ttf");
 }
 #lightbox-panel-loader{
 	display:none;
@@ -919,15 +919,23 @@ ul.dropdown-menu.mega-n-dropdown li a {
 	background-color: #e40955;
 	width: 100%;
 }
-
+.border-img {
+	background-image: url(../images/mega-border-image.png);
+	background-size: cover;
+	height: 436px;
+	width: 736px;
+	position: relative;
+	right: 105px;
+	top: 64px;
+	z-index: 9999;
+}
 .border-inner-img {
 	margin: 0 auto;
 	position: relative;
 	top: 121px;
-	z-index: 0;
+	z-index: 9;
 	width: 397px;
 	height: 215px;
-	left: 170px;
 }
 .logo-2n {
 	position: relative;
