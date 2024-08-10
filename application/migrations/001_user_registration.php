@@ -23,6 +23,19 @@ class Migration_user_registration extends CI_Migration
                     'type' => 'TEXT',
                     'null' => TRUE,
                 ),
+                'user_password' => array(
+                    'type' => 'TEXT',
+
+                ),
+                'user_token' => array(
+                    'type' => 'TEXT',
+
+                ),
+                'user_verified_status' => array(
+                    'type' => 'INT',
+                    'default' => 0
+
+                ),
                 'user_email' => array(
                     'type' => 'TEXT',
                     'null' => TRUE,
@@ -46,8 +59,6 @@ class Migration_user_registration extends CI_Migration
                 'user_created_on' => array(
                     'type' => 'TEXT',
                     'null' => TRUE,
-                    
-                    
                 ),
                 'user_updated_on' => array(
                     'type' => 'TEXT',
@@ -55,8 +66,8 @@ class Migration_user_registration extends CI_Migration
                 ),
                 'status' => array(
                     'type' => 'INT',
-                    'default'=>1
-                    
+                    'default' => 1
+
 
                 )
             )
