@@ -86,6 +86,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['matrimonial_form'] = 'matrimonialcontrollers/MatriMonialController';
 $route['matrimonial_form_submit'] = 'matrimonialcontrollers/MatriMonialController/submit_form';
 $route['matrimonial'] = 'matrimonialcontrollers/MatriMonialController/matrimonial';
+$route['matrimonial_find_match'] = 'matrimonialcontrollers/MatriMonialController/find_match';
 
 
 // echo time();

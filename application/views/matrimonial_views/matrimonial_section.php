@@ -118,8 +118,8 @@
 							<div class="col-md-2 col-sm-6">
 								<div class="form-floating">
 									<select name="gender" id="Looking" class="form-select">
-										<option value="Female" title="Bride" selected>Bride</option>
-										<option value="Male" title="Groom">Groom</option>
+										<option value="F" title="Bride" selected>Bride</option>
+										<option value="M" title="Groom">Groom</option>
 									</select>
 									<label for="Looking">Looking For</label>
 								</div>
@@ -129,9 +129,53 @@
 							<div class="col-md-2 col-sm-6">
 								<div class="form-floating">
 									<select name="from_age" id="agefrom" class="form-select">
-										<!-- Add age options here -->
-										<option value="18" title="18 Year">18 Year</option>
-										<!-- Add more options as needed -->
+										<option selected value="18" title="18 Year">18 Year</option>
+										<option value="19" title="19 Year">19 Year</option>
+										<option value="20" title="20 Year">20 Year</option>
+										<option value="21" title="21 Year">21 Year</option>
+										<option value="22" title="22 Year">22 Year</option>
+										<option value="23" title="23 Year">23 Year</option>
+										<option value="24" title="24 Year">24 Year</option>
+										<option value="25" title="25 Year">25 Year</option>
+										<option value="26" title="26 Year">26 Year</option>
+										<option value="27" title="27 Year">27 Year</option>
+										<option value="28" title="28 Year">28 Year</option>
+										<option value="29" title="29 Year">29 Year</option>
+										<option value="30" title="30 Year">30 Year</option>
+										<option value="31" title="31 Year">31 Year</option>
+										<option value="32" title="32 Year">32 Year</option>
+										<option value="33" title="33 Year">33 Year</option>
+										<option value="34" title="34 Year">34 Year</option>
+										<option value="35" title="35 Year">35 Year</option>
+										<option value="36" title="36 Year">36 Year</option>
+										<option value="37" title="37 Year">37 Year</option>
+										<option value="38" title="38 Year">38 Year</option>
+										<option value="39" title="39 Year">39 Year</option>
+										<option value="40" title="40 Year">40 Year</option>
+										<option value="41" title="41 Year">41 Year</option>
+										<option value="42" title="42 Year">42 Year</option>
+										<option value="43" title="43 Year">43 Year</option>
+										<option value="44" title="44 Year">44 Year</option>
+										<option value="45" title="45 Year">45 Year</option>
+										<option value="46" title="46 Year">46 Year</option>
+										<option value="47" title="47 Year">47 Year</option>
+										<option value="48" title="48 Year">48 Year</option>
+										<option value="49" title="49 Year">49 Year</option>
+										<option value="50" title="50 Year">50 Year</option>
+										<option value="51" title="51 Year">51 Year</option>
+										<option value="52" title="52 Year">52 Year</option>
+										<option value="53" title="53 Year">53 Year</option>
+										<option value="54" title="54 Year">54 Year</option>
+										<option value="55" title="55 Year">55 Year</option>
+										<option value="56" title="56 Year">56 Year</option>
+										<option value="57" title="57 Year">57 Year</option>
+										<option value="58" title="58 Year">58 Year</option>
+										<option value="59" title="59 Year">59 Year</option>
+										<option value="60" title="60 Year">60 Year</option>
+										<option value="61" title="61 Year">61 Year</option>
+										<option value="62" title="62 Year">62 Year</option>
+										<option value="63" title="63 Year">63 Year</option>
+										<option value="64" title="64 Year">64 Year</option>
 										<option value="65" title="65 Year">65 Year</option>
 									</select>
 									<label for="agefrom">From Age</label>
@@ -147,9 +191,53 @@
 							<div class="col-md-2 col-sm-6">
 								<div class="form-floating">
 									<select name="to_age" id="ageto" class="form-select">
-										<!-- Add age options here -->
-										<option value="18" title="18 Year">18 Year</option>
-										<!-- Add more options as needed -->
+										<option selected value="18" title="18 Year">18 Year</option>
+										<option value="19" title="19 Year">19 Year</option>
+										<option value="20" title="20 Year">20 Year</option>
+										<option value="21" title="21 Year">21 Year</option>
+										<option value="22" title="22 Year">22 Year</option>
+										<option value="23" title="23 Year">23 Year</option>
+										<option value="24" title="24 Year">24 Year</option>
+										<option value="25" title="25 Year">25 Year</option>
+										<option value="26" title="26 Year">26 Year</option>
+										<option value="27" title="27 Year">27 Year</option>
+										<option value="28" title="28 Year">28 Year</option>
+										<option value="29" title="29 Year">29 Year</option>
+										<option value="30" title="30 Year">30 Year</option>
+										<option value="31" title="31 Year">31 Year</option>
+										<option value="32" title="32 Year">32 Year</option>
+										<option value="33" title="33 Year">33 Year</option>
+										<option value="34" title="34 Year">34 Year</option>
+										<option value="35" title="35 Year">35 Year</option>
+										<option value="36" title="36 Year">36 Year</option>
+										<option value="37" title="37 Year">37 Year</option>
+										<option value="38" title="38 Year">38 Year</option>
+										<option value="39" title="39 Year">39 Year</option>
+										<option value="40" title="40 Year">40 Year</option>
+										<option value="41" title="41 Year">41 Year</option>
+										<option value="42" title="42 Year">42 Year</option>
+										<option value="43" title="43 Year">43 Year</option>
+										<option value="44" title="44 Year">44 Year</option>
+										<option value="45" title="45 Year">45 Year</option>
+										<option value="46" title="46 Year">46 Year</option>
+										<option value="47" title="47 Year">47 Year</option>
+										<option value="48" title="48 Year">48 Year</option>
+										<option value="49" title="49 Year">49 Year</option>
+										<option value="50" title="50 Year">50 Year</option>
+										<option value="51" title="51 Year">51 Year</option>
+										<option value="52" title="52 Year">52 Year</option>
+										<option value="53" title="53 Year">53 Year</option>
+										<option value="54" title="54 Year">54 Year</option>
+										<option value="55" title="55 Year">55 Year</option>
+										<option value="56" title="56 Year">56 Year</option>
+										<option value="57" title="57 Year">57 Year</option>
+										<option value="58" title="58 Year">58 Year</option>
+										<option value="59" title="59 Year">59 Year</option>
+										<option value="60" title="60 Year">60 Year</option>
+										<option value="61" title="61 Year">61 Year</option>
+										<option value="62" title="62 Year">62 Year</option>
+										<option value="63" title="63 Year">63 Year</option>
+										<option value="64" title="64 Year">64 Year</option>
 										<option value="65" title="65 Year">65 Year</option>
 									</select>
 									<label for="ageto">To Age</label>
@@ -372,26 +460,6 @@
 									your perfect better half</a></li>
 						</ul>
 					</div>
-					<div class="text-left app-av-img">
-						<div class="row">
-							<div class="col-md-5 col-sm-4">
-
-								<a target='_blank' href="https://www.google.co.in/android">
-									<img src="uploads/matrimonial_img/front_end_new/images/app-store.png"
-										class="img-responsive mega-n-app1" alt="Android App">
-								</a>
-
-							</div>
-							<div class="col-md-5 col-sm-4">
-
-								<a target='_blank' href="https://www.google.co.in/ios">
-									<img src="uploads/matrimonial_img/front_end_new/images/app-store2.png"
-										class="img-responsive mega-n-app2" alt="iOS App">
-								</a>
-
-							</div>
-						</div>
-					</div>
 				</div>
 				<div class="col-md-6 col-xs-12 col-sm-12">
 					<img src="uploads/matrimonial_img/other_banner/3dc7d024852706fa349beb389f55607a.jpg"
@@ -541,3 +609,5 @@
 				</ul>
 			</div>
 		</div>
+
+		<input type="hidden" name="csrf_new_matrimonial" value="91b4bde49b48b85801d786a926c5547f" id="hash_tocken_id" class="hash_tocken_id" />

@@ -1,4 +1,3 @@
-
 <script>
 	/*$(document).ready(function(){
 	  $('[data-toggle="tooltip"]').tooltip();
@@ -122,26 +121,60 @@
 		}
 	}
 
-	function find_match() {
-		var hash_tocken_id = $("#hash_tocken_id").val();
-		var base_url = $("#base_url").val();
-		var url = base_url + "search/home_search";
-		var form_data = $("#search_form").serialize();
-		form_data = form_data + "&csrf_new_matrimonial=" + hash_tocken_id;
+	// function find_match() {
+	// 	var hash_tocken_id = $("#hash_tocken_id").val();
+	// 	var base_url = $("#base_url").val();
+	// 	var url = base_url + "search/home_search";
+	// 	var form_data = $("#search_form").serialize();
+	// 	form_data = form_data + "&csrf_new_matrimonial=" + hash_tocken_id;
 
-		show_comm_mask();
+	// 	show_comm_mask();
+	// 	$.ajax({
+	// 		url: url,
+	// 		type: "POST",
+	// 		data: form_data,
+	// 		dataType: "json",
+	// 		success: function (data) {
+	// 			window.location.href = base_url + "search/result";
+	// 			update_tocken(data.tocken);
+	// 			hide_comm_mask();
+	// 		}
+	// 	});
+	// 	return false;
+	// }
+	function find_match() {
+		// Collect form data
+		var formData = {
+			gender: $('#Looking').val(),
+			from_age: $('#agefrom').val(),
+			to_age: $('#ageto').val(),
+			religion: $('#Religion').val(),
+		};
+console.log(formData)
+		// Send the AJAX request
 		$.ajax({
-			url: url,
 			type: "POST",
-			data: form_data,
+			url: "matrimonial_find_match",
+			data: formData,
 			dataType: "json",
-			success: function (data) {
-				window.location.href = base_url + "search/result";
-				update_tocken(data.tocken);
-				hide_comm_mask();
+			success: function (response) {
+				// Handle the response here
+				// For example, display the results on the page
+				if (response.status == 'success') {
+					console.log(response.data)
+					$('#results').html(''); // Clear previous results
+					$.each(response.data, function (index, match) {
+						// $('#results').append('<p>' + match.name + ' - ' + match.age + '</p>');
+					});
+				} else {
+					// $('#results').html('<p>No matches found.</p>');
+				}
+			},
+			error: function (xhr, status, error) {
+				console.error('AJAX Error: ' + status + error);
+				// $('#results').html('<p>An error occurred while processing your request.</p>');
 			}
 		});
-		return false;
 	}
 
 	/* Search box   */

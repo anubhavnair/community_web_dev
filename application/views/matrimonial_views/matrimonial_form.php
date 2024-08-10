@@ -198,8 +198,8 @@
                                     <div class="form-button">
                                         <select id="gender" name="gender" class="nice-select form-select">
                                             <option data-display="Gender">Gender</option>
-                                            <option value="1" <?php echo set_select('gender', '1'); ?>>Male</option>
-                                            <option value="2" <?php echo set_select('gender', '2'); ?>>Female
+                                            <option value="M" <?php echo set_select('gender', 'M'); ?>>Male</option>
+                                            <option value="F" <?php echo set_select('gender', 'F'); ?>>Female
                                             </option>
                                         </select>
                                     </div>

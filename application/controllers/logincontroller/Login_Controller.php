@@ -17,6 +17,8 @@ class Login_Controller extends CI_Controller
     public function index()
     {
         $this->load->view('header');
+        $this->load->view('navbar');
+
         $this->load->view('login_views/login/login_form');
         $this->load->view('footer');
     }
@@ -35,6 +37,8 @@ class Login_Controller extends CI_Controller
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('header');
+            $this->load->view('navbar');
+
             $this->load->view('listing_views/user_registration/user_registration_form');
             $this->load->view('footer');
         } else {
