@@ -10,14 +10,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * 
  * 
  */
-class UserRegController extends CI_Controller
+class Login_Controller extends CI_Controller
 {
 
 
     public function index()
     {
+        $this->load->view('header');
+        $this->load->view('navbar');
 
-        $this->load->view('user_registration_form');
+        $this->load->view('login_views/login/login_form');
+        $this->load->view('footer');
     }
 
     public function register_user()
@@ -33,7 +36,11 @@ class UserRegController extends CI_Controller
  
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('user_registration_form');
+            $this->load->view('header');
+            $this->load->view('navbar');
+
+            $this->load->view('listing_views/user_registration/user_registration_form');
+            $this->load->view('footer');
         } else {
             $reg_data = $this->input->post();
             $this->load->model('userregistrationmodel');

@@ -29,6 +29,7 @@ class Welcome extends CI_Controller
 		$data['business_list'] = $this->businesslistingmodel->getAllBusinessData();
 
 		$this->load->view('header');
+		$this->load->view('navbar');
 		$this->load->view('landing_views/index', $data);
 		$this->load->view('footer');
 	}

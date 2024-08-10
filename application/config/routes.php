@@ -57,6 +57,8 @@ $route['default_controller'] = 'welcome';
 
 // $route['home'] = 'landing_page_controllers/LandingPagesController';
 
+// login route 
+$route['login'] = 'logincontroller/Login_Controller';
 //landing page
 
 $route['about'] = 'landingpagecontroller/about';
@@ -64,6 +66,7 @@ $route['contact'] = 'landingpagecontroller/contact';
 
 //User registration form
 $route['user_registration'] = 'userregistrationcontrollers/UserRegController';
+$route['user_registration_submit'] = 'userregistrationcontrollers/UserRegController/register_user';
 
 //business client view section
 $route['business_listing_form_submit'] = 'businesslistingcontrollers/BusinessListController/business_listing';
@@ -78,5 +81,12 @@ $route['job'] = 'joblistingcontrollers/JobListController/get_all_job_list';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+//matrimonial section
+$route['matrimonial_form'] = 'matrimonialcontrollers/MatriMonialController';
+$route['matrimonial_form_submit'] = 'matrimonialcontrollers/MatriMonialController/submit_form';
+$route['matrimonial'] = 'matrimonialcontrollers/MatriMonialController/matrimonial';
+$route['matrimonial_find_match'] = 'matrimonialcontrollers/MatriMonialController/find_match';
+
 
 // echo time();
