@@ -72,6 +72,24 @@ class UserRegistrationModel extends CI_Model
         return $token;
     }
 
+
+    public function checkpassword($email, $password)
+    {
+        $q = $this->db->where(['user_email' => $email, 'user_verified_status' => 1])->get('user_registration');
+        // print_r($q->result_array());
+        if ($q->num_rows() > 0) {
+            $user = $q->row();
+            if (password_verify($password, $user->user_password)) {
+
+                return $user;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+
+    }
     public function getSingleUser($id)
     {
 
@@ -98,8 +116,8 @@ class UserRegistrationModel extends CI_Model
         $this->db->where('user_verified_status', 0);
         $q = $this->db->get('user_registration');
 
-        
-        if ($q->num_rows()==1) {
+
+        if ($q->num_rows() == 1) {
 
             $data = array('user_verified_status' => 1);
             $this->db->where('uid', $id);

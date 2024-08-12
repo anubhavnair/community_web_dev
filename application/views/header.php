@@ -33,3 +33,7 @@
     <!-- Template Stylesheet -->
     <link href="assets/landing_assets/css/style.css" rel="stylesheet">
     <link href="assets/root.css" rel="stylesheet">
+
+    <!-- toastr  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>

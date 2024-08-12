@@ -28,8 +28,8 @@
                     <a href="<?= base_url() ?>business" class="nav-item nav-link">Business</a>
                     <a href="<?= base_url() ?>matrimonial" class="nav-item nav-link">Matrimonial</a>
 
-                    <a href="service.html" class="nav-item nav-link">Service</a>
-                    <a href="blog.html" class="nav-item nav-link">Blog</a>
+                    <a href='#'class="nav-item nav-link">Service</a>
+                    <a href="<?= base_url('blog') ?>" class="nav-item nav-link">Blog</a>
 
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -37,6 +37,7 @@
                             <a href="<?= base_url() ?>job_listing_form" class="dropdown-item">+ Post a Job</a>
                             <a href="<?= base_url() ?>business_listing_form" class="dropdown-item">+ Post a Business</a>
                             <a href="<?= base_url() ?>matrimonial_form" class="dropdown-item">+ Matrimonial</a>
+                            <a href="<?= base_url('blog') ?>" class="dropdown-item">Blogging</a>
 
                             <a href="feature.html" class="dropdown-item">Our Feature</a>
                             <a href="gallery.html" class="dropdown-item">Our Gallery</a>
@@ -50,18 +51,35 @@
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
                 <div class="team-icon d-none d-xl-flex justify-content-center me-3">
-                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i
-                            class="fab fa-linkedin-in"></i></a>
-                </div>
-                <a href="<?= base_url() ?>/user_registration"
-                    class="btn btn-primary rounded-pill py-2 px-4 flex-shrink-0">Register</a>
+                    <?php if (!($this->session->userdata('login'))): ?>
+                     
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i
+                                    class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i
+                                    class="fab fa-instagram"></i></a>
+                            <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i
+                                    class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <a href="<?= base_url() ?>/user_registration"
+                        class="btn btn-primary rounded-pill py-2 px-4 flex-shrink-0">Register</a>
 
-                <a href="<?= base_url() ?>/login"
-                    class="btn btn-primary rounded-pill py-2 px-4 m-2 flex-shrink-0">Login</a>
+                    <a href="<?= base_url('login') ?>"
+                        class="btn btn-primary rounded-pill py-2 px-4 m-2 flex-shrink-0">Login</a>
+                 
+
+                <?php else: ?>
+                    <a href="<?= base_url('logout') ?>"
+                        class="btn btn-primary rounded-pill py-2 px-4 m-2 flex-shrink-0">Logout</a>
+
+                <?php endif; ?>
+
+
+
+
+
+
             </div>
         </nav>
     </div>
