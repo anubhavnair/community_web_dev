@@ -111,10 +111,9 @@ class MatrimonialController extends CI_Controller
         $gender = $this->input->post('gender');
         $from_age = $this->input->post('from_age');
         $to_age = $this->input->post('to_age');
-        $religion = $this->input->post('religion');
 
         // Query the database
-        $matches = $this->MatriMonialRegistrationModel->get_matches($gender, $from_age, $to_age, $religion);
+        $matches = $this->MatriMonialRegistrationModel->get_matches($gender, $from_age, $to_age);
 
         if (!empty($matches)) {
             // Return results as JSON
@@ -123,6 +122,8 @@ class MatrimonialController extends CI_Controller
             echo json_encode(['status' => 'error', 'message' => 'No matches found.']);
         }
     }
+
+    
 }
 
 ?>

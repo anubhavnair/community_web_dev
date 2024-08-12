@@ -41,17 +41,17 @@ class MatriMonialRegistrationModel extends CI_Model
         return $query->result_array();
     }
 
-    public function get_matches($gender, $from_age, $to_age, $religion)
+    public function get_matches($gender, $from_age, $to_age)
     {
-        $this->db->select('name, dob, gender, religion, (YEAR(CURDATE()) - YEAR(dob)) - (DATE_FORMAT(CURDATE(), "%m%d") < DATE_FORMAT(dob, "%m%d")) AS age');
-        $this->db->from('matrimonial'); // Replace 'users' with your actual table name
+        $this->db->select('*, 
+    (YEAR(CURDATE()) - YEAR(DATE(dob))) - 
+    (DATE_FORMAT(CURDATE(), "%m-%d") < DATE_FORMAT(DATE(dob), "%m-%d")) AS age', false);
+        $this->db->from('matrimonial');
         $this->db->where('gender', $gender);
         $this->db->having('age >=', $from_age);
         $this->db->having('age <=', $to_age);
 
-        if (!empty($religion)) {
-            $this->db->where_in('religion', $religion);
-        }
+
 
         $query = $this->db->get();
         return $query->result_array();

@@ -115,7 +115,7 @@
 					<form method="post" name="search_form" id="search_form">
 						<div class="row">
 							<!-- Gender Select -->
-							<div class="col-md-2 col-sm-6">
+							<div class="col-md-3 col-sm-6">
 								<div class="form-floating">
 									<select name="gender" id="Looking" class="form-select">
 										<option value="F" title="Bride" selected>Bride</option>
@@ -126,7 +126,7 @@
 							</div>
 
 							<!-- From Age Select -->
-							<div class="col-md-2 col-sm-6">
+							<div class="col-md-3 col-sm-6">
 								<div class="form-floating">
 									<select name="from_age" id="agefrom" class="form-select">
 										<option selected value="18" title="18 Year">18 Year</option>
@@ -182,13 +182,9 @@
 								</div>
 							</div>
 
-							<!-- To Age Label -->
-							<div class="col-md-1 d-flex align-items-center justify-content-center">
-								<p class="mb-0">to</p>
-							</div>
-
+							
 							<!-- To Age Select -->
-							<div class="col-md-2 col-sm-6">
+							<div class="col-md-3 col-sm-6">
 								<div class="form-floating">
 									<select name="to_age" id="ageto" class="form-select">
 										<option selected value="18" title="18 Year">18 Year</option>
@@ -245,21 +241,20 @@
 							</div>
 
 							<!-- Religion Select -->
-							<div class="col-md-3 col-sm-6">
+							<!-- <div class="col-md-3 col-sm-6">
 								<div class="form-floating">
 									<select name="religion[]" id="Religion" class="form-select" multiple
 										aria-label="Religion">
 										<option value="" selected>Doesn't matter</option>
 										<option value="1" title="Hindu">Hindu</option>
-										<!-- Add more options as needed -->
 									</select>
 									<label for="Religion">Religion</label>
 								</div>
-							</div>
+							</div> -->
 
 
 							<!-- Search Button -->
-							<div class="col-md-2 col-sm-6 d-flex align-items-center">
+							<div class="col-md-3 col-sm-6 d-flex align-items-center">
 								<button type="button" class="btn btn-primary w-100 h-100" id="submit-btn"
 									onclick="find_match()">Search</button>
 							</div>

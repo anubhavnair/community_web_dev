@@ -148,9 +148,7 @@
 			gender: $('#Looking').val(),
 			from_age: $('#agefrom').val(),
 			to_age: $('#ageto').val(),
-			religion: $('#Religion').val(),
 		};
-console.log(formData)
 		// Send the AJAX request
 		$.ajax({
 			type: "POST",
@@ -158,8 +156,6 @@ console.log(formData)
 			data: formData,
 			dataType: "json",
 			success: function (response) {
-				// Handle the response here
-				// For example, display the results on the page
 				if (response.status == 'success') {
 					console.log(response.data)
 					$('#results').html(''); // Clear previous results
