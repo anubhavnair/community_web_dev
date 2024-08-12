@@ -97,6 +97,7 @@
                             <img src="https://cdn.pixabay.com/photo/2024/05/24/19/06/bird-8785666_1280.jpg" alt=""
                                 class="img-fluid mega-c1">
                         </a>
+                        <hr>
                         <div class="c1-name">
                             <div class="d-flex justify-content-center align-items-center mt-3 gap-5">
                                 <span class="d-flex flex-column align-items-center">
@@ -122,6 +123,7 @@
 
                             </div>
                         </div>
+                        <hr>
                     </div>
                     <div class="c1-t1">
                         <p class="Poppins-Regular f-15 c1-t2">I first saw his profile on the recommendation list and he
