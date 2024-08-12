@@ -157,18 +157,14 @@
 			dataType: "json",
 			success: function (response) {
 				if (response.status == 'success') {
-					console.log(response.data)
-					$('#results').html(''); // Clear previous results
-					$.each(response.data, function (index, match) {
-						// $('#results').append('<p>' + match.name + ' - ' + match.age + '</p>');
-					});
+					// window.location.href = <?= base_url() ?> + "matrimonial_find_match_result";
 				} else {
-					// $('#results').html('<p>No matches found.</p>');
+					alert('No matches found..!');
 				}
 			},
 			error: function (xhr, status, error) {
 				console.error('AJAX Error: ' + status + error);
-				// $('#results').html('<p>An error occurred while processing your request.</p>');
+				alert('An Error Occurred..!');
 			}
 		});
 	}

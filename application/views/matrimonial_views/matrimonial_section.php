@@ -112,12 +112,12 @@
 			<div class="col-12">
 				<!-- Find search section -->
 				<div class="bg-light p-4 rounded shadow-lg">
-					<form method="post" name="search_form" id="search_form">
+				<?php echo form_open_multipart('matrimonial_find_match'); ?>
 						<div class="row">
 							<!-- Gender Select -->
 							<div class="col-md-3 col-sm-6">
 								<div class="form-floating">
-									<select name="gender" id="Looking" class="form-select">
+									<select name="looking" id="looking" class="form-select">
 										<option value="F" title="Bride" selected>Bride</option>
 										<option value="M" title="Groom">Groom</option>
 									</select>
@@ -255,8 +255,7 @@
 
 							<!-- Search Button -->
 							<div class="col-md-3 col-sm-6 d-flex align-items-center">
-								<button type="button" class="btn btn-primary w-100 h-100" id="submit-btn"
-									onclick="find_match()">Search</button>
+								<button type="submit" class="btn btn-primary w-100 h-100" id="submit-btn">Search</button>
 							</div>
 						</div>
 					</form>

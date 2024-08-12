@@ -108,7 +108,7 @@ class MatrimonialController extends CI_Controller
         $this->load->model('MatriMonialRegistrationModel');
 
         // Get form data
-        $gender = $this->input->post('gender');
+        $gender = $this->input->post('looking');
         $from_age = $this->input->post('from_age');
         $to_age = $this->input->post('to_age');
 
@@ -116,14 +116,24 @@ class MatrimonialController extends CI_Controller
         $matches = $this->MatriMonialRegistrationModel->get_matches($gender, $from_age, $to_age);
 
         if (!empty($matches)) {
-            // Return results as JSON
-            echo json_encode(['status' => 'success', 'data' => $matches]);
+            $this->find_match_result($matches);
         } else {
-            echo json_encode(['status' => 'error', 'message' => 'No matches found.']);
+            $this->find_match_result($matches);
+
         }
     }
 
-    
+    public function find_match_result($data)
+    {
+        $this->load->helper('/matrimonial/matrimonial_search_filter_helper');
+
+        $this->load->view('header');
+        $this->load->view('matrimonial_views/matrimonial_link.php');
+        $this->load->view('navbar');
+        $this->load->view('matrimonial_views/matrimonial_result', $data);
+        $this->load->view('footer');
+        $this->load->view('matrimonial_views/matrimonial_script');
+    }
 }
 
 ?>
