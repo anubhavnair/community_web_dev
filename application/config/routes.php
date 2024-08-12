@@ -59,6 +59,7 @@ $route['default_controller'] = 'welcome';
 
 // login route 
 $route['login'] = 'logincontroller/Login_Controller';
+$route['logout'] = 'logincontroller/Logout_Controller';
 //landing page
 
 $route['about'] = 'landingpagecontroller/about';
@@ -73,6 +74,8 @@ $route['business_listing_form_submit'] = 'businesslistingcontrollers/BusinessLis
 $route['business_listing_form'] = 'businesslistingcontrollers/BusinessListController';
 $route['business'] = 'businesslistingcontrollers/BusinessListController/get_all_business_list';
 
+// Blog Routes 
+$route['blog'] = 'blogcontrollers/BlogController';
 
 //Job section
 $route['job_listing_form_submit'] = 'joblistingcontrollers/JobListController/job_listing';

@@ -48,7 +48,7 @@
         transition: border-color 0.3s ease;
     }
 </style>
-<div class="container mt-2">
+<div class="container my-3">
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
             <div class="card shadow-lg">
@@ -60,23 +60,20 @@
                 <div id="form-messages" class="alert alert-danger alert-dismissible" style="display: none;"></div>
                 <div class="card-body mb-5">
                     <?php if ($this->session->flashdata('success')): ?>
-                        <div class="alert alert-success alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <?php echo $this->session->flashdata('success'); ?>
-                        </div>
+                        <script>
+                            swal("Registered..!", "User Registered Successfully", 'success');
+                            setTimeout(function () {
+
+                                window.location.href = "<?php echo base_url(); ?>";
+                            }, 2000)
+                        </script>
                     <?php endif; ?>
 
                     <?php if ($this->session->flashdata('error')): ?>
 
-                        <div class="alert alert-danger alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <?php echo $this->session->flashdata('success'); ?>
-                        </div>
-
+                        <script>
+                            swal("Oops...!", "Registration Failed ,Please try after sometimes..", 'error');
+                        </script>
                     <?php endif; ?>
 
                     <?php $form_attributes = array('class' => 'mb-2');

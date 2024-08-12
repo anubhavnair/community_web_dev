@@ -78,7 +78,7 @@
 <div class="container-fluid copyright py-4">
     <div class="container">
         <div class="row g-4 align-items-center" style="color:white;">
-            <div class="col-md-9 text-center text-md-start mb-md-0" >
+            <div class="col-md-9 text-center text-md-start mb-md-0">
                 <span class=""><a href="#" class="border-bottom text-white"><i
                             class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
             </div>
@@ -86,7 +86,9 @@
                 <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
                 <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
                 <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                Designed By <a class="border-bottom text-white img-fluid" href="https://htmlcodex.com"><img src="https://pathideamultiskill.com/images/logo.png" alt="Path Idea Multiskill" style="width:50%"></a> 
+                Designed By <a class="border-bottom text-white img-fluid" href="https://htmlcodex.com"><img
+                        src="https://pathideamultiskill.com/images/logo.png" alt="Path Idea Multiskill"
+                        style="width:50%"></a>
                 <!-- Distributed
                 By <a class="border-bottom text-white" href="https://pathideamultiskill.com/images/logo.png">Path Idea Multiskill</a> -->
             </div>
@@ -108,13 +110,13 @@
 <script src="assets/landing_assets/lib/lightbox/js/lightbox.min.js"></script>
 <script src="assets/landing_assets/lib/owlcarousel/owl.carousel.min.js"></script>
 
-
 <!-- Template Javascript -->
 <script src="assets/landing_assets/js/main.js"></script>
+
 </body>
 <script>
-   $(document).ready(function(){
-      $(".owl-carousel").owlCarousel({
+    $(document).ready(function () {
+        $(".owl-carousel").owlCarousel({
             items: 4, // Number of items to display
             loop: true,
             margin: 10,
