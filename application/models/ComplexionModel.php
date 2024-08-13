@@ -1,18 +1,14 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-namespace App\Models;
-
-use CodeIgniter\Model;
-
-class ComplexionModel extends Model
+class ComplexionModel extends CI_Model
 {
-
     public function getAllComplexions()
     {
         $this->db->select('*');
-        $this->db->from($this->table);
+        $this->db->from('complexion');
         $this->db->order_by('complexion_id', 'DESC');
         $query = $this->db->get();
-        return $query->getResultArray();
+        return $query->result_array(); // Use result_array() for CodeIgniter 3
     }
 }

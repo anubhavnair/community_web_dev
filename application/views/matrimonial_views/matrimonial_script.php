@@ -1,3 +1,5 @@
+<!-- Include jQuery UI JS -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 	/*$(document).ready(function(){
 	  $('[data-toggle="tooltip"]').tooltip();
@@ -119,6 +121,14 @@
 		} else {
 			$card.addClass("hover");
 		}
+	}
+
+
+
+	function convertToFeetInches(value) {
+		var feet = Math.floor(value / 12);
+		var inches = value % 12;
+		return feet + "-" + inches + " ft";
 	}
 
 	// function find_match() {

@@ -1,16 +1,15 @@
 <?php
-namespace App\Models;
+defined('BASEPATH') or exit('No direct script access allowed');
 
-use CodeIgniter\Model;
-
-class EducationModel extends Model
+class EducationModel extends CI_Model
 {
+
     public function getAllEducation()
     {
         $this->db->select('*');
-        $this->db->from($this->table);
+        $this->db->from('education');
         $this->db->order_by('education_id', 'DESC');
         $query = $this->db->get();
-        return $query->getResultArray();
+        return $query->result_array(); // Use result_array() for CodeIgniter 3
     }
 }

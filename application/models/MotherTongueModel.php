@@ -1,17 +1,15 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-namespace App\Models;
 
-use CodeIgniter\Model;
-
-class MotherTongueModel extends Model
+class MotherTongueModel extends CI_Model
 {
     public function getAllMotherTongues()
     {
         $this->db->select('*');
-        $this->db->from($this->table);
+        $this->db->from('mother_tongue');
         $this->db->order_by('mother_tongue_id', 'DESC');
         $query = $this->db->get();
-        return $query->getResultArray();
+        return $query->result_array();
     }
 }

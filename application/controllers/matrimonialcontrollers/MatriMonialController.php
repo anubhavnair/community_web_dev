@@ -4,6 +4,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 /**
  * @property CI_Input $input
  * @property MatriMonialRegistrationModel $matrimonialmodel
+ * @property ComplexionModel $ComplexionModel
+ * @property EducationModel $EducationModel
+ * @property EmployeeInModel $EmployeeInModel
+ * @property MotherTongueModel $MotherTongueModel
+ * @property StateModel $StateModel
+ * @property CasteModel $CasteModel
+ * 
  * @property CI_Upload $upload
  * @property CI_Session $session
  * @property CI_Form_validation $form_validation
@@ -107,6 +114,8 @@ class MatrimonialController extends CI_Controller
     {
         $this->load->model('MatriMonialRegistrationModel');
 
+
+
         // Get form data
         $gender = $this->input->post('looking');
         $from_age = $this->input->post('from_age');
@@ -125,15 +134,45 @@ class MatrimonialController extends CI_Controller
 
     public function find_match_result($data)
     {
-        $this->load->helper('/matrimonial/matrimonial_search_filter_helper');
+        // Load models
+        $this->load->model('ComplexionModel');
+        $this->load->model('EducationModel');
+        $this->load->model('EmployeeInModel');
+        $this->load->model('MotherTongueModel');
+        $this->load->model('StateModel');
+        $this->load->model('CasteModel');
 
+        // Retrieve data from models
+        $complexions = $this->ComplexionModel->getAllComplexions();
+        $education = $this->EducationModel->getAllEducation();
+        $employeeIn = $this->EmployeeInModel->getAllEmployeeIn();
+        $motherTongues = $this->MotherTongueModel->getAllMotherTongues();
+        $states = $this->StateModel->getAllState();
+        $castes = $this->CasteModel->getAllCaste();
+
+        // Load helper
+        $this->load->helper('matrimonial/matrimonial_search_filter_helper');
+
+        // Prepare data for the view
+        $viewData = [
+            'results' => $data,
+            'complexions' => $complexions,
+            'education' => $education,
+            'employeeIn' => $employeeIn,
+            'motherTongues' => $motherTongues,
+            'states' => $states,
+            'castes'=>$castes,
+        ];
+
+        // Load views and pass data
         $this->load->view('header');
-        $this->load->view('matrimonial_views/matrimonial_link.php');
+        $this->load->view('matrimonial_views/matrimonial_link');
         $this->load->view('navbar');
-        $this->load->view('matrimonial_views/matrimonial_result', $data);
+        $this->load->view('matrimonial_views/matrimonial_result', $viewData);
         $this->load->view('footer');
-        $this->load->view('matrimonial_views/matrimonial_script');
+        $this->load->view('matrimonial_views/result_script');
     }
+
 }
 
 ?>
