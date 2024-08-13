@@ -87,13 +87,7 @@
 <div class="container ">
 
     <div class="grid my-5">
-
-        <?php if (count($blogs) > 0) {
-
-            foreach ($blogs as $blog) {
-
-                ?>
-
+\
                 <div class="grid-item ">
                     <div class="vendor-main">
                         <div class="vendor">
@@ -130,19 +124,12 @@
                             <hr>
                         </div>
                         <div class="c1-t1">
-                            <p class="Poppins-Regular f-15 c1-t2"><?=$blog['content'];?><br/><a href="/blog_details/<?=$blog['post_id']?>" class="mega-rm Poppins-Medium">Read
-                                    More</a></p>
+                            <!-- <p class="Poppins-Regular f-15 c1-t2"><?=$blog['content'];?><br/><a href="/blog_details/<?=$blog['post_id']?>" class="mega-rm Poppins-Medium">Read
+                                    More</a></p> -->
                         </div>
                     </div>
                 </div>
 
-                <?php
-            }
-
-        } else { ?>
-
-            <h1>There is No Post yet..</h1>
-        <?php } ?>
   
     </div>
 </div>

@@ -22,6 +22,7 @@ class Migration_Create_posts_table extends CI_Migration {
             'title' => array(
                 'type' => 'VARCHAR',
                 'constraint' => '255',
+                'null' => TRUE
             ),
             'content' => array(
                 'type' => 'TEXT',
@@ -31,9 +32,9 @@ class Migration_Create_posts_table extends CI_Migration {
                 'constraint' => '255',
                 'null' => TRUE,
             ),
-            'created_at' => array(
-                'type' => 'TIMESTAMP',
-               
+            'created_at'=>array(
+            'type' => 'TIMESTAMP',
+            'default' => 'CURRENT_TIMESTAMP',
             ),
             'updated_at' => array(
                 'type' => 'TIMESTAMP',

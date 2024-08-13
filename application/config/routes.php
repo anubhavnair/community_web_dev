@@ -76,6 +76,8 @@ $route['business'] = 'businesslistingcontrollers/BusinessListController/get_all_
 
 // Blog Routes 
 $route['blog'] = 'blogcontrollers/BlogController';
+$route['add_blog'] = 'blogcontrollers/BlogController/add_blog';
+$route['blog_details'] = 'blogcontrollers/BlogController/blog_details';
 
 //Job section
 $route['job_listing_form_submit'] = 'joblistingcontrollers/JobListController/job_listing';
