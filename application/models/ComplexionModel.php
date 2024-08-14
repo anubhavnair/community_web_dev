@@ -9,6 +9,6 @@ class ComplexionModel extends CI_Model
         $this->db->from('complexion');
         $this->db->order_by('complexion_id', 'DESC');
         $query = $this->db->get();
-        return $query->result_array(); // Use result_array() for CodeIgniter 3
+        return $query->result(); // Use result_array() for CodeIgniter 3
     }
 }

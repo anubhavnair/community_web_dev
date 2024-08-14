@@ -10,6 +10,6 @@ class EmployeeInModel extends CI_Model
         $this->db->from('employee_in');
         $this->db->order_by('employee_in_id', 'DESC');
         $query = $this->db->get();
-        return $query->result_array();
+        return $query->result();
     }
 }

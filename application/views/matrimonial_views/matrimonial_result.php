@@ -49,119 +49,103 @@
             </div>
 
             <div class="clearfix"></div>
-            <div class="m-b ">
-                <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-12">
+            <?php
+            foreach ($results as $result) { ?>
+                <div class="m-b ">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-12">
 
-                        <a target="_blank" href="https://shaadi.telisahusamaj.in/search/view-profile/TSYF258351">
-                            <img src="https://shaadi.telisahusamaj.in/assets/front_end/img/default-photo/female.png"
-                                class="img-responsive placeholder-img" title="Nandini Gupta" alt="TSYF258351">
-                        </a>
+                            <a target="_blank"
+                                href="https://shaadi.telisahusamaj.in/search/view-profile/<?php echo $result->user_id; ?>">
+                                <img src="<?php echo $result->images; ?>" class="img-responsive placeholder-img"
+                                    title="<?php echo $result->user_name; ?>" alt="<?php echo $result->user_id; ?>">
+                            </a>
 
-                        <div class="profile-card-btn">
-                            <a href="https://shaadi.telisahusamaj.in/search/view-profile/TSYF258351"
-                                class="s-card-1 OpenSans-Light">View Full Profile</a>
-                        </div>
-                    </div>
-                    <div class="col-md-9 col-sm-9 col-xs-12">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                <p class="p-search OpenSans-Bold">
-                                    TSYF258351 |
-                                    <span class="p-search2">Profile Created By Parents</span>
-                                </p>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                <p class="p-search3 OpenSans-Regular pull-right">
-                                    <!--Online Now-->
-                                </p>
+                            <div class="profile-card-btn">
+                                <a href="https://shaadi.telisahusamaj.in/search/view-profile/<?php echo $result->user_id; ?>"
+                                    class="s-card-1 OpenSans-Light">View Full Profile</a>
                             </div>
                         </div>
-                        <hr class="search-r-hr">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 col-xs-12 margin-top-10 right-hr new-p">
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p class="sr1 Roboto-Bold">
-                                        Age / Height:
-                                    </p>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <hr class="search-r-hr">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12 margin-top-10 right-hr new-p">
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <p class="sr1 Roboto-Bold">Name:</p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                        <p class="sr2 Roboto-Bold"><?php echo $result->user_name; ?></p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <p class="sr1 Roboto-Bold">Age / Height:</p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                        <p class="sr2 Roboto-Bold"><?php echo calculateAge($result->dob); ?> Years,
+                                            <?php echo $result->height; ?></p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <p class="sr1 Roboto-Bold">Religion:</p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                        <p class="sr2 Roboto-Bold"><?php echo $result->religion; ?></p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <p class="sr1 Roboto-Bold">Caste:</p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                        <p class="sr2 Roboto-Bold"><?php echo $result->caste; ?></p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <p class="sr1 Roboto-Bold">Mother Tongue:</p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                        <p class="sr2 Roboto-Bold"><?php echo $result->mother_tongue; ?></p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <p class="sr1 Roboto-Bold">Education:</p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                        <p class="sr2 Roboto-Bold"><?php echo $result->education; ?></p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <p class="sr1 Roboto-Bold">Location:</p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                        <p class="sr2 Roboto-Bold"><?php echo $result->location; ?></p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <p class="sr1 Roboto-Bold">Occupation:</p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                        <p class="sr2 Roboto-Bold"><?php echo $result->job_occupation; ?></p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <p class="sr1 Roboto-Bold">Annual Income:</p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                        <p class="sr2 Roboto-Bold"><?php echo $result->salary; ?></p>
+                                    </div>
                                 </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
-                                    <p class="sr2  Roboto-Bold">
-                                        26 Years, 5ft </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p class="sr1 Roboto-Bold Roboto-Bold">
-                                        Religion:
-                                    </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
-                                    <p class="sr2  Roboto-Bold">
-                                        Hindu </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p class="sr1 Roboto-Bold Roboto-Bold">
-                                        Caste:
-                                    </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
-                                    <p class="sr2  Roboto-Bold">
-                                        Teli </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p class="sr1 Roboto-Bold Roboto-Bold">
-                                        Mother Tongue:
-                                    </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
-                                    <p class="sr2  Roboto-Bold">
-                                        Hindi </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p class="sr1 Roboto-Bold Roboto-Bold">
-                                        Education:
-                                    </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
-                                    <p class="sr2  Roboto-Bold">
-                                        Bachelors in Commerce </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p class="sr1 Roboto-Bold Roboto-Bold">
-                                        Location:
-                                    </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
-                                    <p class="sr2  Roboto-Bold">
-                                        N/A, N/A </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p class="sr1 Roboto-Bold Roboto-Bold">
-                                        Occupation:
-                                    </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
-                                    <p class="sr2  Roboto-Bold">
-                                        Banker </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p class="sr1 Roboto-Bold Roboto-Bold">
-                                        Annual Income:
-                                    </p>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
-                                    <p class="sr2  Roboto-Bold">
-                                        Rs 2,00,000 - 5,00,000 </p>
-                                </div>
-                            </div>
 
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <p class="sr3">
-                                    N/A </p>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <p class="sr3"><?php echo $result->description; ?></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
+
+            <?php
+            // Helper function to calculate age
+            function calculateAge($dob)
+            {
+                $birthDate = new DateTime($dob);
+                $today = new DateTime();
+                $age = $today->diff($birthDate)->y;
+                return $age;
+            }
+            ?>
         </div>
 
     </div>

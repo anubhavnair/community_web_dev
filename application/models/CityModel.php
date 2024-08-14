@@ -10,16 +10,12 @@ class CityModel extends CI_Model
         $this->db->from('city');
         $this->db->order_by('city_id', 'DESC');
         $query = $this->db->get();
-        return $query->result_array();
+        return $query->result();
     }
-
-    public function getCitiesByState($state_id)
+    public function get_cities_by_state_ids($state_ids)
     {
-        $this->db->select('*');
-        $this->db->from("city");
-        $this->db->where('state_id', $state_id);
-        // $this->db->order_by('city_id', 'DESC'); // Uncomment if needed
-        $query = $this->db->get();
-        return $query->result_array();
+        $this->db->where_in('state_id', $state_ids);
+        $query = $this->db->get('city');
+        return $query->result();
     }
 }

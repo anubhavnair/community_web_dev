@@ -10,6 +10,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * @property MotherTongueModel $MotherTongueModel
  * @property StateModel $StateModel
  * @property CasteModel $CasteModel
+ * @property CityModel $CityModel
  * 
  * @property CI_Upload $upload
  * @property CI_Session $session
@@ -124,12 +125,8 @@ class MatrimonialController extends CI_Controller
         // Query the database
         $matches = $this->MatriMonialRegistrationModel->get_matches($gender, $from_age, $to_age);
 
-        if (!empty($matches)) {
-            $this->find_match_result($matches);
-        } else {
             $this->find_match_result($matches);
 
-        }
     }
 
     public function find_match_result($data)
@@ -161,7 +158,7 @@ class MatrimonialController extends CI_Controller
             'employeeIn' => $employeeIn,
             'motherTongues' => $motherTongues,
             'states' => $states,
-            'castes'=>$castes,
+            'castes' => $castes,
         ];
 
         // Load views and pass data
@@ -172,6 +169,29 @@ class MatrimonialController extends CI_Controller
         $this->load->view('footer');
         $this->load->view('matrimonial_views/result_script');
     }
+    public function get_cities_by_states()
+    {
+        $state_ids = $this->input->post('state_ids');
+        
+        if (is_string($state_ids)) {
+            $state_ids = json_decode($state_ids, true);
+        }
+    
+        if (!empty($state_ids) && is_array($state_ids)) {
+            $this->load->model('CityModel');
+            $cities = $this->CityModel->get_cities_by_state_ids($state_ids);
+    
+            if (!empty($cities)) {
+                echo json_encode($cities);
+            } else {
+                echo json_encode([]);
+            }
+        } else {
+            echo json_encode([]);
+        }
+    }
+    
+
 
 }
 

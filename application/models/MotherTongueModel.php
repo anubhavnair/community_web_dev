@@ -10,6 +10,6 @@ class MotherTongueModel extends CI_Model
         $this->db->from('mother_tongue');
         $this->db->order_by('mother_tongue_id', 'DESC');
         $query = $this->db->get();
-        return $query->result_array();
+        return $query->result();
     }
 }

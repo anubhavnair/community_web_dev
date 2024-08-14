@@ -224,27 +224,30 @@
                                     aria-labelledby="collapseState">
                                     <div class="bg-color overflow-auto" style="max-height:200px">
                                         <div class="position-sticky top-0">
-                                            <input type="text" class="form-control search-box" id="searchState"
-                                                placeholder="Search State">
+                                            <input type="text" class="form-control search-box"
+                                                placeholder="Search State"
+                                                onkeyup="filterContent('list_disp_state', this.value)">
                                         </div>
-                                        <div class="content" id="list_disp_state">
-                                            <div class="box">
-                                                <?php
-                                                if (!empty($states)) {
-                                                    foreach ($states as $state) {
-                                                        ?>
+                                        <div class="content list_disp_state" id="list_disp_state">
+                                            <?php
+                                            if (!empty($states)) {
+                                                foreach ($states as $state) {
+                                                    ?>
+                                                    <div class="box">
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value=""
-                                                                data-state-id="<?= $state->state_id ?>">
-                                                            <label class="form-check-label" for="caste1">
+                                                            <input class="form-check-input state-checkbox" type="checkbox"
+                                                                value="<?= $state->state_id ?>"
+                                                                id="state<?= $state->state_id ?>"
+                                                                data-state-id="<?= $state->state_id ?>" onchange="loadCities()">
+                                                            <label class="form-check-label" for="state<?= $state->state_id ?>">
                                                                 <?= $state->state ?>
                                                             </label>
                                                         </div>
-                                                        <?php
-                                                    }
+                                                    </div>
+                                                    <?php
                                                 }
-                                                ?>
-                                            </div>
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -277,26 +280,12 @@
                                     </span>
                                 </a>
                                 <div id="collapseCity" class="collapse" role="tabpanel" aria-labelledby="collapseCity">
-                                    <div class="bg-color">
-                                        <input type="text" class="form-control search-box" id="searchCity"
-                                            placeholder="Search City">
-                                        <div class="content city_list">
-                                            <div class="box">
-                                                <!-- Example Checkboxes -->
-                                                <p class="checkbox-m">
-                                                    <input type="checkbox" id="city_id_1" value="1" name="city[]"
-                                                        class="city">
-                                                    <label for="city_id_1" class="lbl1 lbl-break">City 1</label>
-                                                </p>
-                                            </div>
-                                            <div class="box">
-                                                <p class="checkbox-m">
-                                                    <input type="checkbox" id="city_id_2" value="2" name="city[]"
-                                                        class="city">
-                                                    <label for="city_id_2" class="lbl1 lbl-break">City 2</label>
-                                                </p>
-                                            </div>
-                                            <!-- Add more cities as needed -->
+                                    <div class="bg-color overflow-auto" style="max-height:200px">
+                                        <input type="text" class="form-control search-box position-sticky top-0"
+                                            id="searchCity" placeholder="Search City"
+                                            onkeyup="filterContent('city_list', this.value)">
+                                        <div class="content city_list" id="city_list">
+                                            <p>Select State First</p>
                                         </div>
                                     </div>
                                 </div>
@@ -330,30 +319,33 @@
                                 </a>
                                 <div id="collapseMotherTongue" class="collapse" role="tabpanel"
                                     aria-labelledby="collapseMotherTongue">
-                                    <div class="bg-color">
-                                        <input type="text" class="form-control search-box" id="searchMotherTongue"
-                                            placeholder="Search Mother Tongue">
-                                        <div class="content mothertongue_list">
-                                            <div class="box">
-                                                <!-- Example Checkboxes -->
-                                                <?php
-                                                if (!empty($motherTongues)) {
-                                                    foreach ($motherTongues as $motherTongue) {
-                                                        ?>
-                                                        <p class="checkbox-m">
-
-                                                            <input class="form-check-input mothertongue_list" type="checkbox"
-                                                                value=""
-                                                                data-mother-tongue-id="<?= $motherTongue->motherTongue_id ?>">
-                                                            <label class="form-check-label" for="mother_tongue">
-                                                                <?= $motherTongue->motherTongue ?>
+                                    <div class="bg-color overflow-auto" style="max-height:200px;">
+                                        <div class="position-sticky top-0">
+                                            <input type="text" class="form-control search-box position-sticky top-0"
+                                                id="searchMotherTongue" placeholder="Search Mother Tongue"
+                                                onkeyup="filterContent('mothertongue_list', this.value)">
+                                        </div>
+                                        <div class="content mothertongue_list" id="mothertongue_list">
+                                            <!-- Example Checkboxes -->
+                                            <?php
+                                            if (!empty($motherTongues)) {
+                                                foreach ($motherTongues as $motherTongue) {
+                                                    ?>
+                                                    <div class="box">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value=""
+                                                                id="mother_tongue_<?= $motherTongue->mother_tongue_id ?>"
+                                                                data-mother-tongue-id="<?= $motherTongue->mother_tongue_id ?>">
+                                                            <label class="form-check-label"
+                                                                for="mother_tongue_<?= $motherTongue->mother_tongue_id ?>">
+                                                                <?= $motherTongue->mother_tongue ?>
                                                             </label>
-                                                            <?php
-                                                    }
+                                                        </div>
+                                                    </div>
+                                                    <?php
                                                 }
-                                                ?>
-                                                </p>
-                                            </div>
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -386,30 +378,32 @@
                                 </a>
                                 <div id="collapseEducation" class="collapse" role="tabpanel"
                                     aria-labelledby="collapseEducation">
-                                    <div class="bg-color">
-                                        <input type="text" class="form-control search-box" id="searchEducation"
-                                            placeholder="Search Education">
-                                        <div class="content education_list">
+                                    <div class="bg-color overflow-auto" style="max-height: 200px;">
+                                        <input type="text" class="form-control search-box position-sticky top-0"
+                                            id="searchEducation" placeholder="Search Education"
+                                            onkeyup="filterContent('education_list', this.value)">
+                                        <div class="content education_list" id="education_list">
 
-                                            <div class="box">
-                                                <?php
-                                                if (!empty($education)) {
-                                                    foreach ($education as $edu) {
-                                                        ?>
-                                                        <p class="checkbox-m">
-
-                                                            <input type="checkbox" id="education_id_9" value="9"
-                                                        name="education[]" class="education-checkbox"
+                                            <?php
+                                            if (!empty($education)) {
+                                                foreach ($education as $edu) {
+                                                    ?>
+                                                    <div class="box">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" id="education_id_<?= $edu->education_id ?>"
+                                                                value="<?= $edu->education_id ?>" name="education[]"
+                                                                class="education-checkbox"
                                                                 data-mother-tongue-id="<?= $edu->education_id ?>">
-                                                            <label class="form-check-label" for="mother_tongue">
+                                                            <label class="form-check-label"
+                                                                for="education_id_<?= $edu->education_id ?>">
                                                                 <?= $edu->education ?>
                                                             </label>
-                                                        </p>
-                                                        <?php
-                                                    }
+                                                        </div>
+                                                    </div>
+                                                    <?php
                                                 }
-                                                ?>
-                                            </div>
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -444,87 +438,95 @@
                                 </a>
                                 <div id="collapseIncome" class="collapse" role="tabpanel"
                                     aria-labelledby="collapseIncome">
-                                    <div class="bg-color">
+                                    <div class="bg-color overflow-auto" style="max-height:200px">
                                         <div class="content income_list">
                                             <div class="box">
-                                                <p class="checkbox-m">
+                                                <div class="form-check">
+
                                                     <input id="income_id_Rs10000-50000" type="checkbox"
                                                         value="Rs 10,000 - 50,000" name="income[]"
                                                         class="income-checkbox">
                                                     <label for="income_id_Rs10000-50000" class="lbl1 lbl-break">Rs
                                                         10,000 - 50,000</label>
-                                                </p>
+                                                </div>
                                             </div>
                                             <div class="box">
-                                                <p class="checkbox-m">
+                                                <div class="form-check">
+
                                                     <input id="income_id_Rs50000-100000" type="checkbox"
                                                         value="Rs 50,000 - 1,00,000" name="income[]"
                                                         class="income-checkbox">
                                                     <label for="income_id_Rs50000-100000" class="lbl1 lbl-break">Rs
                                                         50,000 - 1,00,000</label>
-                                                </p>
+                                                </div>
                                             </div>
                                             <div class="box">
-                                                <p class="checkbox-m">
+                                                <div class="form-check">
+
                                                     <input id="income_id_Rs100000-200000" type="checkbox"
                                                         value="Rs 1,00,000 - 2,00,000" name="income[]"
                                                         class="income-checkbox">
                                                     <label for="income_id_Rs100000-200000" class="lbl1 lbl-break">Rs
                                                         1,00,000 - 2,00,000</label>
-                                                </p>
+                                                </div>
                                             </div>
                                             <div class="box">
-                                                <p class="checkbox-m">
+                                                <div class="form-check">
+
                                                     <input id="income_id_Rs200000-500000" type="checkbox"
                                                         value="Rs 2,00,000 - 5,00,000" name="income[]"
                                                         class="income-checkbox">
                                                     <label for="income_id_Rs200000-500000" class="lbl1 lbl-break">Rs
                                                         2,00,000 - 5,00,000</label>
-                                                </p>
+                                                </div>
                                             </div>
                                             <div class="box">
-                                                <p class="checkbox-m">
+                                                <div class="form-check">
+
                                                     <input id="income_id_Rs500000-1000000" type="checkbox"
                                                         value="Rs 5,00,000 - 10,00,000" name="income[]"
                                                         class="income-checkbox">
                                                     <label for="income_id_Rs500000-1000000" class="lbl1 lbl-break">Rs
                                                         5,00,000 - 10,00,000</label>
-                                                </p>
+                                                </div>
                                             </div>
                                             <div class="box">
-                                                <p class="checkbox-m">
+                                                <div class="form-check">
+
                                                     <input id="income_id_Rs1000000-5000000" type="checkbox"
                                                         value="Rs 10,00,000 - 50,00,000" name="income[]"
                                                         class="income-checkbox">
                                                     <label for="income_id_Rs1000000-5000000" class="lbl1 lbl-break">Rs
                                                         10,00,000 - 50,00,000</label>
-                                                </p>
+                                                </div>
                                             </div>
                                             <div class="box" style="display:none;">
-                                                <p class="checkbox-m">
+                                                <div class="form-check">
+
                                                     <input id="income_id_Rs5000000-10000000" type="checkbox"
                                                         value="Rs 50,00,000 - 1,00,00,000" name="income[]"
                                                         class="income-checkbox">
                                                     <label for="income_id_Rs5000000-10000000" class="lbl1 lbl-break">Rs
                                                         50,00,000 - 1,00,00,000</label>
-                                                </p>
+                                                </div>
                                             </div>
                                             <div class="box" style="display:none;">
-                                                <p class="checkbox-m">
+                                                <div class="form-check">
+
                                                     <input id="income_id_AboveRs10000000" type="checkbox"
                                                         value="Above Rs 1,00,00,000" name="income[]"
                                                         class="income-checkbox">
                                                     <label for="income_id_AboveRs10000000" class="lbl1 lbl-break">Above
                                                         Rs 1,00,00,000</label>
-                                                </p>
+                                                </div>
                                             </div>
                                             <div class="box" style="display:none;">
-                                                <p class="checkbox-m">
+                                                <div class="form-check">
                                                     <input id="income_id_Doesnotmatter" type="checkbox"
                                                         value="Does not matter" name="income[]" class="income-checkbox">
                                                     <label for="income_id_Doesnotmatter" class="lbl1 lbl-break">Does not
                                                         matter</label>
-                                                </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -556,76 +558,34 @@
                                         Clear All
                                     </span>
                                 </a>
-                                <div id="collapseEmployeeIn" class="collapse" role="tabpanel"
-                                    aria-labelledby="collapseEmployeeIn">
+                                <div id="collapseEmployeeIn" class="collapse overflow-auto" style="height: 200px;"
+                                    role="tabpanel" aria-labelledby="collapseEmployeeIn">
                                     <div class="bg-color">
-                                        <input type="text" id="employee_in_search" class="form-control"
-                                            placeholder="Search...">
-                                        <div class="content employee_in_list">
-                                            <div class="box">
-                                                <p class="checkbox-m">
-                                                    <input id="employee_in_id_Private" type="checkbox" value="Private"
-                                                        name="employee_in[]" class="employee_in">
-                                                    <label for="employee_in_id_Private"
-                                                        class="lbl1 lbl-break">Private</label>
-                                                </p>
-                                            </div>
-                                            <div class="box">
-                                                <p class="checkbox-m">
-                                                    <input id="employee_in_id_Government" type="checkbox"
-                                                        value="Government" name="employee_in[]" class="employee_in">
-                                                    <label for="employee_in_id_Government"
-                                                        class="lbl1 lbl-break">Government</label>
-                                                </p>
-                                            </div>
-                                            <div class="box">
-                                                <p class="checkbox-m">
-                                                    <input id="employee_in_id_Business" type="checkbox" value="Business"
-                                                        name="employee_in[]" class="employee_in">
-                                                    <label for="employee_in_id_Business"
-                                                        class="lbl1 lbl-break">Business</label>
-                                                </p>
-                                            </div>
-                                            <div class="box">
-                                                <p class="checkbox-m">
-                                                    <input id="employee_in_id_Defence" type="checkbox" value="Defence"
-                                                        name="employee_in[]" class="employee_in">
-                                                    <label for="employee_in_id_Defence"
-                                                        class="lbl1 lbl-break">Defence</label>
-                                                </p>
-                                            </div>
-                                            <div class="box">
-                                                <p class="checkbox-m">
-                                                    <input id="employee_in_id_NotEmployedin" type="checkbox"
-                                                        value="Not Employed in" name="employee_in[]"
-                                                        class="employee_in">
-                                                    <label for="employee_in_id_NotEmployedin" class="lbl1 lbl-break">Not
-                                                        Employed in</label>
-                                                </p>
-                                            </div>
-                                            <div class="box">
-                                                <p class="checkbox-m">
-                                                    <input id="employee_in_id_PublicSector" type="checkbox"
-                                                        value="Public Sector" name="employee_in[]" class="employee_in">
-                                                    <label for="employee_in_id_PublicSector"
-                                                        class="lbl1 lbl-break">Public Sector</label>
-                                                </p>
-                                            </div>
-                                            <div class="box">
-                                                <p class="checkbox-m">
-                                                    <input id="employee_in_id_Others" type="checkbox" value="Others"
-                                                        name="employee_in[]" class="employee_in">
-                                                    <label for="employee_in_id_Others"
-                                                        class="lbl1 lbl-break">Others</label>
-                                                </p>
-                                            </div>
-                                            <div class="box">
-                                                <a data-bs-toggle="modal" href="#more-employee_in">
-                                                    <span class="checkbox-m more OpenSans-Bold">
-                                                        + 7 more
-                                                    </span>
-                                                </a>
-                                            </div>
+                                        <input type="text" id="employee_in_search"
+                                            class="form-control position-sticky top-0" placeholder="Search..."
+                                            onkeyup="filterContent('employee_in_list', this.value)">
+                                        <div class="content employee_in_list" id="employee_in_list">
+                                            <?php
+                                            if (!empty($employeeIn)) {
+                                                foreach ($employeeIn as $employee) {
+                                                    ?>
+                                                    <div class="box">
+                                                        <div class="form-check">
+                                                            <input id="employee_in_id_<?= $employee->employee_in_id ?>"
+                                                                type="checkbox" value="<?= $employee->employee_in_id ?>"
+                                                                name="employee_in[]" class="employee_in"
+                                                                data-employee-in-id="<?= $employee->employee_in_id ?>">
+                                                            <label class="form-check-label"
+                                                                for="employee_in_id_<?= $employee->employee_in_id ?>">
+                                                                <?= $employee->employee_in ?>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+
                                         </div>
                                     </div>
                                 </div>
@@ -700,61 +660,38 @@
                                         Clear All
                                     </span>
                                 </a>
-                                <div id="collapseComplexion" class="collapse" role="tabpanel"
-                                    aria-labelledby="collapseComplexion">
+                                <div id="collapseComplexion" class="collapse overflow-auto" style="max-height: 200px;"
+                                    role="tabpanel" aria-labelledby="collapseComplexion">
                                     <div class="bg-color">
                                         <div class="content">
                                             <div class="box">
                                                 <input type="text" id="complexion_search" class="form-control"
-                                                    placeholder="Search Complexion">
+                                                    placeholder="Search Complexion"
+                                                    onkeyup="filterContent('complexion_list', this.value)">
                                             </div>
-                                            <div class="complexion_list">
-                                                <div class="box">
-                                                    <p class="checkbox-m">
-                                                        <input id="complexion_0" type="checkbox" value="Wheatish"
-                                                            name="complexion[]" class="complexion">
-                                                        <label for="complexion_0"
-                                                            class="lbl1 lbl-break">Wheatish</label>
-                                                    </p>
-                                                </div>
-                                                <div class="box">
-                                                    <p class="checkbox-m">
-                                                        <input id="complexion_1" type="checkbox" value="Very Fair"
-                                                            name="complexion[]" class="complexion">
-                                                        <label for="complexion_1" class="lbl1 lbl-break">Very
-                                                            Fair</label>
-                                                    </p>
-                                                </div>
-                                                <div class="box">
-                                                    <p class="checkbox-m">
-                                                        <input id="complexion_2" type="checkbox" value="Fair"
-                                                            name="complexion[]" class="complexion">
-                                                        <label for="complexion_2" class="lbl1 lbl-break">Fair</label>
-                                                    </p>
-                                                </div>
-                                                <div class="box">
-                                                    <p class="checkbox-m">
-                                                        <input id="complexion_3" type="checkbox" value="Wheatish Brown"
-                                                            name="complexion[]" class="complexion">
-                                                        <label for="complexion_3" class="lbl1 lbl-break">Wheatish
-                                                            Brown</label>
-                                                    </p>
-                                                </div>
-                                                <div class="box">
-                                                    <p class="checkbox-m">
-                                                        <input id="complexion_4" type="checkbox" value="Dark"
-                                                            name="complexion[]" class="complexion">
-                                                        <label for="complexion_4" class="lbl1 lbl-break">Dark</label>
-                                                    </p>
-                                                </div>
-                                                <div class="box">
-                                                    <p class="checkbox-m">
-                                                        <input id="complexion_5" type="checkbox" value="Wheatish Medium"
-                                                            name="complexion[]" class="complexion">
-                                                        <label for="complexion_5" class="lbl1 lbl-break">Wheatish
-                                                            Medium</label>
-                                                    </p>
-                                                </div>
+                                            <div class="complexion_list" id="complexion_list">
+
+                                                <?php
+                                                if (!empty($complexions)) {
+                                                    foreach ($complexions as $complexion) {
+                                                        ?>
+                                                        <div class="box">
+                                                            <div class="form-check">
+                                                                <input type="checkbox" name="complexion[]" class="complexion"
+                                                                    id="complexion_id_<?= $complexion->complexion_id ?>"
+                                                                    value="<?= $complexion->complexion_id ?>"
+                                                                    data-complexion-id="<?= $complexion->complexion_id ?>">
+                                                                <label class="form-check-label"
+                                                                    for="complexion_id_<?= $complexion->complexion_id ?>">
+                                                                    <?= $complexion->complexion ?>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
                                             </div>
                                         </div>
                                     </div>

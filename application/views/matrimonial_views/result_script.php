@@ -58,32 +58,78 @@
                 icon.classList.toggle('rotate');
             });
         });
-        
-        
+
+
     });
     function select_all_checkbox(containerClass) {
-    document.querySelectorAll(`.${containerClass} input[type=checkbox]`).forEach(checkbox => {
-        checkbox.checked = true;
-    });
-}
+        document.querySelectorAll(`.${containerClass} input[type=checkbox]`).forEach(checkbox => {
+            checkbox.checked = true;
+        });
+    }
 
-function clear_refine(containerClass) {
-    document.querySelectorAll(`.${containerClass} input[type=checkbox]`).forEach(checkbox => {
-        checkbox.checked = false;
-    });
-}
+    function clear_refine(containerClass) {
+        document.querySelectorAll(`.${containerClass} input[type=checkbox]`).forEach(checkbox => {
+            checkbox.checked = false;
+        });
+    }
 
+    // Common Search Functionality
+    function filterContent(containerId, searchTerm) {
+        const searchInput = searchTerm.toLowerCase();
+        const checkboxes = document.querySelectorAll(`#${containerId} .form-check`);
 
-    document.getElementById('searchMotherTongue').addEventListener('input', function() {
-            const filter = this.value.toLowerCase();
-            const boxes = document.querySelectorAll('.mothertongue_list .box');
-            boxes.forEach(box => {
-                const label = box.querySelector('label').textContent.toLowerCase();
-                if (label.includes(filter)) {
-                    box.style.display = 'block';
-                } else {
-                    box.style.display = 'none';
+        checkboxes.forEach(function (checkbox) {
+            const label = checkbox.querySelector('.form-check-label').textContent.toLowerCase();
+            if (label.includes(searchInput)) {
+                checkbox.style.display = '';
+            } else {
+                checkbox.style.display = 'none';
+            }
+        });
+    }
+
+    function loadCities() {
+        let selectedStates = [];
+        const checkboxes = document.querySelectorAll('.state-checkbox:checked');
+
+        checkboxes.forEach((checkbox) => {
+            selectedStates.push(checkbox.value);
+        });
+
+        if (selectedStates.length > 0) {
+            $.ajax({
+                url: '<?= base_url("matrimonialcontrollers/MatriMonialController/get_cities_by_states"); ?>', // Adjust URL if necessary
+                type: 'POST',
+                dataType: 'json',
+                data: { state_ids: selectedStates },
+                success: function (response) {
+                    let cityContainer = $('.city_list');
+                    cityContainer.empty();
+
+                    if (response.length > 0) {
+                        response.forEach(function (city) {
+                            let cityElement = `
+                        <div class="box">
+                            <div class="form-check">
+                                <input class="form-check-input city-checkbox" type="checkbox" value="${city.city_id}" id="city${city.city_id}">
+                                <label class="form-check-label" for="city${city.city_id}">${city.city}</label>
+                            </div>
+                        </div>
+
+                    `;
+                            cityContainer.append(cityElement);
+                        });
+                    } else {
+                        cityContainer.append('<p>No cities found.</p>');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log('Error: ' + error);
                 }
             });
-        });
+        } else {
+            $('.city_list').empty(); // Clear the city list if no states are selected
+        }
+    }
+
 </script>
