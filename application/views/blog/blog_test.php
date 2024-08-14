@@ -32,6 +32,7 @@
     .vendor img {
         width: 100%;
         height: auto;
+    
         object-fit: cover;
         border-radius: 1rem;
     }
@@ -82,6 +83,25 @@
         transform: scale(0.95);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
+
+    .img-count {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 1rem;
+        font-size: 14px;
+        display: block;
+        
+    }
+    .img-count:hover{
+        /* display: none;
+         */
+        background-color: transparent;
+        border: none;
+    }
 </style>
 
 <div class="container ">
@@ -91,29 +111,36 @@
         <?php if (count($blogs) > 0) {
 
             foreach ($blogs as $blog) {
+                $blog_id = $blog['post_id'];
+                $caption = $blog['content'];
+                $images = $blog['image_url'];
+
+                $images = explode(',', $images);
 
                 ?>
 
                 <div class="grid-item ">
                     <div class="vendor-main">
                         <div class="vendor">
+                            <div>
 
-                            <img src="https://cdn.pixabay.com/photo/2024/05/24/19/06/bird-8785666_1280.jpg" alt=""
-                                class="img-fluid mega-c1">
-
+                                <img src="/uploads/blog_images/<?=$images[0];?>" alt=""
+                                    class="img-fluid mega-c1">
+                                <div class="img-count bg-info"><b><?=count($images)-1;?>+</b></div>
+                            </div>
                             <hr>
                             <div class="c1-name">
                                 <div class="d-flex justify-content-center align-items-center mt-3 gap-5">
                                     <span class="d-flex flex-column align-items-center">
 
-                                        <button class="btn btn-icon btn-sm btn-primary like-btn" type="button">
+                                        <button class="btn btn-icon btn-sm btn-primary like-btn" type="button" data-id = "<?=$blog_id;?>">
                                             <span class="btn-inner--icon"><i class="far fa-thumbs-up"></i></span>
                                         </button>
                                         <span>20+</span>
                                     </span>
                                     <span class="d-flex flex-column align-items-center">
 
-                                        <button class="btn btn-icon btn-sm btn-primary share-btn" type="button">
+                                        <button class="btn btn-icon btn-sm btn-primary share-btn" type="button" >
                                             <span class="btn-inner--icon"><i class="fas fa-comment-alt"></i></span>
                                         </button>
                                         <span>30+</span>
@@ -130,7 +157,8 @@
                             <hr>
                         </div>
                         <div class="c1-t1">
-                            <p class="Poppins-Regular f-15 c1-t2"><?=$blog['content'];?><br/><a href="/blog_details/<?=$blog['post_id']?>" class="mega-rm Poppins-Medium">Read
+                            <p class="Poppins-Regular f-15 c1-t2"><?= $blog['content']; ?><br /><a
+                                    href="blog_details/<?=$blog_id; ?>" class="mega-rm Poppins-Medium">Read
                                     More</a></p>
                         </div>
                     </div>
@@ -143,6 +171,25 @@
 
             <h1>There is No Post yet..</h1>
         <?php } ?>
-  
+
     </div>
 </div>
+
+<script>
+
+
+$(document).on('click', '.like-btn', function(){
+    var dataId = $(this).attr('data-id');
+
+    $.ajax({
+        url: '<?= base_url(); ?>increaseLike',
+        type: 'POST',
+        data:{id:dataId},
+        success: function(response) {
+            console.log(response);
+        }
+    });
+    
+});
+
+</script>

@@ -33,8 +33,20 @@ class Blog_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('posts');
+        $this->db->order_by('post_id', 'DESC');
         $query = $this->db->get();
         return $query->result_array();
+    }
+    public function getSinglePost($id)
+    {
+        $this->db->select('*');
+        $this->db->from('posts');
+        $this->db->where('post_id', $id);
+        $query = $this->db->get();
+        return $query->row();
+    }
+    public function increaseLike($post_id){
+
     }
 
 }

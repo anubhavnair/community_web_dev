@@ -28,13 +28,26 @@ class BlogController extends CI_Controller
 		$this->load->view('footer');
 	}
 
-	public function blog_details()
+	public function blog_details($id)
 	{
+
+
+		$blog['blog'] = $this->Blog_model->getSinglePost($id);
+
 		$this->load->view('header');
 		$this->load->view('navbar');
+		$this->load->view('blog/blog_detail',$blog);
 		$this->load->view('footer');
 	}
 
+	public function increseLike()
+	{
+		$post_id = $this->input->post('id');
+		
+		$this->Blog_model->increaseLike($post_id);
+		
+
+	}
 
 
 	public function add_blog()
