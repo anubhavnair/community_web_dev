@@ -1,13 +1,4 @@
 <script>
-
-        function select_all_checkbox(containerId) {
-            $('#' + containerId + ' input[type=checkbox]').prop('checked', true);
-        }
-
-        function clear_refine(containerId) {
-            $('#' + containerId + ' input[type=checkbox]').prop('checked', false);
-        }
-    
     var is_reload_page = 0;
     function scroll_to_div(div_id) {
         $('html, body').animate({ scrollTop: $('#' + div_id).offset().top - 100 }, 'slow');

@@ -340,14 +340,15 @@
                                                 if (!empty($motherTongues)) {
                                                     foreach ($motherTongues as $motherTongue) {
                                                         ?>
-                                                <p class="checkbox-m">
+                                                        <p class="checkbox-m">
 
-                                                            <input class="form-check-input mothertongue_list" type="checkbox" value=""
+                                                            <input class="form-check-input mothertongue_list" type="checkbox"
+                                                                value=""
                                                                 data-mother-tongue-id="<?= $motherTongue->motherTongue_id ?>">
                                                             <label class="form-check-label" for="mother_tongue">
                                                                 <?= $motherTongue->motherTongue ?>
                                                             </label>
-                                                        <?php
+                                                            <?php
                                                     }
                                                 }
                                                 ?>
@@ -389,12 +390,25 @@
                                         <input type="text" class="form-control search-box" id="searchEducation"
                                             placeholder="Search Education">
                                         <div class="content education_list">
+
                                             <div class="box">
-                                                <p class="checkbox-m">
-                                                    <input type="checkbox" id="education_id_9" value="9"
-                                                        name="education[]" class="education-checkbox">
-                                                    <label for="education_id_9" class="lbl1 lbl-break">B Arch</label>
-                                                </p>
+                                                <?php
+                                                if (!empty($education)) {
+                                                    foreach ($education as $edu) {
+                                                        ?>
+                                                        <p class="checkbox-m">
+
+                                                            <input type="checkbox" id="education_id_9" value="9"
+                                                        name="education[]" class="education-checkbox"
+                                                                data-mother-tongue-id="<?= $edu->education_id ?>">
+                                                            <label class="form-check-label" for="mother_tongue">
+                                                                <?= $edu->education ?>
+                                                            </label>
+                                                        </p>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
                                             </div>
                                         </div>
                                     </div>

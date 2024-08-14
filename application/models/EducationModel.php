@@ -10,6 +10,6 @@ class EducationModel extends CI_Model
         $this->db->from('education');
         $this->db->order_by('education_id', 'DESC');
         $query = $this->db->get();
-        return $query->result_array(); // Use result_array() for CodeIgniter 3
+        return $query->result(); // Use result_array() for CodeIgniter 3
     }
 }
