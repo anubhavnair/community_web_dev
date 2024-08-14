@@ -2,8 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
-class CreateMatrimonialTable extends CI_Migration
+class Migration_Create_matrimonial_table extends CI_Migration
 {
     public function up()
     {

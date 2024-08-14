@@ -122,6 +122,7 @@ class MatrimonialController extends CI_Controller
         $from_age = $this->input->post('from_age');
         $to_age = $this->input->post('to_age');
 
+        
         // Query the database
         $matches = $this->MatriMonialRegistrationModel->get_matches($gender, $from_age, $to_age);
 

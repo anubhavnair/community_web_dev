@@ -41,20 +41,25 @@ class MatriMonialRegistrationModel extends CI_Model
         return $query->result_array();
     }
     public function get_matches($gender, $from_age, $to_age, $limit = 10, $offset = 0)
-    {
-        $this->db->select('*, 
-            (YEAR(CURDATE()) - YEAR(DATE(dob))) - 
-            (DATE_FORMAT(CURDATE(), "%m-%d") < DATE_FORMAT(DATE(dob), "%m-%d")) AS age', false);
-        $this->db->from('matrimonial');
-        $this->db->where('gender', $gender);
-        $this->db->having('age >=', $from_age);
-        $this->db->having('age <=', $to_age);
+{
+    $this->db->select('matrimonial.*, 
+        (YEAR(CURDATE()) - YEAR(DATE(dob))) -   
+        (DATE_FORMAT(CURDATE(), "%m-%d") < DATE_FORMAT(DATE(dob), "%m-%d")) AS age,
+        user_registration.*', false);
         
-        // Set limit and offset for pagination
-        $this->db->limit($limit, $offset);
-        
-        $query = $this->db->get();
-        return $query->result_array();
-    }
+    $this->db->from('matrimonial');
+    $this->db->join('user_registration', 'matrimonial.user_id = user_registration.uid', 'left'); // Join user_registration table
+    
+    $this->db->where('matrimonial.gender', $gender);
+    $this->db->having('age >=', $from_age);
+    $this->db->having('age <=', $to_age);
+    
+    // Set limit and offset for pagination
+    $this->db->limit($limit, $offset);
+    
+    $query = $this->db->get();
+    return $query->result();
+}
+
     
 }
