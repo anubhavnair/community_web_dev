@@ -38,36 +38,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="row margin-top-10 ">
-                        <div class="col-md-12 col-sm-12 col-xs-12 d-flex">
-                            <div class="col-md-5 col-sm-5 col-xs-12">
-                                <hr class="fr hr1">
-                            </div>
-                            <div class="col-md-1 col-sm-2 col-xs-12">
-                                <p class="fr-b OpenSans-Regular">
-                                    Or
-                                </p>
-                            </div>
-                            <div class="col-md-5 col-sm-5 col-xs-12">
-                                <hr class="fr hr2">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row margin-top-10">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <form class="light2" action="https://shaadi.telisahusamaj.in/search/search_now"
-                                id="id_search_form" method="post">
-                                <input type="text" placeholder="Search by ID" required="" name="txt_id_search" value="">
-                                <input type="hidden" name="search_page_nm">
-                                <button type="submit" class="btn btn-primary filter-btn">Search <i
-                                        class="fa fa-search fr-search"></i></button>
-                                <input type="hidden" name="csrf_new_matrimonial"
-                                    value="6a9b261e28b0f8e393763714eadc14ab" id="hash_tocken_id">
-                                <input type="hidden" name="save_search" id="save_search" value="">
-                            </form>
-                        </div>
-                    </div>
+                    
                     <div class="row margin-top-10">
                         <div class="col-md-12 col-sm-12 col-xs-12"></div>
                     </div>
