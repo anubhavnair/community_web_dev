@@ -298,7 +298,7 @@ $image_urls = explode(",", $blog->image_url);
                 if (data) {
                     $('#comment').val('');
                     $('#comment_form').trigger("reset");
-                    alert('you have commented on a post');
+                    // alert('you have commented on a post');
                     location.reload();
                 }
             }

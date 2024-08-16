@@ -141,7 +141,7 @@
                         <div class="vendor">
                             <div>
 
-                                <img src="/uploads/blog_images/<?= $images[0]; ?>" alt="" class="img-fluid mega-c1">
+                                <img src="<?=base_url()?>/uploads/blog_images/<?= $images[0]; ?>" alt="" class="img-fluid mega-c1">
                                 <div class="img-count bg-info"><b><?= count($images) - 1; ?>+</b></div>
                             </div>
                             <hr>

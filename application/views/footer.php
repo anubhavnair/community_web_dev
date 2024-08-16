@@ -5,34 +5,28 @@
             <div class="col-md-6 col-lg-6 col-xl-4">
                 <div class="footer-item">
                     <a href="index.html" class="p-0">
-                        <h4 class="text-white mb-4"><i class="fas fa-swimmer text-primary me-3"></i>Community Site</h4>
-                        <!-- <img src="uploads/landing_img/logo.png" alt="Logo"> -->
+                        <h4 class="text-white mb-4"><i class="fas fa-swimmer text-primary me-3"></i>Sahu Samaj</h4>
+                        <img src="/uploads/landing_img/community_site_logo.jpg" alt="Logo" width="100">
                     </a>
-                    <p class="mb-2">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet,
-                        consectetur adipiscing...</p>
-                    <div class="d-flex align-items-center">
-                        <i class="fas fa-map-marker-alt text-primary me-3"></i>
-                        <p class="text-white mb-0">123 Street New York.USA</p>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <i class="fas fa-envelope text-primary me-3"></i>
-                        <p class="text-white mb-0">info@example.com</p>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <i class="fa fa-phone-alt text-primary me-3"></i>
-                        <p class="text-white mb-0">(+012) 3456 7890</p>
-                    </div>
+                    <p class="mb-2 " align="justify">
+                        Dedicated to the upliftment and unity of the Sahu community, our mission is to create an
+                        environment where every member feels a deep sense of belonging and is inspired to contribute to
+                        the collective well-being of our society. 
+ 
+                    </p>
+
+
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-2">
                 <div class="footer-item">
                     <h4 class="text-white mb-4">Quick Links</h4>
                     <a href="#"><i class="fas fa-angle-right me-2"></i> About Us</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Feature</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Attractions</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Tickets</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Blog</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Contact us</a>
+                    <a href="#"><i class="fas fa-angle-right me-2"></i> Our Mission</a>
+                    <a href="#"><i class="fas fa-angle-right me-2"></i> Events</a>
+                    <a href="#"><i class="fas fa-angle-right me-2"></i> News</a>
+                    <a href="#"><i class="fas fa-angle-right me-2"></i> Gallery</a>
+                    <a href="#"><i class="fas fa-angle-right me-2"></i> Contact Us</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-2">
@@ -40,38 +34,44 @@
                     <h4 class="text-white mb-4">Support</h4>
                     <a href="#"><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
                     <a href="#"><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Disclaimer</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Support</a>
+                    <a href="#"><i class="fas fa-angle-right me-2"></i> Community Guidelines</a>
                     <a href="#"><i class="fas fa-angle-right me-2"></i> FAQ</a>
-                    <a href="#"><i class="fas fa-angle-right me-2"></i> Help</a>
+                    <a href="#"><i class="fas fa-angle-right me-2"></i> Help Center</a>
+                    <a href="#"><i class="fas fa-angle-right me-2"></i> Feedback</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-4">
                 <div class="footer-item">
-                    <h4 class="text-white mb-4">Opening Hours</h4>
+                    <h4 class="text-white mb-4">Address</h4>
                     <div class="opening-date mb-3 pb-3">
-                        <div class="opening-clock flex-shrink-0">
-                            <h6 class="text-white mb-0 me-auto">Monday - Friday:</h6>
-                            <p class="mb-0"><i class="fas fa-clock text-primary me-2"></i> 11:00 AM - 16:00 PM</p>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-map-marker-alt text-primary me-3"></i>
+                            <p class="text-white mb-0">456 Community Road, Chhattisgarh, India</p>
                         </div>
-                        <div class="opening-clock flex-shrink-0">
-                            <h6 class="text-white mb-0 me-auto">Satur - Sunday:</h6>
-                            <p class="mb-0"><i class="fas fa-clock text-primary me-2"></i> 09:00 AM - 17:00 PM</p>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-envelope text-primary me-3"></i>
+                            <p class="text-white mb-0">info@sahusamaj.com</p>
                         </div>
-                        <div class="opening-clock flex-shrink-0">
-                            <h6 class="text-white mb-0 me-auto">Holiday:</h6>
-                            <p class="mb-0"><i class="fas fa-clock text-primary me-2"></i> 09:00 AM - 17:00 PM</p>
+                        <div class="d-flex align-items-center">
+                            <i class="fa fa-phone-alt text-primary me-3"></i>
+                            <p class="text-white mb-0">(+91) 1234 567 890</p>
                         </div>
                     </div>
                     <div>
-                        <p class="text-white mb-2">Payment Accepted</p>
-                        <img src="uploads/landing_img/payment.png" class="img-fluid" alt="Image">
+                        <p class="text-white mb-2">Follow Us</p>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="btn btn-outline-light btn-social"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="btn btn-outline-light btn-social"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="btn btn-outline-light btn-social"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-light btn-social"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <!-- Footer End -->
 
 <!-- Copyright Start -->
@@ -83,10 +83,8 @@
                             class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
             </div>
             <div class="col-md-3 text-center text-md-end ">
-                <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                Designed By <a class="border-bottom text-white img-fluid" href="https://htmlcodex.com"><img
+
+                Designed By <a class="border-bottom text-white img-fluid" href=""><img
                         src="https://pathideamultiskill.com/images/logo.png" alt="Path Idea Multiskill"
                         style="width:50%"></a>
                 <!-- Distributed
