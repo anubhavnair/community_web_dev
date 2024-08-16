@@ -8,6 +8,9 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
     <base href="<?php echo base_url(); ?>">
+    <!-- <base href="<?=base_url()?>"> -->
+
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -5,15 +5,18 @@
         object-fit: cover;
         width: 100%;
     }
+
     .ellipsis {
-      white-space: nowrap; 
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 200px; /* Adjust as needed */
-      cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 200px;
+        /* Adjust as needed */
+        cursor: pointer;
     }
+
     .full-text {
-      display: none;
+        display: none;
     }
 </style>
 <!-- Carousel Start -->
@@ -27,8 +30,9 @@
                     <div class="col-xl-7 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s"
                         style="animation-delay: 1s;">
                         <div class="text-start">
-                            <h4 class="text-primary text-uppercase fw-bold mb-4">Welcome To Community Site</h4>
-                            <h1 class="display-4 text-uppercase text-white mb-4">The Biggest Community For XYZ</h1>
+                            <h4 class="text-primary text-uppercase fw-bold mb-4">Welcome to Sahu Samaj</h4>
+                            <h1 class="display-4 text-uppercase text-white mb-4">The Biggest Community For Sahu Samaj
+                            </h1>
                             <p class="mb-4 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting
                                 industry. Lorem Ipsum has been the industry's standard dummy...
                             </p>
@@ -51,8 +55,8 @@
                     <div class="col-xl-7 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s"
                         style="animation-delay: 1s;">
                         <div class="text-start">
-                            <h4 class="text-primary text-uppercase fw-bold mb-4">Welcome To Community Site</h4>
-                            <h1 class="display-4 text-uppercase text-white mb-4">The Greatest Community of XYZ
+                            <h4 class="text-primary text-uppercase fw-bold mb-4">Welcome to Sahu Samaj</h4>
+                            <h1 class="display-4 text-uppercase text-white mb-4">The Greatest Community of Sahu Samaj
                             </h1>
                             <p class="mb-4 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting
                                 industry. Lorem Ipsum has been the industry's standard dummy...
@@ -77,13 +81,13 @@
         <div class="row g-4">
             <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
                 <div class="feature-item">
-                    <img src="uploads/landing_img/feature-1.jpg" class="img-fluid rounded w-100" alt="Image">
+                    <!-- <img src="uploads/landing_img/feature-1.jpg" class="img-fluid rounded w-100" alt="Image"> -->
+                    <img src="https://www.corpnet.com/wp-content/uploads/2020/01/Business-Plan-Words-With-Red-Upward-Arrow.jpg"
+                        class="img-fluid rounded w-100" alt="Image">
                     <div class="feature-content p-4">
                         <div class="feature-content-inner">
-                            <h4 class="text-white">Best Pools</h4>
-                            <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-                                porro soluta voluptatum laborum mollitia blanditiis suscipit,
-                            </p>
+                            <h4 class="text-white">Business Listings</h4>
+                            <p class="text-white">Go Online with your business showcase to your community feild </p>
                             <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More <i
                                     class="fa fa-arrow-right ms-1"></i></a>
                         </div>
@@ -93,13 +97,12 @@
             </div>
             <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="feature-item">
-                    <img src="uploads/landing_img/feature-2.jpg" class="img-fluid rounded w-100" alt="Image">
+                    <img src="https://i.pinimg.com/originals/78/bf/fe/78bffe4e4cb0a6484d658eb0894947e0.jpg"
+                        class="img-fluid rounded w-100" alt="Image">
                     <div class="feature-content p-4">
                         <div class="feature-content-inner">
-                            <h4 class="text-white">Waterslides</h4>
-                            <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-                                porro soluta voluptatum laborum mollitia blanditiis suscipit,
-                            </p>
+                            <h4 class="text-white">Matrimonial Concern</h4>
+                            <p class="text-white">Find the Best Match to Samaj </p>
                             <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More <i
                                     class="fa fa-arrow-right ms-1"></i></a>
                         </div>
@@ -109,11 +112,12 @@
             </div>
             <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
                 <div class="feature-item">
-                    <img src="uploads/landing_img/feature-3.jpg" class="img-fluid rounded w-100" alt="Image">
+                    <img src="https://th.bing.com/th/id/OIP.pLc6JsuAaXb1_xjvau07OgHaFp?rs=1&pid=ImgDetMain"
+                        class="img-fluid rounded w-100" alt="Image">
                     <div class="feature-content p-4">
                         <div class="feature-content-inner">
-                            <h4 class="text-white">River Rides</h4>
-                            <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+                            <h4 class="text-white">Social Media Show-Case</h4>
+                            <p class="text-white">Show your Business To your Community
                                 porro soluta voluptatum laborum mollitia blanditiis suscipit,
                             </p>
                             <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More <i
@@ -134,7 +138,7 @@
         <div class="row g-5">
             <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.2s">
                 <div>
-                    <h4 class="text-primary">About Waterland</h4>
+                    <h4 class="text-primary">About Sahu Samaj</h4>
                     <h1 class="display-5 mb-4">The Best Theme & Amusement Park For Your Family</h1>
                     <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis eligendi illum
                         inventore maiores incidunt vero id. Est ipsam, distinctio veritatis earum inventore ab fugit
@@ -186,7 +190,8 @@
                         <div class="row g-0">
                             <div class="col-lg-12">
                                 <div class="rounded mb-4">
-                                    <img src="uploads/landing_img/about.jpg" class="img-fluid rounded w-100" alt="">
+                                    <img src="https://telisociety.com/wp-content/uploads/2023/03/333206620_6640908432590835_7125988540919382755_n.jpg"
+                                        class="img-fluid rounded w-100" alt="">
                                 </div>
                                 <div class="row gx-4 gy-0">
                                     <div class="col-6">
@@ -221,7 +226,7 @@
                     </div>
                     <div class="rounded bg-primary p-4 position-absolute d-flex justify-content-center"
                         style="width: 90%; height: 80px; top: -40px; left: 50%; transform: translateX(-50%);">
-                        <h3 class="mb-0 text-white">20 Years Experiance</h3>
+                        <h3 class="mb-0 text-white">Chhattishgrh's Majority Community</h3>
                     </div>
                 </div>
             </div>
@@ -541,7 +546,8 @@
                             <p class="mb-1"><span>Contact:</span> <?= $job['job_number'] ?></p>
                             <p class="mb-1"><span>Shift:</span> <?= $job['job_shift'] ?></p>
                             <a href="<?= $job['job_website'] ?>" class="mb-1"><span>Website</span></a>
-                            <div id="content" class="mb-1 ellipsis" onclick="toggleText()"><?= $job['job_description'] ?></div> 
+                            <div id="content" class="mb-1 ellipsis" onclick="toggleText()"><?= $job['job_description'] ?>
+                            </div>
                             <div id="full-content" class="mb-1 full-text "><?= $job['job_description'] ?></div>
 
                             <!-- <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Read More <i
@@ -816,17 +822,17 @@
     </div>
 </div>
 <!-- Testimonial End -->
- <script>
-      function toggleText() {
-      var ellipsis = document.getElementById("content");
-      var fullText = document.getElementById("full-content");
+<script>
+    function toggleText() {
+        var ellipsis = document.getElementById("content");
+        var fullText = document.getElementById("full-content");
 
-      if (fullText.style.display === "none") {
-        fullText.style.display = "block";
-        ellipsis.style.display = "none";
-      } else {
-        fullText.style.display = "none";
-        ellipsis.style.display = "block";
-      }
+        if (fullText.style.display === "none") {
+            fullText.style.display = "block";
+            ellipsis.style.display = "none";
+        } else {
+            fullText.style.display = "none";
+            ellipsis.style.display = "block";
+        }
     }
- </script>
+</script>
