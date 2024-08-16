@@ -109,36 +109,6 @@
 
     <div class="grid my-5">
 
-        <!-- share modal  -->
-        <div class="modal fade " id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
-            <div class="modal-dialog d-flex justify-content-center align-items-center">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="shareModalLabel">Share this Blog</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body d-flex justify-content-center gap-3">
-                        <!-- Social Media Icons -->
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_BLOG_URL" target="_blank"
-                            class="btn btn-primary">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://twitter.com/intent/tweet?url=YOUR_BLOG_URL" target="_blank"
-                            class="btn btn-info">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_BLOG_URL" target="_blank"
-                            class="btn btn-secondary">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://api.whatsapp.com/send?text=YOUR_BLOG_URL" target="_blank"
-                            class="btn btn-success">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
         <?php if (count($blogs) > 0) {
 
             foreach ($blogs as $blog) {
@@ -205,7 +175,38 @@
                                         </a>
                                         <span>50+</span>
                                     </span>
-
+                                    <!-- share modal  -->
+                                    <div class="modal fade " id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog d-flex justify-content-center align-items-center">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="shareModalLabel">Share this Blog</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body d-flex justify-content-center gap-3">
+                                                    <!-- Social Media Icons -->
+                                                    <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_BLOG_URL"
+                                                        target="_blank" class="btn btn-primary">
+                                                        <i class="fab fa-facebook-f"></i>
+                                                    </a>
+                                                    <a href="https://twitter.com/intent/tweet?url=YOUR_BLOG_URL" target="_blank"
+                                                        class="btn btn-info">
+                                                        <i class="fab fa-twitter"></i>
+                                                    </a>
+                                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_BLOG_URL"
+                                                        target="_blank" class="btn btn-secondary">
+                                                        <i class="fab fa-linkedin-in"></i>
+                                                    </a>
+                                                    <a href="https://api.whatsapp.com/send?text=YOUR_BLOG_URL" target="_blank"
+                                                        class="btn btn-success">
+                                                        <i class="fab fa-whatsapp"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <span class="action-item d-flex flex-column align-items-center">
                                         <button class="btn btn-icon btn-sm btn-primary share-btn" type="button"
                                             data-bs-toggle="modal" data-bs-target="#shareModal">
