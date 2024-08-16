@@ -127,11 +127,11 @@ class MatrimonialController extends CI_Controller
     public function find_match()
     {
 
-        $user_id = $this->session->userdata('login');
-        if (!$user_id) {
-            redirect('/login');
+        // $user_id = $this->session->userdata('login');
+        // if (!$user_id) {
+        //     redirect('/login');
 
-        }
+        // }
         $this->load->model('MatriMonialRegistrationModel');
         $this->load->library('pagination');
 
@@ -277,6 +277,24 @@ class MatrimonialController extends CI_Controller
             echo json_encode(['error' => 'An error occurred while fetching data.']);
         }
     }
+
+    public function matromonial_profile($matrimonial_id)
+    {
+        // Load the model
+        $this->load->model('MatriMonialRegistrationModel');
+    
+        // Retrieve matrimonial profile data by ID
+        $data['matrimonial_profile'] = $this->MatriMonialRegistrationModel->getMatrimonialDataById($matrimonial_id);
+    
+        // Load views with the data
+        $this->load->view('header');
+        $this->load->view('matrimonial_views/matrimonial_link');
+        $this->load->view('navbar');
+        $this->load->view('matrimonial_views/matrimonial_profile', $data);
+        $this->load->view('footer');
+        $this->load->view('matrimonial_views/result_script');
+    }
+    
 
 }
 

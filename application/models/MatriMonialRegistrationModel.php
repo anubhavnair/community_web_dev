@@ -40,6 +40,38 @@ class MatriMonialRegistrationModel extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+    public function getMatrimonialDataById($id)
+    {
+        try {
+            // Select necessary fields
+            $this->db->select('matrimonial.*, 
+                (YEAR(CURDATE()) - YEAR(DATE(dob))) -   
+                (DATE_FORMAT(CURDATE(), "%m-%d") < DATE_FORMAT(DATE(dob), "%m-%d")) AS age,
+                user_registration.*, state.*, city.*, mother_tongue.mother_tongue, education.education');
+
+            // Define the main table and join related tables
+            $this->db->from('matrimonial');
+            $this->db->join('user_registration', 'matrimonial.user_id = user_registration.uid', 'left');
+            $this->db->join('state', 'user_registration.user_state = state.state_id', 'left');
+            $this->db->join('city', 'user_registration.user_city = city.city_id', 'left');
+            $this->db->join('mother_tongue', 'matrimonial.mother_tongue_id = mother_tongue.mother_tongue_id', 'left');
+            $this->db->join('education', 'matrimonial.education_id = education.education_id', 'left');
+            $this->db->join('employee_in', 'matrimonial.employee_in_id = employee_in.employee_in_id', 'left');
+
+            // Apply the filter
+            $this->db->where('matrimonial.matrimonial_id', $id);
+
+            // Execute the query
+            $query = $this->db->get();
+
+            // Return a single row if expecting one result
+            return $query->row_array();
+        } catch (Exception $e) {
+            log_message('error', 'Error in getMatrimonialDataById: ' . $e->getMessage());
+            throw $e;
+        }
+    }
+
     public function get_matches($gender, $from_age, $to_age, $limit = 10, $offset = 0)
     {
         $this->load->library('pagination');
@@ -71,8 +103,8 @@ class MatriMonialRegistrationModel extends CI_Model
             $this->db->select('matrimonial.*, 
                 (YEAR(CURDATE()) - YEAR(DATE(dob))) -   
                 (DATE_FORMAT(CURDATE(), "%m-%d") < DATE_FORMAT(DATE(dob), "%m-%d")) AS age,
-                user_registration.*, state.*, city.*, mother_tongue.mother_tongue,education.education'); 
-    
+                user_registration.*, state.*, city.*, mother_tongue.mother_tongue,education.education');
+
             $this->db->from('matrimonial');
             $this->db->join('user_registration', 'matrimonial.user_id = user_registration.uid', 'left');
             $this->db->join('state', 'user_registration.user_state = state.state_id', 'left');
@@ -110,18 +142,18 @@ class MatriMonialRegistrationModel extends CI_Model
             // if ($criteria['photo_search']) {
             //     $this->db->where('matrimonial.images IS NOT NULL AND matrimonial.images !=', '');
             // }
-            
+
             $query = $this->db->get();
-    
+
             // Log the SQL query for debugging
             log_message('debug', 'SQL Query: ' . $this->db->last_query());
-    
+
             return $query->result();
         } catch (Exception $e) {
             log_message('error', 'Error in filter_members: ' . $e->getMessage());
             throw $e;
         }
     }
-    
+
 }
 ?>

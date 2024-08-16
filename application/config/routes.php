@@ -91,6 +91,7 @@ $route['matrimonial_form_submit'] = 'matrimonialcontrollers/MatriMonialControlle
 $route['matrimonial'] = 'matrimonialcontrollers/MatriMonialController/matrimonial';
 $route['matrimonial_find_match'] = 'matrimonialcontrollers/MatriMonialController/find_match';
 $route['matrimonial_find_match_result'] = 'matrimonialcontrollers/MatriMonialController/find_match_result';
+$route['matromonial_profile/(:num)'] = 'matrimonialcontrollers/MatriMonialController/matromonial_profile/$1';
 
 
 // echo time();

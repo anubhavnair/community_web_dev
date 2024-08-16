@@ -75,7 +75,7 @@
                                     </a>
 
                                     <div class="profile-card-btn">
-                                        <a href="https://shaadi.telisahusamaj.in/search/view-profile/<?php echo $result->uid; ?>"
+                                        <a href="<?=base_url()?>matromonial_profile/<?php echo $result->uid; ?>"
                                             class="s-card-1 OpenSans-Light">View Full Profile</a>
                                     </div>
                                 </div>
