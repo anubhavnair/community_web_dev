@@ -127,11 +127,11 @@ class MatrimonialController extends CI_Controller
     public function find_match()
     {
 
-        // $user_id = $this->session->userdata('login');
-        // if (!$user_id) {
-        //     redirect('/login');
+        $user_id = $this->session->userdata('login');
+        if (!$user_id) {
+            redirect('/login');
 
-        // }
+        }
         $this->load->model('MatriMonialRegistrationModel');
         $this->load->library('pagination');
 
