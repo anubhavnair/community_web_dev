@@ -33,19 +33,36 @@ class BlogController extends CI_Controller
 
 
 		$blog['blog'] = $this->Blog_model->getSinglePost($id);
+		$blog['comments'] = $this->Blog_model->getComments($id);
 
 		$this->load->view('header');
 		$this->load->view('navbar');
-		$this->load->view('blog/blog_detail',$blog);
+		$this->load->view('blog/blog_detail', $blog);
 		$this->load->view('footer');
 	}
+	public function add_comments()
+	{
 
+		$comment = $this->input->post('comment');
+		$blog_id = $this->input->post('blog_id');
+		$user_id = $this->session->userdata('user_id');
+		$comment_data = array(
+			'comment' => $comment,
+			'blog_id' => $blog_id,
+			'user_id' => $user_id
+		);
+
+		// print_r($comment_data);
+		$result = $this->Blog_model->add_comment($comment_data);
+		return $result;
+	}
 	public function increseLike()
 	{
 		$post_id = $this->input->post('id');
-		
-		$this->Blog_model->increaseLike($post_id);
-		
+
+		$likeStatus = $this->Blog_model->handleLikes($post_id);
+		echo $likeStatus;
+
 
 	}
 

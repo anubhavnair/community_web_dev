@@ -88,7 +88,29 @@
 </style>
 <?php
 
+$uid = $this->session->userdata('login');
+$blog_id = $blog->post_id;
+$blogObject = (object) $blog;
+$caption = $blogObject->content;
+$images = $blogObject->image_url;
+$likes = $blogObject->post_likes;
+
+$likedstatus = false;
+if (!empty($likes)) {
+
+    $likes_arr = explode(',', $likes);
+    if (count($likes_arr) > 0) {
+        if (in_array($uid, $likes_arr)) {
+            $likedstatus = true;
+        }
+    }
+}
+
+
+$like_count = $likes ? count(array_filter(explode(',', $likes))) : 0;
 $image_urls = explode(",", $blog->image_url);
+
+
 
 ?>
 <div class="container my-3">
@@ -122,54 +144,168 @@ $image_urls = explode(",", $blog->image_url);
 
         <div class="post-actions mt-4">
             <div class="actions d-flex justify-content-start gap-5 align-items-center">
-                <span class="action-item d-flex flex-column align-items-center">
-                    <button class="btn btn-icon btn-sm btn-primary like-btn" type="button">
-                        <span class="btn-inner--icon"><i class="far fa-thumbs-up"></i></span>
-                    </button>
-                    <span>100+</span>
+                <span class="d-flex flex-column align-items-center">
+
+                    <?php if ($likedstatus) { ?>
+                        <button class="btn btn-icon btn-sm btn-primary like-btn bg-danger" type="button"
+                            data-id="<?= $blog_id; ?>">
+                            <span class="btn-inner--icon"><i class="far fa-thumbs-up"></i></span>
+                        </button>
+                    <?php } else {
+                        ?>
+                        <button class="btn btn-icon btn-sm btn-primary like-btn " type="button" data-id="<?= $blog_id; ?>">
+                            <span class="btn-inner--icon"><i class="far fa-thumbs-up"></i></span>
+                        </button>
+                        <?php
+                    } ?>
+
+
+                    <span><?= $like_count ?>+</span>
+
                 </span>
                 <span class="action-item d-flex flex-column align-items-center">
                     <button class="btn btn-icon btn-sm btn-primary comment-btn" type="button">
                         <span class="btn-inner--icon"><i class="fas fa-comment-alt"></i></span>
                     </button>
-                    <span>50+</span>
+                    <span><?= count($comments) ?>+</span>
                 </span>
+
+                <!-- share button modal  -->
+                <!-- Share Modal -->
+                <div class="modal fade " id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog d-flex justify-content-center align-items-center">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="shareModalLabel">Share this Blog</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body d-flex justify-content-center gap-3">
+                                <!-- Social Media Icons -->
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_BLOG_URL" target="_blank"
+                                    class="btn btn-primary">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://twitter.com/intent/tweet?url=YOUR_BLOG_URL" target="_blank"
+                                    class="btn btn-info">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_BLOG_URL"
+                                    target="_blank" class="btn btn-secondary">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://api.whatsapp.com/send?text=YOUR_BLOG_URL" target="_blank"
+                                    class="btn btn-success">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <span class="action-item d-flex flex-column align-items-center">
-                    <button class="btn btn-icon btn-sm btn-primary share-btn" type="button">
+                    <button class="btn btn-icon btn-sm btn-primary share-btn" type="button" data-bs-toggle="modal"
+                        data-bs-target="#shareModal">
                         <span class="btn-inner--icon"><i class="fas fa-share-alt"></i></span>
                     </button>
-                    <span>30+</span>
+                    <span style="visibility: hidden;">&nbsp;</span>
                 </span>
             </div>
         </div>
 
-        <!-- Comments Section -->
-        <div class="post-comments mt-5">
-            <hr>
+        <form action="/add_comments" method="POST" id='comment_form'>
+            <div class="comment-form mt-3">
+                <div class="form-group">
+                    <textarea name="comment" id="comment" class="form-control" placeholder="Write your comment here..."
+                        rows="4"></textarea>
+                </div>
+                <input type="hidden" name="blog_id" value="<?= $blog->post_id; ?>">
+                <button type="submit" class="btn btn-primary mt-3 w-10 rounded-pill shadow-lg">
+                    <i class="fas fa-paper-plane mr-2"></i> Post Comment
+                </button>
+            </div>
+        </form>
 
-            <h3>Comments</h3>
-            <hr>
+    </div>
+    <!-- Comments Section -->
+    <div class="post-comments mt-2">
+        <hr>
+        <h3>Comments</h3>
+        <hr>
 
-            <ul class="list-unstyled ">
-                <li class="media mb-4 border border-primary p-5">
+        <ul class="list-unstyled">
+            <!-- Comment 1 -->
+            <?php foreach ($comments as $comment) {
+                ?>
 
-
+                <li class="media mb-4 border p-5">
                     <div class="media-body">
-                        <h5 class="mt-0 mb-1">John Doe</h5>
-                        <p>This is a sample comment text. It's a thoughtful comment on the post.</p>
-                        <small class="text-muted">Posted on: August 14, 2024, 3:00 PM</small>
+                        <h5 class="mt-0 mb-1"><?= $comment['user_name'] ?></h5>
+                        <p><?= $comment['comment_text'] ?></p>
+                        <small class="text-muted"><?= date("M-d-Y", strtotime($comment['created_at'])) ?></small>
                     </div>
                 </li>
 
-                <!-- Add more comments as needed -->
-            </ul>
-        </div>
+                <?php
+            }
+            ?>
+
+
+        </ul>
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script>
+
+    // handle like button 
+    $(document).on('click', '.like-btn', function () {
+        var $this = $(this);
+        var dataId = $(this).attr('data-id');
+
+        $.ajax({
+            url: '<?= base_url(); ?>increaseLike',
+            type: 'POST',
+            data: { id: dataId },
+            success: function (response) {
+                if (response == 'liked') {
+
+                    $this.css('background-color', '#e91e63');
+                    window.location.reload();
+                }
+                if (response == 'disliked') {
+                    $this.css('background-color', '#007bff');
+                    window.location.reload();
+                    // alert(response);
+                }
+
+            }
+        });
+
+    });
+
+    // comment add 
+    $("#comment_form").submit(function (e) {
+        e.preventDefault();
+        var formData = $(this).serialize();
+
+        $.ajax({
+            url: "/add_comments",
+            type: "POST",
+            data: formData,
+            success: function (data) {
+                if (data) {
+                    $('#comment').val('');
+                    $('#comment_form').trigger("reset");
+                    alert('you have commented on a post');
+                    location.reload();
+                }
+            }
+        });
+    });
+
+
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
             loop: true,                // Enables infinite loop
