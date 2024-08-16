@@ -23,8 +23,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-// $config['base_url'] = 'http://localhost/community_web_dev/';
-$config['base_url'] = 'http://community_web_dev.test/';
+$config['base_url'] = 'http://localhost/community_web_dev/';
+// $config['base_url'] = 'http://community_web_dev.test/';
 
 /*
 |--------------------------------------------------------------------------
