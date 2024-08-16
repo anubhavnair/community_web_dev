@@ -79,14 +79,14 @@
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-12">
                                 <p class="radio-custm">
-                                    <input type="radio" id="M" onclick="member_Filter()" value="Male" name="gender">
+                                    <input type="radio" id="M" onclick="member_Filter()" value="M" name="gender" <?php if($results['gender']=='M'){?>checked=""<?php }?>>
                                     <label for="M" class="lbl1">Male</label>
                                 </p>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-12">
                                 <p class="radio-custm">
-                                    <input type="radio" id="F" onclick="member_Filter()" value="Female" name="gender"
-                                        checked="">
+                                    <input type="radio" id="F" onclick="member_Filter()" value="F" name="gender"
+                                    <?php if($results['gender']=='F'){?>checked=""<?php }?>>
                                     <label for="F" class="lbl1">Female</label>
                                 </p>
                             </div>
@@ -130,12 +130,12 @@
                                 <div id="age-slider"></div>
                                 <div class="t-h">
                                     <span class="h1-h">
-                                        <span id="from_age_display">18 Year</span>
-                                        <input type="hidden" name="from_age" id="from_age" value="18">
+                                        <span id="from_age_display"><?=$results['from_age']?> Year</span>
+                                        <input type="hidden" name="from_age" id="from_age" value="<?=$results['from_age']?>">
                                     </span>
                                     <span class="h2-h float-end">
-                                        <span id="to_age_display">65 Year</span>
-                                        <input type="hidden" name="to_age" id="to_age" value="65">
+                                        <span id="to_age_display"><?=$results['to_age']?> Year</span>
+                                        <input type="hidden" name="to_age" id="to_age" value="<?=$results['to_age']?>">
                                     </span>
                                 </div>
                             </div>
@@ -238,7 +238,7 @@
                                                             <input class="form-check-input state-checkbox" type="checkbox"
                                                                 value="<?= $state->state_id ?>"
                                                                 id="state<?= $state->state_id ?>"
-                                                                data-state-id="<?= $state->state_id ?>" onchange="loadCities()">
+                                                                data-state-id="<?= $state->state_id ?>" onchange=" loadCities(); member_Filter(); ">
                                                             <label class="form-check-label" for="state<?= $state->state_id ?>">
                                                                 <?= $state->state ?>
                                                             </label>
@@ -333,9 +333,9 @@
                                                     ?>
                                                     <div class="box">
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value=""
+                                                            <input class="form-check-input mother-tongue-checkbox" type="checkbox" value=""
                                                                 id="mother_tongue_<?= $motherTongue->mother_tongue_id ?>"
-                                                                data-mother-tongue-id="<?= $motherTongue->mother_tongue_id ?>">
+                                                                data-mother-tongue-id="<?= $motherTongue->mother_tongue_id ?>" onchange="member_Filter()">
                                                             <label class="form-check-label"
                                                                 for="mother_tongue_<?= $motherTongue->mother_tongue_id ?>">
                                                                 <?= $motherTongue->mother_tongue ?>
@@ -393,7 +393,7 @@
                                                             <input type="checkbox" id="education_id_<?= $edu->education_id ?>"
                                                                 value="<?= $edu->education_id ?>" name="education[]"
                                                                 class="education-checkbox"
-                                                                data-mother-tongue-id="<?= $edu->education_id ?>">
+                                                                data-education-id="<?= $edu->education_id ?>" onchange="member_Filter()">
                                                             <label class="form-check-label"
                                                                 for="education_id_<?= $edu->education_id ?>">
                                                                 <?= $edu->education ?>
@@ -573,8 +573,8 @@
                                                         <div class="form-check">
                                                             <input id="employee_in_id_<?= $employee->employee_in_id ?>"
                                                                 type="checkbox" value="<?= $employee->employee_in_id ?>"
-                                                                name="employee_in[]" class="employee_in"
-                                                                data-employee-in-id="<?= $employee->employee_in_id ?>">
+                                                                name="employee_in[]" class="employee_in employee-in-checkbox"
+                                                                data-employee-in-id="<?= $employee->employee_in_id ?>" onchange="member_Filter()">
                                                             <label class="form-check-label"
                                                                 for="employee_in_id_<?= $employee->employee_in_id ?>">
                                                                 <?= $employee->employee_in ?>
@@ -624,7 +624,7 @@
                                             <div class="box">
                                                 <p class="checkbox-m">
                                                     <input id="photo_search" type="checkbox" value="photo_search"
-                                                        name="photo_search" class="profile_picture">
+                                                        name="photo_search" class="profile_picture" onchange="member_Filter()">
                                                     <label for="photo_search" class="lbl1 lbl-break">With
                                                         Picture</label>
                                                 </p>

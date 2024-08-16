@@ -6,7 +6,7 @@ class Migration_Create_matrimonial_table extends CI_Migration
 {
     public function up()
     {
-        $this->forge->addField([
+        $this->dbforge->add_field([
             'matrimonial_id' => [
                 'type'           => 'INT',
                 'constraint'     => 11,
@@ -33,8 +33,8 @@ class Migration_Create_matrimonial_table extends CI_Migration
             'weight' => [
                 'type' => 'TEXT',
             ],
-            'mother_tongue' => [
-                'type' => 'TEXT',
+            'mother_tongue_id' => [
+                'type' => 'INT',
             ],
             'gotram' => [
                 'type' => 'TEXT',
@@ -42,8 +42,11 @@ class Migration_Create_matrimonial_table extends CI_Migration
             'zodiac' => [
                 'type' => 'TEXT',
             ],
-            'education' => [
-                'type' => 'TEXT',
+            'education_id' => [
+                'type' => 'INT',
+            ],
+            'employee_in_id' => [
+                'type' => 'INT',
             ],
             'salary' => [
                 'type' => 'TEXT',
@@ -57,28 +60,27 @@ class Migration_Create_matrimonial_table extends CI_Migration
             'flag' => [
                 'type'       => 'INT',
                 'constraint' => 11,
-                'default' =>1,
+                'default'    => 1,
             ],
             'flag_admin' => [
                 'type'       => 'INT',
                 'constraint' => 11,
-                'default' =>0,
+                'default'    => 0,
             ],
             'created_at' => [
-                'type' => 'DATETIME',
-                'default' => 'CURRENT_TIMESTAMP',
+                'type'    => 'DATETIME',
             ],
             'updated_at' => [
                 'type' => 'DATETIME',
             ],
         ]);
 
-        $this->forge->addKey('matrimonial_id', true);
-        $this->forge->createTable('matrimonial');
+        $this->dbforge->add_key('matrimonial_id', true);
+        $this->dbforge->create_table('matrimonial');
     }
 
     public function down()
     {
-        $this->forge->dropTable('matrimonial');
+        $this->dbforge->drop_table('matrimonial');
     }
 }

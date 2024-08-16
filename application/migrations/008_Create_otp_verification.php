@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Migration_Create_otp_verifications extends CI_Migration
+class Migration_Create_otp_verification extends CI_Migration
 {
 
     public function up()

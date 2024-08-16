@@ -34,7 +34,7 @@
             range: true,
             min: 18, // Minimum age
             max: 65, // Maximum age
-            values: [18, 30], // Default start and end values
+            values: [<?= $results['from_age'] ?>, <?= $results['to_age'] ?>], // Default start and end values
             step: 1,
             slide: function (event, ui) {
                 // Update hidden input fields with the selected values
@@ -44,6 +44,7 @@
                 // Update displayed values
                 $("#from_age_display").text(ui.values[0] + " Year");
                 $("#to_age_display").text(ui.values[1] + " Year");
+                member_Filter();
             }
         });
 
@@ -111,7 +112,7 @@
                             let cityElement = `
                         <div class="box">
                             <div class="form-check">
-                                <input class="form-check-input city-checkbox" type="checkbox" value="${city.city_id}" id="city${city.city_id}">
+                                <input class="form-check-input city-checkbox" type="checkbox" value="${city.city_id}" id="city${city.city_id}" data-city-id="${city.city_id}" onchange="member_Filter()">
                                 <label class="form-check-label" for="city${city.city_id}">${city.city}</label>
                             </div>
                         </div>
@@ -131,5 +132,156 @@
             $('.city_list').empty(); // Clear the city list if no states are selected
         }
     }
+
+
+    function member_Filter() {
+        var gender = $("input[name='gender']:checked").val();
+        var from_age = $("#from_age").val();
+        var to_age = $("#to_age").val();
+        var states = getCheckedIds('state');
+        var cities = getCheckedIds('city');
+        var motherTongues = getCheckedIds('mother-tongue');
+        var Educations = getCheckedIds('education');
+        var EmployeeIn = getCheckedIds('employee-in');
+        //var photo_search = $("#photo_search").is(":checked") ? true : false; 
+        $.ajax({
+            url: 'matrimonialcontrollers/MatriMonialController/member_filter', // Replace with your actual controller path
+            type: 'POST',
+            data: {
+                gender: gender,
+                from_age: from_age,
+                to_age: to_age,
+                states: states,
+                cities: cities,
+                motherTongues: motherTongues,
+                Educations: Educations,
+                EmployeeIn:EmployeeIn,
+               // photo_search:photo_search,
+            },
+            success: function (response) {
+                // Parse JSON response
+                try {
+                    var data = JSON.parse(response);
+                    $('#total-matches').html(data.matches.length + ' Matches');
+                    $("#results-container").empty();
+
+                    if (Array.isArray(data.matches)) {
+                        if (data.matches.length > 0) {
+                            data.matches.forEach(function (result) {
+                                var html = `
+                            <div class="m-b ">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <a target="_blank" href="https://shaadi.telisahusamaj.in/search/view-profile/${result.uid}">
+                                            <img src="uploads/matrimonial_img/user_images/${result.images}" 
+                                                 class="img-responsive placeholder-img" 
+                                                 title="${result.user_name}" 
+                                                 alt="${result.user_id}">
+                                        </a>
+                                        <div class="profile-card-btn">
+                                            <a href="https://shaadi.telisahusamaj.in/search/view-profile/${result.uid}" 
+                                               class="s-card-1 OpenSans-Light">View Full Profile</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <hr class="search-r-hr">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-12 margin-top-10 right-hr new-p">
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <p class="sr1 Roboto-Bold">Name:</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                                    <p class="sr2 Roboto-Bold">${result.user_name}</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <p class="sr1 Roboto-Bold">Age / Height:</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                                    <p class="sr2 Roboto-Bold">${result.age} Years, ${result.height}</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <p class="sr1 Roboto-Bold">Religion:</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                                    <p class="sr2 Roboto-Bold">Hindu</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <p class="sr1 Roboto-Bold">Mother Tongue:</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                                    <p class="sr2 Roboto-Bold">${result.mother_tongue}</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <p class="sr1 Roboto-Bold">Education:</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                                    <p class="sr2 Roboto-Bold">${result.education}</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <p class="sr1 Roboto-Bold">Occupation:</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                                    <p class="sr2 Roboto-Bold">${result.job_occupation}</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <p class="sr1 Roboto-Bold">Annual Income:</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                                    <p class="sr2 Roboto-Bold">${result.salary}</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <p class="sr1 Roboto-Bold">Location:</p>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6 float-end">
+                                                    <p class="sr2 Roboto-Bold">${result.user_address}, ${result.user_pincode} ${result.city}, ${result.user_state}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <p class="sr3">${result.description}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
+
+                                $("#results-container").append(html);
+                            });
+                        } else {
+                            $("#results-container").html("<p class='fs-1 text-center font-weight-bold'>No Matches found</p>");
+                        }
+                    } else {
+                        $("#results-container").html("<p>Unexpected response format.</p>");
+                    }
+                } catch (e) {
+                    console.error("Failed to parse response JSON:", e);
+                    $("#results-container").html("<p>An error occurred while processing the response.</p>");
+                }
+            },
+            error: function (xhr, status, error) {
+                // Handle any errors
+                console.log("Error: " + error);
+                $("#results-container").html("<p>An error occurred while fetching data.</p>");
+            }
+        });
+    }
+
+    function getCheckedIds(className) {
+        var checkedIds = [];
+        $('.' + className + '-checkbox:checked').each(function () {
+            var id = $(this).data(className + '-id');
+            if (id) { // Check if id is valid
+                checkedIds.push(id);
+            }
+        });
+
+        if (checkedIds.length === 0) {
+            checkedIds = [];
+        }
+
+        console.log(checkedIds);
+        return checkedIds;
+    }
+
+
 
 </script>

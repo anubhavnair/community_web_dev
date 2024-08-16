@@ -26,8 +26,13 @@
                     <a href="about.html" class="nav-item nav-link">About</a>
                     <a href="<?= base_url() ?>job" class="nav-item nav-link">Jobs</a>
                     <a href="<?= base_url() ?>business" class="nav-item nav-link">Business</a>
-                    <a href="<?= base_url() ?>matrimonial" class="nav-item nav-link">Matrimonial</a>
-
+                    <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Matrimonial</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="<?= base_url() ?>matrimonial_form" class="dropdown-item">Register</a>
+                            <a href="<?= base_url() ?>matrimonial" class="dropdown-item">Search</a>
+                        </div>
+                    </div>
                     <a href='#'class="nav-item nav-link">Service</a>
                     <a href="<?= base_url('blog') ?>" class="nav-item nav-link">Blog</a>
 
@@ -36,7 +41,6 @@
                         <div class="dropdown-menu m-0">
                             <a href="<?= base_url() ?>job_listing_form" class="dropdown-item">+ Post a Job</a>
                             <a href="<?= base_url() ?>business_listing_form" class="dropdown-item">+ Post a Business</a>
-                            <a href="<?= base_url() ?>matrimonial_form" class="dropdown-item">+ Matrimonial</a>
                             <a href="<?= base_url('blog') ?>" class="dropdown-item">Blogging</a>
 
                             <a href="feature.html" class="dropdown-item">Our Feature</a>

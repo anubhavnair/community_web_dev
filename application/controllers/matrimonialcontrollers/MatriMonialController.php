@@ -26,6 +26,11 @@ class MatrimonialController extends CI_Controller
 
     public function index()
     {
+        $user_id = $this->session->userdata('login');
+        if (!$user_id) {
+            redirect('/login');
+
+        }
         $this->load->view('header');
         $this->load->view('navbar');
         $this->load->view('matrimonial_views/matrimonial_form');
@@ -58,6 +63,14 @@ class MatrimonialController extends CI_Controller
 
         $formArray = $this->input->post();
 
+        $user_id = $this->session->userdata('login');
+        if (!$user_id) {
+            $this->session->set_flashdata('error', 'User not logged in.');
+            $this->index();
+            return;
+        }
+        $formArray['user_id'] = $user_id;
+        $formArray['created_at'] = date('Y-m-d H:i:s');
         // File upload configuration
         $uploadPath = './uploads/matrimonial_img/user_images';
 
@@ -113,8 +126,14 @@ class MatrimonialController extends CI_Controller
 
     public function find_match()
     {
-        $this->load->model('MatriMonialRegistrationModel');
 
+        $user_id = $this->session->userdata('login');
+        if (!$user_id) {
+            redirect('/login');
+
+        }
+        $this->load->model('MatriMonialRegistrationModel');
+        $this->load->library('pagination');
 
 
         // Get form data
@@ -122,11 +141,16 @@ class MatrimonialController extends CI_Controller
         $from_age = $this->input->post('from_age');
         $to_age = $this->input->post('to_age');
 
-        
+
         // Query the database
         $matches = $this->MatriMonialRegistrationModel->get_matches($gender, $from_age, $to_age);
-
-            $this->find_match_result($matches);
+        $result = [
+            'matches' => $matches,
+            'from_age' => $from_age,
+            'to_age' => $to_age,
+            'gender' => $gender
+        ];
+        $this->find_match_result($result);
 
     }
 
@@ -173,15 +197,15 @@ class MatrimonialController extends CI_Controller
     public function get_cities_by_states()
     {
         $state_ids = $this->input->post('state_ids');
-        
+
         if (is_string($state_ids)) {
             $state_ids = json_decode($state_ids, true);
         }
-    
+
         if (!empty($state_ids) && is_array($state_ids)) {
             $this->load->model('CityModel');
             $cities = $this->CityModel->get_cities_by_state_ids($state_ids);
-    
+
             if (!empty($cities)) {
                 echo json_encode($cities);
             } else {
@@ -191,8 +215,68 @@ class MatrimonialController extends CI_Controller
             echo json_encode([]);
         }
     }
-    
+    public function member_filter()
+    {
+        $this->load->model('MatriMonialRegistrationModel');
 
+        // Fetch the filter values from the request
+        $gender = $this->input->post('gender');
+        $from_age = $this->input->post('from_age');
+        $to_age = $this->input->post('to_age');
+        $states = $this->input->post('states');
+        $cities = $this->input->post('cities');
+        $motherTongues = $this->input->post('motherTongues');
+        $Educations = $this->input->post('Educations');
+        $EmployeeIn = $this->input->post('EmployeeIn');
+        // $photo_search = $this->input->post('photo_search');
+
+        // Debugging: log filter criteria
+        log_message('debug', 'Filter criteria: ' . print_r([
+            'gender' => $gender,
+            'from_age' => $from_age,
+            'to_age' => $to_age,
+            'states' => $states,
+            'cities' => $cities,
+            'motherTongues' => $motherTongues,
+            'Educations' => $Educations,
+            'EmployeeIn' => $EmployeeIn,
+            // 'photo_search'=> $photo_search,
+
+        ], true));
+
+        // Convert states and cities to arrays if needed
+        // if (!is_array($states)) {
+        //     $states = explode(',', $states);
+        // }
+        // if (!is_array($cities)) {
+        //     $cities = explode(',', $cities);
+        // }
+        // if (!is_array($motherTongues)) {
+        //     $states = explode(',', $motherTongues);
+        // }
+        // Prepare the filter criteria array
+        $filter_criteria = [
+            'gender' => $gender,
+            'from_age' => $from_age,
+            'to_age' => $to_age,
+            'state_ids' => $states,
+            'city_ids' => $cities,
+            'motherTongue_ids' => $motherTongues,
+            'Education_ids' => $Educations,
+            'EmployeeIn_ids' => $EmployeeIn,
+            // 'photo_search'=> $photo_search,
+
+        ];
+
+        // Get filtered results from the model
+        try {
+            $matches = $this->MatriMonialRegistrationModel->filter_members($filter_criteria);
+            echo json_encode(['matches' => $matches]);
+        } catch (Exception $e) {
+            log_message('error', 'Error fetching members: ' . $e->getMessage());
+            echo json_encode(['error' => 'An error occurred while fetching data.']);
+        }
+    }
 
 }
 

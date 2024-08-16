@@ -1,14 +1,11 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-namespace App\Database\Migrations;
-
-use CodeIgniter\Database\Migration;
-
-class Create_occupation_table extends Migration
+class Migration_Create_occupation_table extends CI_Migration
 {
     public function up()
     {
-        $this->forge->addField([
+        $this->dbforge->add_field([
             'occupation_id' => [
                 'type'           => 'INT',
                 'constraint'     => 11,
@@ -21,12 +18,19 @@ class Create_occupation_table extends Migration
             ],
         ]);
 
-        $this->forge->addKey('occupation_id', true);
-        $this->forge->createTable('occupation', true, ['ENGINE' => 'MyISAM']);
+        $this->dbforge->add_key('occupation_id', true);
+        $this->dbforge->create_table('occupation', true, ['ENGINE' => 'MyISAM']);
+
+        $occupations = [
+            ['occupation' => 'accountant'],
+            ['occupation' => 'actor'],
+        ];
+        $this->db->insert_batch('occupation', $occupations);
+        
     }
 
     public function down()
     {
-        $this->forge->dropTable('occupation', true);
+        $this->dbforge->drop_table('occupation', true);
     }
 }

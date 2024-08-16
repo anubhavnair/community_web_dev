@@ -42,6 +42,7 @@ class UserRegController extends CI_Controller
         } else {
             $reg_data = $this->input->post();
             $this->load->model('userregistrationmodel');
+            
             $config['upload_path'] = './uploads/';
             $config['allowed_types'] = '*';
 

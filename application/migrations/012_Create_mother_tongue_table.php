@@ -1,14 +1,11 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-namespace App\Database\Migrations;
-
-use CodeIgniter\Database\Migration;
-
-class Create_mother_tongue_table extends Migration
+class Migration_Create_mother_tongue_table extends CI_Migration
 {
     public function up()
     {
-        $this->forge->addField([
+        $this->dbforge->add_field([
             'mother_tongue_id' => [
                 'type'           => 'INT',
                 'constraint'     => 11,
@@ -21,12 +18,29 @@ class Create_mother_tongue_table extends Migration
             ],
         ]);
 
-        $this->forge->addKey('mother_tongue_id', true);
-        $this->forge->createTable('mother_tongue', true, ['ENGINE' => 'MyISAM']);
+        $this->dbforge->add_key('mother_tongue_id', true);
+        $this->dbforge->create_table('mother_tongue', true, ['ENGINE' => 'MyISAM']);
+
+        $mother_tongues = [
+            ['mother_tongue' => 'Hindi'],
+            ['mother_tongue' => 'English'],
+            ['mother_tongue' => 'Bengali'],
+            ['mother_tongue' => 'Telugu'],
+            ['mother_tongue' => 'Marathi'],
+            ['mother_tongue' => 'Tamil'],
+            ['mother_tongue' => 'Gujarati'],
+            ['mother_tongue' => 'Urdu'],
+            ['mother_tongue' => 'Kannada'],
+            ['mother_tongue' => 'Malayalam'],
+            ['mother_tongue' => 'Punjabi'],
+            ['mother_tongue' => 'Odia'],
+        ];
+        $this->db->insert_batch('mother_tongue', $mother_tongues);
+        
     }
 
     public function down()
     {
-        $this->forge->dropTable('mother_tongue', true);
+        $this->dbforge->drop_table('mother_tongue', true);
     }
 }

@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Database\Migrations;
+defined('BASEPATH') or exit('No direct script access allowed');
 
-use CodeIgniter\Database\Migration;
-
-class Create_caste_table extends Migration
+class Migration_Create_caste_table extends CI_Migration
 {
     public function up()
     {
-        $this->forge->addField([
+        $this->dbforge->add_field([
             'caste_id' => [
                 'type'           => 'INT',
                 'constraint'     => 11,
@@ -21,12 +19,12 @@ class Create_caste_table extends Migration
             ],
         ]);
 
-        $this->forge->addKey('caste_id', true);
-        $this->forge->createTable('caste', true, ['ENGINE' => 'MyISAM', 'DEFAULT CHARSET' => 'utf8mb4', 'COLLATE' => 'utf8mb4_0900_ai_ci']);
+        $this->dbforge->add_key('caste_id', true);
+        $this->dbforge->create_table('caste', true, ['ENGINE' => 'MyISAM', 'DEFAULT CHARSET' => 'utf8mb4', 'COLLATE' => 'utf8mb4_0900_ai_ci']);
     }
 
     public function down()
     {
-        $this->forge->dropTable('caste', true);
+        $this->dbforge->drop_table('caste', true);
     }
 }

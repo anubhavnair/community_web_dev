@@ -1,14 +1,11 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-namespace App\Database\Migrations;
-
-use CodeIgniter\Database\Migration;
-
-class Create_complexion_table extends Migration
+class Migration_Create_complexion_table extends CI_Migration
 {
     public function up()
     {
-        $this->forge->addField([
+        $this->dbforge->add_field([
             'complexion_id' => [
                 'type'           => 'INT',
                 'constraint'     => 11,
@@ -21,12 +18,27 @@ class Create_complexion_table extends Migration
             ],
         ]);
 
-        $this->forge->addKey('complexion_id', true);
-        $this->forge->createTable('complexion', true, ['ENGINE' => 'MyISAM']);
+        $this->dbforge->add_key('complexion_id', true);
+        $this->dbforge->create_table('complexion', true, ['ENGINE' => 'MyISAM']);
+
+        $complexions = [
+            ['complexion' => 'Fair'],
+            ['complexion' => 'Wheatish'],
+            ['complexion' => 'Dusky'],
+            ['complexion' => 'Dark'],
+            ['complexion' => 'Very Fair'],
+            ['complexion' => 'Olive'],
+            ['complexion' => 'Medium'],
+            ['complexion' => 'Light Brown'],
+            ['complexion' => 'Tan'],
+            ['complexion' => 'Pale'],
+        ];
+        $this->db->insert_batch('complexion', $complexions);
+        
     }
 
     public function down()
     {
-        $this->forge->dropTable('complexion', true);
+        $this->dbforge->drop_table('complexion', true);
     }
 }

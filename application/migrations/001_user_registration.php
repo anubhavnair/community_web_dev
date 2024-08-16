@@ -44,9 +44,15 @@ class Migration_user_registration extends CI_Migration
                     'type' => 'TEXT',
                     'null' => TRUE,
                 ),
-                'user_city' => array(
-                    'type' => 'TEXT',
+                'user_state' => array(
+                    'type' => 'INT',
                     'null' => TRUE,
+                    'default' => 0
+                ),
+                'user_city' => array(
+                    'type' => 'INT',
+                    'null' => TRUE,
+                    'default' => 0
                 ),
                 'user_pincode' => array(
                     'type' => 'TEXT',

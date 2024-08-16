@@ -1,14 +1,11 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-namespace App\Database\Migrations;
-
-use CodeIgniter\Database\Migration;
-
-class Create_education_table extends Migration
+class Migration_Create_education_table extends CI_Migration
 {
     public function up()
     {
-        $this->forge->addField([
+        $this->dbforge->add_field([
             'education_id' => [
                 'type'           => 'INT',
                 'constraint'     => 11,
@@ -21,12 +18,29 @@ class Create_education_table extends Migration
             ],
         ]);
 
-        $this->forge->addKey('education_id', true);
-        $this->forge->createTable('education', true, ['ENGINE' => 'MyISAM']);
+        $this->dbforge->add_key('education_id', true);
+        $this->dbforge->create_table('education', true, ['ENGINE' => 'MyISAM']);
+
+        $educations = [
+            ['education' => 'High School'],
+            ['education' => 'Intermediate'],
+            ['education' => 'Diploma'],
+            ['education' => "Bachelor's Degree"],
+            ['education' => "Master's Degree"],
+            ['education' => 'PhD'],
+            ['education' => 'MBA'],
+            ['education' => 'B.Tech'],
+            ['education' => 'M.Tech'],
+            ['education' => 'LLB'],
+            ['education' => 'B.Sc.'],
+            ['education' => 'M.Sc.'],
+        ];
+        $this->db->insert_batch('education', $educations);
+        
     }
 
     public function down()
     {
-        $this->forge->dropTable('education', true);
+        $this->dbforge->drop_table('education', true);
     }
 }

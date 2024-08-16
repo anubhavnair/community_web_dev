@@ -128,7 +128,7 @@
 							<!-- From Age Select -->
 							<div class="col-md-3 col-sm-6">
 								<div class="form-floating">
-									<select name="from_age" id="agefrom" class="form-select">
+									<select name="from_age" id="from_age" class="form-select">
 										<option selected value="18" title="18 Year">18 Year</option>
 										<option value="19" title="19 Year">19 Year</option>
 										<option value="20" title="20 Year">20 Year</option>
@@ -178,7 +178,7 @@
 										<option value="64" title="64 Year">64 Year</option>
 										<option value="65" title="65 Year">65 Year</option>
 									</select>
-									<label for="agefrom">From Age</label>
+									<label for="from_age">From Age</label>
 								</div>
 							</div>
 
@@ -186,7 +186,7 @@
 							<!-- To Age Select -->
 							<div class="col-md-3 col-sm-6">
 								<div class="form-floating">
-									<select name="to_age" id="ageto" class="form-select">
+									<select name="to_age" id="to_age" class="form-select">
 										<option selected value="18" title="18 Year">18 Year</option>
 										<option value="19" title="19 Year">19 Year</option>
 										<option value="20" title="20 Year">20 Year</option>
@@ -236,7 +236,7 @@
 										<option value="64" title="64 Year">64 Year</option>
 										<option value="65" title="65 Year">65 Year</option>
 									</select>
-									<label for="ageto">To Age</label>
+									<label for="to_age">To Age</label>
 								</div>
 							</div>
 
