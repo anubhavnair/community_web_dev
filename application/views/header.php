@@ -7,10 +7,14 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+<<<<<<< HEAD
     <base href="<?php echo base_url(); ?>">
     <!-- <base href="<?=base_url()?>"> -->
 
 
+=======
+    <base href="<?=base_url() ?>">
+>>>>>>> ee3189b7c10909d37d73acdd681c9976f24f4982
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
