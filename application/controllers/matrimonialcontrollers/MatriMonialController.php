@@ -282,19 +282,79 @@ class MatrimonialController extends CI_Controller
     {
         // Load the model
         $this->load->model('MatriMonialRegistrationModel');
-    
+
         // Retrieve matrimonial profile data by ID
         $data['matrimonial_profile'] = $this->MatriMonialRegistrationModel->getMatrimonialDataById($matrimonial_id);
-    
+
         // Load views with the data
         $this->load->view('header');
         $this->load->view('matrimonial_views/matrimonial_link');
         $this->load->view('navbar');
         $this->load->view('matrimonial_views/matrimonial_profile', $data);
         $this->load->view('footer');
-        $this->load->view('matrimonial_views/result_script');
+        $this->load->view('matrimonial_views/matrimonial_chat_script');
+
     }
-    
+
+    public function matrimonial_chat($matrimonial_id)
+    {
+
+        $user_id = $this->session->userdata('login');
+        if (!$user_id) {
+            redirect('/login');
+
+        }
+
+        // $chat_info = [
+        //   'sender_id' => $user_id,
+        //   'receiver_id' => $matrimonial_id,  
+        // ];
+
+        // $data['matrimonial_chat'] = $this->MatriMonialRegistrationModel->matrimonial_chat($chat_info);
+       $data = [
+        'sender_id'=>$user_id,
+        'receiver_id'=>$matrimonial_id,
+       ];
+
+        // Load views with the data
+        $this->load->view('header');
+        $this->load->view('matrimonial_views/matrimonial_link');
+        $this->load->view('navbar');
+        $this->load->view('matrimonial_views/matrimonial_chat',$data);
+        $this->load->view('footer');
+        $this->load->view('matrimonial_views/matrimonial_chat_script');
+
+    }
+    public function saveMessage()
+    {
+        $data = json_decode(file_get_contents("php://input"), true);
+
+        if (isset($data['sender_id'], $data['receiver_id'], $data['message'])) {
+            $insert_data = array(
+                'sender_id' => $data['sender_id'],
+                'receiver_id' => $data['receiver_id'],
+                'message' => $data['message'],
+                'send_time' => date('Y-m-d H:i:s') // or current timestamp
+            );
+            $this->load->model('MatriMonialRegistrationModel');
+            if ($this->MatriMonialRegistrationModel->saveMessage($insert_data)) {
+                echo json_encode(['status' => 'success']);
+            } else {
+                echo json_encode(['status' => 'error']);
+            }
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'Invalid data']);
+        }
+    }
+
+
+    public function getMessages()
+    {
+        $this->load->model('MatriMonialRegistrationModel');
+        $messages = $this->MatriMonialRegistrationModel->getMessages();
+
+        echo json_encode($messages);
+    }
 
 }
 

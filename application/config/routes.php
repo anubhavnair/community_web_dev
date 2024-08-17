@@ -96,6 +96,7 @@ $route['matrimonial'] = 'matrimonialcontrollers/MatriMonialController/matrimonia
 $route['matrimonial_find_match'] = 'matrimonialcontrollers/MatriMonialController/find_match';
 $route['matrimonial_find_match_result'] = 'matrimonialcontrollers/MatriMonialController/find_match_result';
 $route['matromonial_profile/(:num)'] = 'matrimonialcontrollers/MatriMonialController/matromonial_profile/$1';
+$route['matrimonial_chat/(:num)'] = 'matrimonialcontrollers/MatriMonialController/matrimonial_chat/$1';
 
 
 // echo time();

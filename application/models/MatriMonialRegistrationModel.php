@@ -75,6 +75,8 @@ class MatriMonialRegistrationModel extends CI_Model
     public function get_matches($gender, $from_age, $to_age, $limit = 10, $offset = 0)
     {
         $this->load->library('pagination');
+        $user_id = $this->session->userdata('login');
+
 
         $this->db->select('matrimonial.*, 
         (YEAR(CURDATE()) - YEAR(DATE(dob))) -   
@@ -87,6 +89,7 @@ class MatriMonialRegistrationModel extends CI_Model
         $this->db->join('education', 'matrimonial.education_id = education.education_id', 'left');
 
         $this->db->where('matrimonial.gender', $gender);
+        $this->db->where('user_registration.uid!=', $user_id);
         $this->db->having('age >=', $from_age);
         $this->db->having('age <=', $to_age);
 
@@ -154,6 +157,19 @@ class MatriMonialRegistrationModel extends CI_Model
             throw $e;
         }
     }
+
+        public function saveMessage($data)
+        {
+            $this->db->insert('matrimonial_chat', $data);
+            return $this->db->insert_id();
+        }
+    
+        public function getMessages($limit = 50)
+        {
+            $this->db->order_by('send_time', 'DESC');
+            $query = $this->db->get('matrimonial_chat', $limit);
+            return $query->result();
+        }
 
 }
 ?>

@@ -172,14 +172,14 @@
                             <div class="m-b ">
                                 <div class="row">
                                     <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <a target="_blank" href="https://shaadi.telisahusamaj.in/search/view-profile/${result.uid}">
+                                        <a target="_blank" href="matromonial_profile/${result.matrimonial_id}">
                                             <img src="uploads/matrimonial_img/user_images/${result.images}" 
                                                  class="img-responsive placeholder-img" 
                                                  title="${result.user_name}" 
                                                  alt="${result.user_id}">
                                         </a>
                                         <div class="profile-card-btn">
-                                            <a href="https://shaadi.telisahusamaj.in/search/view-profile/${result.uid}" 
+                                            <a href="matromonial_profile/${result.matrimonial_id}" 
                                                class="s-card-1 OpenSans-Light">View Full Profile</a>
                                         </div>
                                     </div>

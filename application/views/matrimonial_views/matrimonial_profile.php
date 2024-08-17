@@ -21,6 +21,83 @@
     .profile-info p {
         margin-bottom: 5px;
     }
+
+    .chat-icon {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        font-size: 24px;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 50%;
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+    }
+
+    .chat-icon a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .chat-icon:hover {
+        background-color: #0056b3;
+    }
+
+    .chatroom {
+        max-width: 600px;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .messages {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .message {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        max-width: 75%;
+        clear: both;
+    }
+
+    .message.sender {
+        background-color: #dcf8c6;
+        float: right;
+        text-align: right;
+    }
+
+    .message.receiver {
+        background-color: #fff;
+        float: left;
+        text-align: left;
+        border: 1px solid #ccc;
+    }
+
+    .input-group {
+        display: flex;
+        margin-top: 10px;
+    }
+
+    .form-control {
+        flex: 1;
+        padding: 10px;
+        border-radius: 0;
+    }
+
+    .btn {
+        border-radius: 0;
+        padding: 10px 20px;
+    }
 </style>
 <div class="container-fluid">
     <div class="row">
@@ -30,7 +107,7 @@
             <!-- <h2>Profile Details</h2> -->
             <div class="row">
                 <div class="col-md-12">
-                    <h5>Personal Information</h5>
+                    <p><?php echo $matrimonial_profile['description']; ?></p>
                     <table class="table table-bordered table-striped">
                         <tbody>
                             <tr>
@@ -77,14 +154,10 @@
                                 <th>Salary</th>
                                 <td><?php echo $matrimonial_profile['salary']; ?></td>
                             </tr>
-                            <tr>
-                                <th>Description</th>
-                                <td><?php echo $matrimonial_profile['description']; ?></td>
-                            </tr>
                         </tbody>
                     </table>
-                    <div class="row">
-                        
+                    <div class="chat-icon btn btn-primary" data-bs-toggle="modal" data-bs-target="#chatModal">
+                        Open Chat <i class="fas fa-comments"></i>
                     </div>
                 </div>
             </div>
@@ -108,6 +181,33 @@
                 <p><strong>State:</strong> <?php echo $matrimonial_profile['state']; ?></p>
                 <p><strong>Pincode:</strong> <?php echo $matrimonial_profile['user_pincode']; ?></p>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chat Modal -->
+<div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="chatModalLabel">Chat</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Chat content goes here -->
+                <div id="chatroom" class="chatroom">
+                    <ul id="messages" class="messages"></ul>
+                    <div class="input-group">
+                        <input id="messageInput" class="form-control" autocomplete="off"
+                            placeholder="Type your message..." />
+                        <button id="sendBtn" class="btn btn-success">Send</button>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Send</button>
+            </div> -->
         </div>
     </div>
 </div>
