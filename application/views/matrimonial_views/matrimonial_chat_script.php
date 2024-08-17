@@ -8,18 +8,13 @@
             var messageText = $('#messageInput').val().trim();
             console.log('Sending message:', messageText);
             if (messageText !== '') {
-                // Get the current time for the message
                 var currentTime = new Date().toLocaleTimeString();
-
-                // Construct the message object
                 var messageData = {
                     sender_id: sender_id,
                     receiver_id: receiver_id,
                     message: messageText,
                     time: currentTime
                 };
-
-                // Send the message to the server using AJAX
                 $.ajax({
                     url: '<?= base_url() ?>/matrimonialcontrollers/MatriMonialController/saveMessage',
                     type: 'POST',

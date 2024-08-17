@@ -144,6 +144,7 @@
         var Educations = getCheckedIds('education');
         var EmployeeIn = getCheckedIds('employee-in');
         //var photo_search = $("#photo_search").is(":checked") ? true : false; 
+        
         $.ajax({
             url: 'matrimonialcontrollers/MatriMonialController/member_filter', // Replace with your actual controller path
             type: 'POST',

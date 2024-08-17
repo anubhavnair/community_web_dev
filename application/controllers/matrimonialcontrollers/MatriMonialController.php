@@ -31,10 +31,16 @@ class MatrimonialController extends CI_Controller
             redirect('/login');
 
         }
-        $this->load->view('header');
-        $this->load->view('navbar');
-        $this->load->view('matrimonial_views/matrimonial_form');
-        $this->load->view('footer');
+        $this->load->model('MatriMonialRegistrationModel');
+        $data['is_registered'] = $this->MatriMonialRegistrationModel->isRegistered($user_id);
+        if (!$data['is_registered']) {
+            $this->load->view('header');
+            $this->load->view('navbar');
+            $this->load->view('matrimonial_views/matrimonial_form');
+            $this->load->view('footer');
+        } else {
+            redirect('/matrimonial');
+        }
     }
 
     public function submit_form()
@@ -229,6 +235,7 @@ class MatrimonialController extends CI_Controller
         $Educations = $this->input->post('Educations');
         $EmployeeIn = $this->input->post('EmployeeIn');
         // $photo_search = $this->input->post('photo_search');
+        // $complexions = $this->input->post('complexions');
 
         // Debugging: log filter criteria
         log_message('debug', 'Filter criteria: ' . print_r([
@@ -265,6 +272,7 @@ class MatrimonialController extends CI_Controller
             'Education_ids' => $Educations,
             'EmployeeIn_ids' => $EmployeeIn,
             // 'photo_search'=> $photo_search,
+            // 'complexions'=> $complexions,
 
         ];
 
@@ -277,24 +285,33 @@ class MatrimonialController extends CI_Controller
             echo json_encode(['error' => 'An error occurred while fetching data.']);
         }
     }
-
     public function matromonial_profile($matrimonial_id)
     {
-        // Load the model
         $this->load->model('MatriMonialRegistrationModel');
 
-        // Retrieve matrimonial profile data by ID
+        $user_id = $this->session->userdata('login');
+        $data['is_registered'] = $this->MatriMonialRegistrationModel->isRegistered($user_id);
+
+        if (!$data['is_registered']) {
+            redirect('/matrimonial_form');
+        }
+        $data['request_status'] = $this->MatriMonialRegistrationModel->checkRequestStatus($user_id, $matrimonial_id);
         $data['matrimonial_profile'] = $this->MatriMonialRegistrationModel->getMatrimonialDataById($matrimonial_id);
 
-        // Load views with the data
         $this->load->view('header');
         $this->load->view('matrimonial_views/matrimonial_link');
         $this->load->view('navbar');
-        $this->load->view('matrimonial_views/matrimonial_profile', $data);
+
+        if ($data['request_status']['request_status'] == 2) {
+            $this->load->view('matrimonial_views/matrimonial_profile', $data);
+        } else {
+            $this->load->view('matrimonial_views/matrimonial_profile_status', $data);
+        }
+
         $this->load->view('footer');
         $this->load->view('matrimonial_views/matrimonial_chat_script');
-
     }
+
 
     public function matrimonial_chat($matrimonial_id)
     {
@@ -354,6 +371,35 @@ class MatrimonialController extends CI_Controller
 
         echo json_encode($messages);
     }
+    public function send_request()
+    {
+        $user_id = $this->session->userdata('login');
+        $receiver_id = $this->input->post('matrimonial_id'); // Use post() for form data
+        $this->load->model('MatriMonialRegistrationModel');
+
+        $existing_request = $this->MatriMonialRegistrationModel->checkRequestStatus($user_id, $receiver_id);
+
+        if ($existing_request) {
+            // Request already exists
+            $this->session->set_flashdata('message', 'Your request is already pending.');
+        } else {
+            $data = array(
+                'user_id' => $user_id,
+                'requested_id' => $receiver_id,
+                'request_status' => 1 // 1 for pending
+            );
+            $insert_id = $this->MatriMonialRegistrationModel->createRequest($data);
+
+            if ($insert_id) {
+                $this->session->set_flashdata('message', 'Request sent successfully.');
+            } else {
+                $this->session->set_flashdata('message', 'Failed to send request.');
+            }
+        }
+
+        redirect('matromonial_profile/' . $receiver_id);
+    }
+
 
 
 }

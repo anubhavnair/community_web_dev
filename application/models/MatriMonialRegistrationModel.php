@@ -12,13 +12,15 @@ class MatriMonialRegistrationModel extends CI_Model
             'images' => $formArray['images'],
             'height' => $formArray['height'],
             'weight' => $formArray['weight'],
-            'mother_tongue' => $formArray['mother_tongue'],
+            'mother_tongue_id' => $formArray['mother_tongue'],
             'gotram' => $formArray['gotram'],
             'zodiac' => $formArray['zodiac'],
-            'education' => $formArray['education'],
+            'education_id' => $formArray['education'],
             'salary' => $formArray['salary'],
             'gender' => $formArray['gender'],
             'description' => $formArray['description'],
+            'user_id' => $this->session->userdata('login'),
+
             // 'flag' => $formArray['flag'],
             // 'flag_admin' => $formArray['flag_admin'],
             // 'created_at' => NOW(),
@@ -59,7 +61,7 @@ class MatriMonialRegistrationModel extends CI_Model
             $this->db->join('employee_in', 'matrimonial.employee_in_id = employee_in.employee_in_id', 'left');
 
             // Apply the filter
-            $this->db->where('matrimonial.matrimonial_id', $id);
+            $this->db->where('matrimonial.user_id', $id);
 
             // Execute the query
             $query = $this->db->get();
@@ -89,6 +91,8 @@ class MatriMonialRegistrationModel extends CI_Model
         $this->db->join('education', 'matrimonial.education_id = education.education_id', 'left');
 
         $this->db->where('matrimonial.gender', $gender);
+        $this->db->where('flag!=', 0);
+        $this->db->where('flag_admin!=', 0);
         $this->db->where('user_registration.uid!=', $user_id);
         $this->db->having('age >=', $from_age);
         $this->db->having('age <=', $to_age);
@@ -117,7 +121,9 @@ class MatriMonialRegistrationModel extends CI_Model
             $this->db->join('mother_tongue', 'matrimonial.mother_tongue_id = mother_tongue.mother_tongue_id', 'left');
             $this->db->join('education', 'matrimonial.education_id = education.education_id', 'left');
             $this->db->join('employee_in', 'matrimonial.employee_in_id = employee_in.employee_in_id', 'left');
-
+            // $this->db->join('complextion', 'matrimonial.complextion_id = complextion.complextion_id', 'left');
+            $this->db->where('flag!=', 0);
+            $this->db->where('flag_admin!=', 0);
             $this->db->where('user_registration.uid!=', $user_id);
 
             if (!empty($criteria['gender'])) {
@@ -149,6 +155,9 @@ class MatriMonialRegistrationModel extends CI_Model
             // if ($criteria['photo_search']) {
             //     $this->db->where('matrimonial.images IS NOT NULL AND matrimonial.images !=', '');
             // }
+            // if (!empty($criteria['Complexion_ids'])) {
+            //     $this->db->where_in('matrimonial.complexion_id', $criteria['Complexion_ids']);
+            // }
 
             $query = $this->db->get();
 
@@ -159,6 +168,24 @@ class MatriMonialRegistrationModel extends CI_Model
         } catch (Exception $e) {
             log_message('error', 'Error in filter_members: ' . $e->getMessage());
             throw $e;
+        }
+    }
+
+    public function check_request_status($matrimonial_id)
+    {
+        $user_id = $this->session->userdata('login');
+        // Query the database for the request status
+        $this->db->select('status');
+        $this->db->from('matrimonial_request');
+        $this->db->where('user_id', $user_id);
+        $this->db->where('requested_id', $matrimonial_id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->row()->status;
+        } else {
+            return null; // No request found
         }
     }
 
@@ -192,7 +219,27 @@ class MatriMonialRegistrationModel extends CI_Model
 
         return $query->result();
     }
+    public function checkRequestStatus($user_id, $requested_id)
+    {
+        $this->db->where('user_id', $user_id);
+        $this->db->where('requested_id', $requested_id);
 
+        $query = $this->db->get('matrimonial_request');
+        return $query->row_array();
+    }
+
+    public function createRequest($data)
+    {
+        $this->db->insert('matrimonial_request', $data);
+        return $this->db->insert_id(); // Return the ID of the newly inserted request
+    }
+
+    public function isRegistered($user_id)
+    {
+        $this->db->where('user_id', $user_id);
+        $query = $this->db->get('matrimonial');
+        return $query->num_rows() > 0; // Return true if the user is registered, false otherwise
+    }
 
 
 }
