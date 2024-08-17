@@ -102,6 +102,8 @@ class MatriMonialRegistrationModel extends CI_Model
 
     public function filter_members($criteria)
     {
+        $user_id = $this->session->userdata('login');
+
         try {
             $this->db->select('matrimonial.*, 
                 (YEAR(CURDATE()) - YEAR(DATE(dob))) -   
@@ -115,6 +117,8 @@ class MatriMonialRegistrationModel extends CI_Model
             $this->db->join('mother_tongue', 'matrimonial.mother_tongue_id = mother_tongue.mother_tongue_id', 'left');
             $this->db->join('education', 'matrimonial.education_id = education.education_id', 'left');
             $this->db->join('employee_in', 'matrimonial.employee_in_id = employee_in.employee_in_id', 'left');
+
+            $this->db->where('user_registration.uid!=', $user_id);
 
             if (!empty($criteria['gender'])) {
                 $this->db->where('matrimonial.gender', $criteria['gender']); // Added table prefix for clarity
@@ -158,18 +162,18 @@ class MatriMonialRegistrationModel extends CI_Model
         }
     }
 
-        public function saveMessage($data)
-        {
-            $this->db->insert('matrimonial_chat', $data);
-            return $this->db->insert_id();
-        }
-    
-        public function getMessages($limit = 50)
-        {
-            $this->db->order_by('send_time', 'DESC');
-            $query = $this->db->get('matrimonial_chat', $limit);
-            return $query->result();
-        }
+    public function saveMessage($data)
+    {
+        $this->db->insert('matrimonial_chat', $data);
+        return $this->db->insert_id();
+    }
+
+    public function getMessages($limit = 50)
+    {
+        $this->db->order_by('send_time', 'DESC');
+        $query = $this->db->get('matrimonial_chat', $limit);
+        return $query->result();
+    }
 
 }
 ?>

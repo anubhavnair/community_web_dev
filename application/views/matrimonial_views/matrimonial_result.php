@@ -68,7 +68,7 @@
                                 <div class="col-md-3 col-sm-3 col-xs-12">
 
                                     <a target="_blank"
-                                        href="https://shaadi.telisahusamaj.in/search/view-profile/<?php echo $result->uid; ?>">
+                                        href="<?=base_url()?>matromonial_profile/<?php echo $result->uid; ?>">
                                         <img src="uploads/matrimonial_img/user_images/<?php echo $result->images; ?>"
                                             class="img-responsive placeholder-img" title="<?php echo $result->user_name; ?>"
                                             alt="<?php echo $result->user_id; ?>">
