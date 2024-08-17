@@ -1,56 +1,46 @@
 <style>
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
-        scroll-behavior: smooth;
-        grid-auto-flow: dense;
-        grid-auto-rows: min-content;
+    /* Button Hover Effects */
+    .like-btn,
+    .comment-btn,
+    .share-btn {
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    .grid-item {
-
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 1rem;
-        height: fit-content;
+    .like-btn:hover,
+    .comment-btn:hover,
+    .share-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
 
-    .grid-item:hover {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        transform: scale(1.01);
-
+    /* Icon Animations */
+    .like-btn i,
+    .comment-btn i,
+    .share-btn i {
+        transition: all 0.3s ease;
     }
 
-    .vendor-main {
-        padding: 15px;
+    .like-btn:active i,
+    .comment-btn:active i,
+    .share-btn:active i {
+        transform: rotate(20deg) scale(1.1);
     }
 
-    .vendor img {
-        width: 100%;
-        height: auto;
-
-        object-fit: cover;
-        border-radius: 1rem;
+    /* Active State for Like Button */
+    .btn-danger.like-btn {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        color: white;
     }
 
-    .c1-t1 {
-        margin-top: 10px;
+    .btn-danger.like-btn:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+        transform: scale(1.1);
+        background-color: #0056b3;
     }
 
-    @media (min-width: 768px) {
-        .grid-item:nth-child(4n) {
-            grid-column: span 2;
-            grid-row: span 2;
-            /* height: fit-content; */
-
-        }
-    }
-
-    /* General button styles */
     .btn-icon {
         display: flex;
         justify-content: center;
@@ -63,54 +53,10 @@
         transition: transform 0.3s ease, background-color 0.3s ease;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-
-    /* Hover effect */
-    .btn-icon:hover {
-        transform: scale(1.1);
-        background-color: #0056b3;
-    }
-
-    /* Button icon styles */
-    .btn-inner--icon {
-        font-size: 18px;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* Active effect (click effect) */
-    .btn-icon:active {
-        transform: scale(0.95);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    .img-count {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background-color: rgba(0, 0, 0, 0.7);
-        color: white;
-        padding: 5px 10px;
-        border-radius: 1rem;
-        font-size: 14px;
-        display: block;
-
-    }
-
-    .img-count:hover {
-        /* display: none;
-         */
-        background-color: transparent;
-        border: none;
-    }
 </style>
-
-<div class="container ">
-
-    <div class="grid my-5">
-
+<div class="container my-5">
+    <div class="col-md-12 d-flex justify-content-center flex-column align-items-center ">
         <?php if (count($blogs) > 0) {
-
             foreach ($blogs as $blog) {
                 $uid = $this->session->userdata('login');
                 $blog_id = $blog['post_id'];
@@ -119,7 +65,6 @@
                 $likes = $blog['post_likes'];
                 $likedstatus = false;
                 if (!empty($likes)) {
-
                     $likes_arr = explode(',', $likes);
                     if (count($likes_arr) > 0) {
                         if (in_array($uid, $likes_arr)) {
@@ -127,144 +72,86 @@
                         }
                     }
                 }
-
-
                 $like_count = $likes ? count(array_filter(explode(',', $likes))) : 0;
-
-
                 $images = explode(',', $images);
-
                 ?>
-
-                <div class="grid-item ">
-                    <div class="vendor-main">
-                        <div class="vendor">
-                            <div>
-
-                                <img src="<?=base_url()?>/uploads/blog_images/<?= $images[0]; ?>" alt="" class="img-fluid mega-c1">
-                                <div class="img-count bg-info"><b><?= count($images) - 1; ?>+</b></div>
-                            </div>
-                            <hr>
-                            <div class="c1-name">
-                                <div class="d-flex justify-content-center align-items-center mt-3 gap-5">
-                                    <span class="d-flex flex-column align-items-center">
-
-                                        <?php if ($likedstatus) { ?>
-                                            <button class="btn btn-icon btn-sm btn-primary like-btn bg-danger" type="button"
-                                                data-id="<?= $blog_id; ?>">
-                                                <span class="btn-inner--icon"><i class="far fa-thumbs-up"></i></span>
-                                            </button>
-                                        <?php } else {
-                                            ?>
-                                            <button class="btn btn-icon btn-sm btn-primary like-btn " type="button"
-                                                data-id="<?= $blog_id; ?>">
-                                                <span class="btn-inner--icon"><i class="far fa-thumbs-up"></i></span>
-                                            </button>
-                                            <?php
-                                        } ?>
-
-
-                                        <span><?= $like_count ?></span>
-
-                                    </span>
-                                    <span class="d-flex flex-column align-items-center">
-
-                                        <a href="blog_details/<?= $blog_id; ?>"
-                                            class="btn btn-icon btn-sm btn-primary share-btn">
-                                            <span class="btn-inner--icon"><i class="fas fa-comment-alt"></i></span>
-                                        </a>
-                                        <span>50+</span>
-                                    </span>
-                                    <!-- share modal  -->
-                                    <div class="modal fade " id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog d-flex justify-content-center align-items-center">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="shareModalLabel">Share this Blog</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body d-flex justify-content-center gap-3">
-                                                    <!-- Social Media Icons -->
-                                                    <a href="https://www.facebook.com/sharer/sharer.php?u=YOUR_BLOG_URL"
-                                                        target="_blank" class="btn btn-primary">
-                                                        <i class="fab fa-facebook-f"></i>
-                                                    </a>
-                                                    <a href="https://twitter.com/intent/tweet?url=YOUR_BLOG_URL" target="_blank"
-                                                        class="btn btn-info">
-                                                        <i class="fab fa-twitter"></i>
-                                                    </a>
-                                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=YOUR_BLOG_URL"
-                                                        target="_blank" class="btn btn-secondary">
-                                                        <i class="fab fa-linkedin-in"></i>
-                                                    </a>
-                                                    <a href="https://api.whatsapp.com/send?text=YOUR_BLOG_URL" target="_blank"
-                                                        class="btn btn-success">
-                                                        <i class="fab fa-whatsapp"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <span class="action-item d-flex flex-column align-items-center">
-                                        <button class="btn btn-icon btn-sm btn-primary share-btn" type="button"
-                                            data-bs-toggle="modal" data-bs-target="#shareModal">
-                                            <span class="btn-inner--icon"><i class="fas fa-share-alt"></i></span>
-                                        </button>
-                                        <span style="visibility: hidden;">&nbsp;</span>
-                                    </span>
-
+                <a href="blog_details/<?= $blog_id; ?>" class="text-primary text-decoration-none">
+                    <div class="col-md-4 col-lg-4 mb-4">
+                        <div class="card border-light shadow-sm rounded">
+                            <div class="position-relative">
+                                <img src="<?= base_url() ?>/uploads/blog_images/<?= $images[0]; ?>" alt=""
+                                    class="card-img-top rounded-top">
+                                <div class="position-absolute top-0 end-0 bg-info text-white rounded-pill px-2 py-1 m-2">
+                                    <b><?= count($images) - 1; ?>+</b>
                                 </div>
                             </div>
-                            <hr>
-                        </div>
-                        <div class="c1-t1">
-                            <p class="Poppins-Regular f-15 c1-t2"><?= $blog['content']; ?><br /><a
-                                    href="blog_details/<?= $blog_id; ?>" class="mega-rm Poppins-Medium">Read
-                                    More</a></p>
+                            <a href="blog_details/<?= $blog_id; ?>" class="text-primary text-decoration-none">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <?php if ($likedstatus) { ?>
+                                                <button class="btn btn-danger btn-sm like-btn" type="button"
+                                                    data-id="<?= $blog_id; ?>">
+                                                    <i class="far fa-thumbs-up"></i>
+                                                </button>
+                                            <?php } else { ?>
+                                                <button class="btn btn-outline-primary bg-primary btn-sm like-btn text-white"
+                                                    type="button" data-id="<?= $blog_id; ?>">
+                                                    <i class="far fa-thumbs-up"></i>
+                                                </button>
+                                            <?php } ?>
+                                            <span class="ms-2"><?= $like_count ?></span>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <a href="blog_details/<?= $blog_id; ?>"
+                                                class="btn btn-outline-secondary btn-sm me-2">
+                                                <i class="fas fa-comment-alt"></i>
+                                            </a>
+                                            <span>50+</span>
+                                            <button class="btn btn-outline-primary btn-sm ms-2" type="button"
+                                                data-bs-toggle="modal" data-bs-target="#shareModal">
+                                                <i class="fas fa-share-alt"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <p class="card-text"><?= $blog['content']; ?><br /><a href="blog_details/<?= $blog_id; ?>"
+                                            class="text-primary text-decoration-none">Read more..</a></p>
+                                </div>
+                            </a>
                         </div>
                     </div>
-                </div>
-
+                </a>
                 <?php
             }
-
-
-        } else { ?>
-
-            <h1>There is No Post yet..</h1>
+        } else {
+            ?>
+            <h1 class="text-center">There is No Post yet..</h1>
         <?php } ?>
-
     </div>
 </div>
 
 <script>
-
-
     $(document).on('click', '.like-btn', function () {
         var $this = $(this);
         var dataId = $(this).attr('data-id');
+        var likeCountSpan = $this.siblings('span');
 
         $.ajax({
             url: '<?= base_url(); ?>increaseLike',
             type: 'POST',
             data: { id: dataId },
             success: function (response) {
-                if (response == 'liked') {
+                var response = JSON.parse(response);
 
-                    $this.css('background-color', '#e91e63');
-                    window.location.reload();
+                if (response.status == 'liked') {
+                    likeCountSpan.text(response.like_count);
+                    $this.removeClass('btn-outline-primary').addClass('btn-danger');
                 }
-                if (response == 'disliked') {
-                    $this.css('background-color', '#007bff');
-                    window.location.reload();
-                    // alert(response);
+                if (response.status == 'disliked') {
+                    likeCountSpan.text(response.like_count);
+                    $this.removeClass('btn-danger').addClass('btn-outline-primary');
                 }
-
             }
         });
-
     });
-
 </script>

@@ -238,7 +238,7 @@ $image_urls = explode(",", $blog->image_url);
             <?php foreach ($comments as $comment) {
                 ?>
 
-                <li class="media mb-4 border p-5">
+                <li class="media mb-3 border p-4">
                     <div class="media-body">
                         <h5 class="mt-0 mb-1"><?= $comment['user_name'] ?></h5>
                         <p><?= $comment['comment_text'] ?></p>
@@ -263,28 +263,26 @@ $image_urls = explode(",", $blog->image_url);
     $(document).on('click', '.like-btn', function () {
         var $this = $(this);
         var dataId = $(this).attr('data-id');
+        var likeCountSpan = $this.siblings('span');
 
         $.ajax({
             url: '<?= base_url(); ?>increaseLike',
             type: 'POST',
             data: { id: dataId },
             success: function (response) {
-                if (response == 'liked') {
+                var response = JSON.parse(response);
 
-                    $this.css('background-color', '#e91e63');
-                    window.location.reload();
+                if (response.status == 'liked') {
+                    likeCountSpan.text(response.like_count);
+                    $this.removeClass('btn-outline-primary').addClass('btn-danger');
                 }
-                if (response == 'disliked') {
-                    $this.css('background-color', '#007bff');
-                    window.location.reload();
-                    // alert(response);
+                if (response.status == 'disliked') {
+                    likeCountSpan.text(response.like_count);
+                    $this.removeClass('btn-danger').addClass('btn-outline-primary');
                 }
-
             }
         });
-
     });
-
     // comment add 
     $("#comment_form").submit(function (e) {
         e.preventDefault();

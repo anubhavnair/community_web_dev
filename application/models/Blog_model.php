@@ -50,7 +50,7 @@ class Blog_model extends CI_Model
         // Ensure user is logged in
         $uid = $this->session->userdata('login');
         if (!$uid) {
-            return "error"; // or handle as needed
+            return ["status" => "error", "like_count" => 0]; // or handle as needed
         }
 
         // Fetch the current post data
@@ -83,7 +83,10 @@ class Blog_model extends CI_Model
         $this->db->where('post_id', $post_id);
         $this->db->update('posts', array('post_likes' => $newlikes));
 
-        return $status;
+        // Calculate the new like count
+        $like_count = $newlikes ? count(array_filter(explode(',', $newlikes))) : 0;
+
+        return ["status" => $status, "like_count" => $like_count];
     }
 
     public function getComments($id)

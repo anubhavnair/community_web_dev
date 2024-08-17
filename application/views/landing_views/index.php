@@ -20,6 +20,8 @@
     }
 </style>
 <!-- Carousel Start -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 <div class="header-carousel owl-carousel">
     <div class="header-carousel-item">
         <img src="https://img2.sangam.com/assets/home/HomePage_Default_Final.webp" class="img-fluid w-100" alt="Image">
@@ -29,15 +31,23 @@
                     <div class="col-xl-7 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s"
                         style="animation-delay: 1s;">
                         <div class="text-start">
-                            <h4 class="text-primary text-uppercase fw-bold mb-4">Welcome to Sahu Samaj</h4>
-                            <h1 class="display-4 text-uppercase text-white mb-4">Uniting the Proud Sahu Samaj Community
+                            <!-- Added community icon -->
+                            <h4 class="text-primary text-uppercase fw-bold mb-4">
+                                <i class="fas fa-users"></i> Welcome to Sahu Samaj
+                            </h4>
+                            <!-- Added handshake icon -->
+                            <h1 class="display-4 text-uppercase text-white mb-4">
+                                <i class="fas fa-handshake"></i> Uniting the Proud Sahu Samaj Community
                             </h1>
                             <p class="mb-4 fs-5">Join hands with the vibrant and diverse Sahu Samaj, a community rooted
                                 in rich traditions, culture, and values. Together, we empower each other to achieve
                                 greater heights and foster a strong bond of unity.</p>
                             <div class="d-flex flex-shrink-0">
+                                <!-- Added user-plus icon -->
                                 <a class="btn btn-primary rounded-pill text-white py-3 px-5"
-                                    href="<?= base_url() ?>user_registration">Join Us</a>
+                                    href="<?= base_url() ?>user_registration">
+                                    <i class="fas fa-user-plus"></i> Join Us
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -54,15 +64,23 @@
                     <div class="col-xl-7 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s"
                         style="animation-delay: 1s;">
                         <div class="text-start">
-                            <h4 class="text-primary text-uppercase fw-bold mb-4">Welcome to Sahu Samaj</h4>
-                            <h1 class="display-4 text-uppercase text-white mb-4">Uniting the Proud Sahu Samaj Community
+                            <!-- Added community icon -->
+                            <h4 class="text-primary text-uppercase fw-bold mb-4">
+                                <i class="fas fa-users"></i> Welcome to Sahu Samaj
+                            </h4>
+                            <!-- Added handshake icon -->
+                            <h1 class="display-4 text-uppercase text-white mb-4">
+                                <i class="fas fa-handshake"></i> Uniting the Proud Sahu Samaj Community
                             </h1>
                             <p class="mb-4 fs-5">Join hands with the vibrant and diverse Sahu Samaj, a community rooted
                                 in rich traditions, culture, and values. Together, we empower each other to achieve
                                 greater heights and foster a strong bond of unity.</p>
                             <div class="d-flex flex-shrink-0">
+                                <!-- Added user-plus icon -->
                                 <a class="btn btn-primary rounded-pill text-white py-3 px-5"
-                                    href="<?= base_url() ?>user_registration">Join Us</a>
+                                    href="<?= base_url() ?>user_registration">
+                                    <i class="fas fa-user-plus"></i> Join Us
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -71,21 +89,27 @@
         </div>
     </div>
 </div>
+
 <!-- Carousel End -->
 
 
 <!-- Feature Start -->
 <!-- Feature Start -->
+
+
 <div class="container-fluid feature py-5">
     <div class="container py-5">
         <div class="row g-4">
+            <!-- Business Listings -->
             <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
                 <div class="feature-item">
                     <img src="https://www.corpnet.com/wp-content/uploads/2020/01/Business-Plan-Words-With-Red-Upward-Arrow.jpg"
                         class="img-fluid rounded w-100" alt="Business Listings">
                     <div class="feature-content p-4">
                         <div class="feature-content-inner">
-                            <h4 class="text-white">Business Listings</h4>
+                            <!-- Added briefcase icon -->
+                            <i class="fas fa-briefcase fa-5x me-2 col-md-12 text-center text-white "></i>
+                            <h4 class="text-white text-center fw-bold ">Business Listings</h4>
                             <p class="text-white">Showcase your business within the Sahu Samaj community and connect
                                 with fellow members for potential collaborations and support.</p>
                             <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Learn More <i
@@ -94,13 +118,16 @@
                     </div>
                 </div>
             </div>
+            <!-- Matrimonial Services -->
             <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
                 <div class="feature-item">
                     <img src="https://i.pinimg.com/originals/78/bf/fe/78bffe4e4cb0a6484d658eb0894947e0.jpg"
                         class="img-fluid rounded w-100" alt="Matrimonial Services">
                     <div class="feature-content p-4">
                         <div class="feature-content-inner">
-                            <h4 class="text-white">Matrimonial Services</h4>
+                            <!-- Added heart icon -->
+                            <b> <i class="fas fa-heart me-2 fa-5x text-center col-md-12 text-white "></i></b>
+                            <h4 class="text-white text-center fw-bold">Matrimonial Services</h4>
                             <p class="text-white">Discover suitable matrimonial matches within the Sahu Samaj community,
                                 fostering connections that honor our traditions and values.</p>
                             <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Explore More <i
@@ -109,13 +136,16 @@
                     </div>
                 </div>
             </div>
+            <!-- Community Events -->
             <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
-                <div class="feature-item">
-                    <img src="https://th.bing.com/th/id/OIP.pLc6JsuAaXb1_xjvau07OgHaFp?rs=1&pid=ImgDetMain"
+                <div class="feature-item p-4">
+                    <img src="https://cdn.pixabay.com/photo/2018/11/29/21/51/social-media-3846597_1280.png"
                         class="img-fluid rounded w-100" alt="Community Events">
                     <div class="feature-content p-4">
                         <div class="feature-content-inner">
-                            <h4 class="text-white">Community Events</h4>
+                            <!-- Added calendar-alt icon -->
+                            <i class="fas fa-calendar-alt me-2 text-center col-md-12 text-white fa-5x"></i>
+                            <h4 class="text-white text-center fw-bold mt-2">Community Events</h4>
                             <p class="text-white">Participate in and showcase community events and initiatives,
                                 strengthening bonds and celebrating our shared heritage.</p>
                             <a href="#" class="btn btn-primary rounded-pill py-2 px-4">Find Out More <i
@@ -252,23 +282,7 @@
         <div class="row g-4">
             <div class="col-0 col-md-1 col-lg-2 col-xl-2"></div>
             <div class="col-md-10 col-lg-8 col-xl-8 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-days p-4">
-                    <div
-                        class="py-2 border-bottom border-top d-flex align-items-center justify-content-between flex-wrap">
-                        <h4 class="mb-0 pb-2 pb-sm-0">Monday - Friday</h4>
-                        <p class="mb-0"><i class="fas fa-clock text-primary me-2"></i>09:00 AM - 06:00 PM</p>
-                    </div>
-                    <div
-                        class="py-2 border-bottom d-flex align-items-center justify-content-between flex-shrink-1 flex-wrap">
-                        <h4 class="mb-0 pb-2 pb-sm-0">Saturday - Sunday</h4>
-                        <p class="mb-0"><i class="fas fa-clock text-primary me-2"></i>10:00 AM - 04:00 PM</p>
-                    </div>
-                    <div
-                        class="py-2 border-bottom d-flex align-items-center justify-content-between flex-shrink-1 flex-wrap">
-                        <h4 class="mb-0">Holidays</h4>
-                        <p class="mb-0"><i class="fas fa-clock text-primary me-2"></i>10:00 AM - 04:00 PM</p>
-                    </div>
-                </div>
+                <!-- Removed the days div -->
             </div>
             <div class="col-0 col-md-1 col-lg-2 col-xl-2"></div>
 
@@ -326,70 +340,6 @@
 
 <!-- Service End -->
 
-
-<!-- Ticket Packages Start -->
-<!-- Ticket Packages Start -->
-<!-- <div class="container-fluid py-5">
-    <div class="container py-5">
-        <div class="row g-5 align-items-center">
-            <div class="col-lg-12 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="packages-item h-100">
-                    <h4 class="text-primary">Membership Packages</h4>
-                    <h1 class="display-5 mb-4">Choose The Best Membership Packages for Sahu Samaj</h1>
-                    <p class="mb-4">Explore our membership packages designed to offer exclusive benefits and support to
-                        our community members. Whether you're looking for regular involvement or special privileges, we
-                        have a package that suits your needs.</p>
-                    <p><i class="fa fa-check text-primary me-2"></i>Exclusive Community Events</p>
-                    <p><i class="fa fa-check text-primary me-2"></i>Special Discounts for Members</p>
-                    <p><i class="fa fa-check text-primary me-2"></i>Access to Cultural Programs</p>
-                    <p class="mb-5"><i class="fa fa-check text-primary me-2"></i>Opportunity to Participate in Community
-                        Projects</p>
-                    <a href="#" class="btn btn-primary rounded-pill py-3 px-5">Join Now</a>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="pricing-item bg-dark rounded text-center p-5 h-100">
-                    <div class="pb-4 border-bottom">
-                        <h2 class="mb-4 text-primary">Family Membership</h2>
-                        <p class="mb-4">A comprehensive package for the entire family, offering numerous benefits and
-                            exclusive access to events.</p>
-                        <h2 class="mb-0 text-primary">$200<span class="text-body fs-5 fw-normal">/family</span></h2>
-                    </div>
-                    <div class="py-4">
-                        <p class="mb-4"><i class="fa fa-check text-primary me-2"></i>All Access to Community Events</p>
-                        <p class="mb-4"><i class="fa fa-check text-primary me-2"></i>Two Free Event Tickets</p>
-                        <p class="mb-4"><i class="fa fa-check text-primary me-2"></i>Discounts on Community Projects</p>
-                        <p class="mb-4"><i class="fa fa-check text-primary me-2"></i>Priority Registration for Workshops
-                        </p>
-                        <p class="mb-4"><i class="fa fa-check text-primary me-2"></i>Exclusive Family Events</p>
-                    </div>
-                    <a href="#" class="btn btn-light rounded-pill py-3 px-5">Join Now</a>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
-                <div class="pricing-item bg-primary rounded text-center p-5 h-100">
-                    <div class="pb-4 border-bottom">
-                        <h2 class="text-dark mb-4">Individual Membership</h2>
-                        <p class="text-white mb-4">Designed for individual members who wish to be actively involved and
-                            benefit from various community services.</p>
-                        <h2 class="text-dark mb-0">$75<span class="text-white fs-5 fw-normal">/person</span></h2>
-                    </div>
-                    <div class="text-white py-4">
-                        <p class="mb-4"><i class="fa fa-check text-dark me-2"></i>Access to All Community Events</p>
-                        <p class="mb-4"><i class="fa fa-check text-dark me-2"></i>One Free Event Ticket</p>
-                        <p class="mb-4"><i class="fa fa-check text-dark me-2"></i>Discounts on Workshops and Seminars
-                        </p>
-                        <p class="mb-4"><i class="fa fa-check text-dark me-2"></i>Participation in Special Projects</p>
-                    </div>
-                    <a href="#" class="btn btn-dark rounded-pill py-3 px-5">Join Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- Ticket Packages End -->
-
-<!-- Ticket Packages End -->
 
 
 <!-- Attractions Start -->

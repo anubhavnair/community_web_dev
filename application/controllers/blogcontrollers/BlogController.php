@@ -60,63 +60,82 @@ class BlogController extends CI_Controller
 	{
 		$post_id = $this->input->post('id');
 
-		$likeStatus = $this->Blog_model->handleLikes($post_id);
-		echo $likeStatus;
+		$likeData = $this->Blog_model->handleLikes($post_id);
+
+		echo json_encode($likeData);
 
 
 	}
-
 
 	public function add_blog()
 	{
 		$this->load->library('upload');
 		$this->load->database(); // Load the database library
 
-		$files = $_FILES;
-		$cpt = count($_FILES['blog_image']['name']);
-
-		// Capture the blog caption
-		$blogCaption = $this->input->post('blog_caption');
-
+		$files = $_FILES['blog_image'];
 		$imageName = [];
 
-		for ($i = 0; $i < $cpt; $i++) {
-			// Get the original file name
-			$originalName = $_FILES['blog_image']['name'][$i];
-			$fileExtension = pathinfo($originalName, PATHINFO_EXTENSION);
+		if (is_array($files['name'])) {
+			$cpt = count($files['name']);
+			for ($i = 0; $i < $cpt; $i++) {
+				if ($files['name'][$i] != "") {
+					$originalName = $files['name'][$i];
+					$fileExtension = pathinfo($originalName, PATHINFO_EXTENSION);
+					$sanitizedFileName = $this->sanitizeFileName(pathinfo($originalName, PATHINFO_FILENAME));
+					$uniqueName = time() . '_' . $sanitizedFileName . '.' . $fileExtension;
 
-			// Sanitize the file name
-			$sanitizedFileName = $this->sanitizeFileName(pathinfo($originalName, PATHINFO_FILENAME));
+					$_FILES['single_image']['name'] = $uniqueName;
+					$_FILES['single_image']['type'] = $files['type'][$i];
+					$_FILES['single_image']['tmp_name'] = $files['tmp_name'][$i];
+					$_FILES['single_image']['error'] = $files['error'][$i];
+					$_FILES['single_image']['size'] = $files['size'][$i];
 
-			// Create a unique file name with timestamp and sanitized file name
-			$uniqueName = time() . '_' . $sanitizedFileName . '.' . $fileExtension;
+					$this->upload->initialize($this->set_upload_options());
 
-			// Prepare the $_FILES array for the single file upload
-			$_FILES['single_image']['name'] = $uniqueName;
-			$_FILES['single_image']['type'] = $files['blog_image']['type'][$i];
-			$_FILES['single_image']['tmp_name'] = $files['blog_image']['tmp_name'][$i];
-			$_FILES['single_image']['error'] = $files['blog_image']['error'][$i];
-			$_FILES['single_image']['size'] = $files['blog_image']['size'][$i];
+					if ($this->upload->do_upload('single_image')) {
+						$uploadData = $this->upload->data();
+						$fileName = $uploadData['file_name'];
+						$imageName[] = $fileName;
+					} else {
+						// $error = $this->upload->display_errors();
+						// echo $error;
+					}
+				}
+			}
+		} else {
+			// Handle single file upload (if somehow it's not passed as an array)
+			if ($files['name'] != "") {
+				$originalName = $files['name'];
+				$fileExtension = pathinfo($originalName, PATHINFO_EXTENSION);
+				$sanitizedFileName = $this->sanitizeFileName(pathinfo($originalName, PATHINFO_FILENAME));
+				$uniqueName = time() . '_' . $sanitizedFileName . '.' . $fileExtension;
 
-			// Initialize upload configurations
-			$this->upload->initialize($this->set_upload_options());
+				$_FILES['single_image']['name'] = $uniqueName;
+				$_FILES['single_image']['type'] = $files['type'];
+				$_FILES['single_image']['tmp_name'] = $files['tmp_name'];
+				$_FILES['single_image']['error'] = $files['error'];
+				$_FILES['single_image']['size'] = $files['size'];
 
-			// Attempt to upload the file
-			if ($this->upload->do_upload('single_image')) {
-				$uploadData = $this->upload->data();
-				$fileName = $uploadData['file_name'];
+				$this->upload->initialize($this->set_upload_options());
 
-				// Add the uploaded file name to the list
-				$imageName[] = $fileName;
-			} else {
-				$error = $this->upload->display_errors();
-				// Handle errors if needed
-				// redirect("/blog");
+				if ($this->upload->do_upload('single_image')) {
+					$uploadData = $this->upload->data();
+					$fileName = $uploadData['file_name'];
+					$imageName[] = $fileName;
+				} else {
+					$error = $this->upload->display_errors();
+					// Handle errors if needed
+					// redirect("/blog");
+
+				}
 			}
 		}
 
 		// Combine all image names into a single string
 		$imageNames = implode(',', $imageName);
+
+		// Capture the blog caption
+		$blogCaption = $this->input->post('blog_caption');
 
 		$isInserted = $this->Blog_model->add_blog($imageNames, $blogCaption);
 		if ($isInserted) {
@@ -127,7 +146,6 @@ class BlogController extends CI_Controller
 			redirect("/blog");
 		}
 	}
-
 
 
 	public function set_upload_options()

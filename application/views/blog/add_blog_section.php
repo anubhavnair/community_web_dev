@@ -1,156 +1,42 @@
-<style>
-    .add-box-cstm {
-        background: #fff;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .add-box-cstm h4 {
-        font-size: 24px;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 30px;
-    }
-
-    .ni-input {
-        width: 100%;
-        height: 50px;
-        padding: 10px 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-        color: #333;
-    }
-
-    .ni-input[type="textarea"],
-    .ni-input[placeholder="Caption"] {
-        min-height: 200px;
-        padding: 15px;
-        font-size: 16px;
-        line-height: 1.5;
-        border-radius: 5px;
-        resize: vertical;
-        /* resize:none; */
-        /* Allows vertical resizing */
-    }
-
-    .ni-input:focus {
-        outline: none;
-        border-color: #007bff;
-    }
-
-    .add-input {
-        margin-bottom: 20px;
-    }
-
-
-    .add-w-btn {
-        background: #007bff;
-        color: #fff;
-        width: 100%;
-        height: 50px;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    .add-w-btn:hover {
-        background: #0056b3;
-    }
-
-    /* Styling for the image preview container */
-    #image-preview {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 20px;
-        gap: 10px;
-    }
-
-    #image-preview img {
-        width: 150px;
-        /* Set a uniform width */
-        height: 150px;
-        /* Set a uniform height */
-        object-fit: cover;
-        /* Ensure the image covers the space */
-        border-radius: 10px;
-        /* Rounded corners for a modern look */
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        /* Add a subtle shadow */
-        transition: transform 0.2s ease;
-        /* Smooth hover effect */
-        cursor: pointer;
-        /* Change cursor to pointer on hover */
-    }
-
-    #image-preview img:hover {
-        transform: scale(1.05);
-        /* Slight zoom on hover */
-    }
-
-    .ni-input[type="textarea"] {
-        height: 500px !important;
-        /* or any ther height you prefer */
-    }
-</style>
-
 <?php if ($this->session->flashdata('added_blog')): ?>
     <script>
         swal("Created..!", "Blog Created Successfully..", 'success');
-
     </script>
 <?php endif; ?>
 
 <?php if ($this->session->flashdata('error_blog')): ?>
-
     <script>
         swal("Oops...!", "There are sometimes wrong Please Try after some time", 'error');
     </script>
 <?php endif; ?>
 
-<section class="section bg-light mt-5">
-    <div class="col-md-12">
-        <button class="btn btn-primary mx-5 my-3 p-2" id="SlideToggleBtn">Add Blog+</button>
-
-    </div>
-    <div class="container" id="add_blog">
-        <div class="row">
-            <div class="col-md-12 d-flex justify-content-center">
-                <div class="col-md-12">
-                    <div class="add-box-cstm ">
-                        <!-- <h4 class="text-center mb-4">Add Blog</h4> -->
-                        <form class="add-box-2" id="add_blog" action="/add_blog" method='post'
-                            enctype="multipart/form-data">
-                            <div class="add-input">
-                                <div class="form-group">
-                                    <input type="file" class="ni-input" name="blog_image[]" id="blog_image" required
-                                        multiple />
-
-                                </div>
-                            </div>
-                            <!-- Container to hold the image previews -->
-                            <div id="image-preview" class="row"></div>
-
-                            <div class="add-input">
-                                <div class="form-group">
-
-                                    <textarea class="ni-input" name="blog_caption" placeholder="Caption"
-                                        required  resize="none"></textarea>
-                                        
-                                </div>
-                            </div>
-
-                            <div class="add-input">
-                                <div class="form-group">
-                                    <input type="submit" class="add-w-btn" value="Add Blog">
-                                </div>
-                            </div>
-                        </form>
+<section class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="bg-white p-4 rounded shadow-sm">
+                <h4 class="mb-4 text-center">Add Blog</h4>
+                <form id="add_blog" action="/add_blog" method="post" enctype="multipart/form-data">
+                    <div class="mb-3 position-relative">
+                        <input type="file" class="form-control ps-5" name="blog_image[]" id="blog_image" required
+                            multiple />
+                        <i class="fas fa-image position-absolute top-50 start-0 translate-middle-y ms-3 text-muted fa-2x"></i>
                     </div>
-                </div>
+                    <!-- Container to hold the image previews -->
+                    <div id="image-preview" class="d-flex flex-wrap justify-content-center mb-3"></div>
+
+                    <div class="mb-3 position-relative">
+                        <textarea class="form-control ps-5" name="blog_caption" placeholder="Caption" required
+                            style="height: 200px;"></textarea>
+                        <i
+                            class="fas fa-pencil-alt position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                    </div>
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-plus me-2"></i>Add Blog
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -163,19 +49,12 @@
             <div class="modal-body text-center">
                 <img id="modalImage" src="" alt="Selected Image" class="img-fluid" style="border-radius: 10px;">
             </div>
-
         </div>
     </div>
 </div>
 
-
 <script>
     $(document).ready(function () {
-        $('#add_blog').hide();
-        $('#SlideToggleBtn').on("click", function () {
-            $('#add_blog').slideToggle();
-        });
-
         // Preview images 
         $('#blog_image').on('change', function () {
             var previewContainer = $('#image-preview');
@@ -189,7 +68,7 @@
 
                     reader.onload = function (e) {
                         var img = $('<img>').attr('src', e.target.result)
-                            .addClass('img-thumbnail img-fluid') // Bootstrap class for styling the preview
+                            .addClass('img-thumbnail') // Bootstrap class for styling the preview
                             .css({
                                 'width': '150px',   // Uniform width
                                 'height': '150px',  // Uniform height
@@ -212,7 +91,4 @@
             });
         });
     });
-
-
-
 </script>

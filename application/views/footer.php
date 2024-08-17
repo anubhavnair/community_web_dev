@@ -11,8 +11,8 @@
                     <p class="mb-2 " align="justify">
                         Dedicated to the upliftment and unity of the Sahu community, our mission is to create an
                         environment where every member feels a deep sense of belonging and is inspired to contribute to
-                        the collective well-being of our society. 
- 
+                        the collective well-being of our society.
+
                     </p>
 
 
@@ -40,7 +40,7 @@
                     <a href="#"><i class="fas fa-angle-right me-2"></i> Feedback</a>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6 col-xl-4">
+            <div class="col-md-6 col-lg-6 col-xl-4" id='contact_info'>
                 <div class="footer-item">
                     <h4 class="text-white mb-4">Address</h4>
                     <div class="opening-date mb-3 pb-3">
@@ -79,16 +79,16 @@
     <div class="container">
         <div class="row g-4 align-items-center" style="color:white;">
             <div class="col-md-9 text-center text-md-start mb-md-0">
-                <span class=""><a href="#" class="border-bottom text-white"><i
-                            class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
+                <span class=""><a href="#" class="border-bottom text-white text-decoration-none"><i
+                            class="fas fa-copyright text-light me-2"></i>www.sahusamajdummy.com</a>, All right
+                    reserved.</span>
             </div>
             <div class="col-md-3 text-center text-md-end ">
 
                 Designed By <a class="border-bottom text-white img-fluid" href=""><img
                         src="https://pathideamultiskill.com/images/logo.png" alt="Path Idea Multiskill"
                         style="width:50%"></a>
-                <!-- Distributed
-                By <a class="border-bottom text-white" href="https://pathideamultiskill.com/images/logo.png">Path Idea Multiskill</a> -->
+              
             </div>
         </div>
     </div>
