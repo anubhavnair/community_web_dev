@@ -168,12 +168,32 @@ class MatriMonialRegistrationModel extends CI_Model
         return $this->db->insert_id();
     }
 
-    public function getMessages($limit = 50)
+    public function getMessages($receiver_id)
     {
+        $limit = 50;
+        $user_id = $this->session->userdata('login');
+
         $this->db->order_by('send_time', 'DESC');
-        $query = $this->db->get('matrimonial_chat', $limit);
+
+        // Combine conditions for both cases
+        $this->db->group_start();
+        $this->db->where('sender_id', $user_id);
+        $this->db->where('receiver_id', $receiver_id);
+        $this->db->group_end();
+
+        $this->db->or_group_start();
+        $this->db->where('sender_id', $receiver_id);
+        $this->db->where('receiver_id', $user_id);
+        $this->db->group_end();
+
+        $this->db->limit($limit);
+
+        $query = $this->db->get('matrimonial_chat');
+
         return $query->result();
     }
+
+
 
 }
 ?>

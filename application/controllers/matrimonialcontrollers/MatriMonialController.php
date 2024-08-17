@@ -311,30 +311,30 @@ class MatrimonialController extends CI_Controller
         // ];
 
         // $data['matrimonial_chat'] = $this->MatriMonialRegistrationModel->matrimonial_chat($chat_info);
-       $data = [
-        'sender_id'=>$user_id,
-        'receiver_id'=>$matrimonial_id,
-       ];
+        $data = [
+            'sender_id' => $user_id,
+            'receiver_id' => $matrimonial_id,
+        ];
 
         // Load views with the data
         $this->load->view('header');
         $this->load->view('matrimonial_views/matrimonial_link');
         $this->load->view('navbar');
-        $this->load->view('matrimonial_views/matrimonial_chat',$data);
+        $this->load->view('matrimonial_views/matrimonial_chat', $data);
         $this->load->view('footer');
         $this->load->view('matrimonial_views/matrimonial_chat_script');
 
     }
     public function saveMessage()
     {
-        $data = json_decode(file_get_contents("php://input"), true);
+        $data = $this->input->post(); // Use post() for form data
 
         if (isset($data['sender_id'], $data['receiver_id'], $data['message'])) {
             $insert_data = array(
                 'sender_id' => $data['sender_id'],
                 'receiver_id' => $data['receiver_id'],
                 'message' => $data['message'],
-                'send_time' => date('Y-m-d H:i:s') // or current timestamp
+                'send_time' => date('Y-m-d H:i:s')
             );
             $this->load->model('MatriMonialRegistrationModel');
             if ($this->MatriMonialRegistrationModel->saveMessage($insert_data)) {
@@ -347,14 +347,14 @@ class MatrimonialController extends CI_Controller
         }
     }
 
-
-    public function getMessages()
+    public function getMessages($receiver_id)
     {
         $this->load->model('MatriMonialRegistrationModel');
-        $messages = $this->MatriMonialRegistrationModel->getMessages();
+        $messages = $this->MatriMonialRegistrationModel->getMessages($receiver_id);
 
         echo json_encode($messages);
     }
+
 
 }
 
