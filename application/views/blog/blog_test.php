@@ -85,49 +85,47 @@
                                     <b><?= count($images) - 1; ?>+</b>
                                 </div>
                             </div>
-                            <a href="blog_details/<?= $blog_id; ?>" class="text-primary text-decoration-none">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between mb-2">
-                                        <div class="d-flex align-items-center">
-                                            <?php if ($likedstatus) { ?>
-                                                <button class="btn btn-danger btn-sm like-btn" type="button"
-                                                    data-id="<?= $blog_id; ?>">
-                                                    <i class="far fa-thumbs-up"></i>
-                                                </button>
-                                            <?php } else { ?>
-                                                <button class="btn btn-outline-primary bg-primary btn-sm like-btn text-white"
-                                                    type="button" data-id="<?= $blog_id; ?>">
-                                                    <i class="far fa-thumbs-up"></i>
-                                                </button>
-                                            <?php } ?>
-                                            <span class="ms-2"><?= $like_count ?></span>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <a href="blog_details/<?= $blog_id; ?>"
-                                                class="btn btn-outline-secondary btn-sm me-2">
-                                                <i class="fas fa-comment-alt"></i>
-                                            </a>
-                                            <span>50+</span>
-                                            <button class="btn btn-outline-primary btn-sm ms-2" type="button"
-                                                data-bs-toggle="modal" data-bs-target="#shareModal">
-                                                <i class="fas fa-share-alt"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <p class="card-text"><?= $blog['content']; ?><br /><a href="blog_details/<?= $blog_id; ?>"
-                                            class="text-primary text-decoration-none">Read more..</a></p>
-                                </div>
+                </a>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between mb-2">
+                        <div class="d-flex align-items-center">
+                            <?php if ($likedstatus) { ?>
+                                <button class="btn btn-danger btn-sm like-btn" type="button" data-id="<?= $blog_id; ?>">
+                                    <i class="far fa-thumbs-up"></i>
+                                </button>
+                            <?php } else { ?>
+                                <button class="btn btn-outline-primary bg-primary btn-sm like-btn text-white" type="button"
+                                    data-id="<?= $blog_id; ?>">
+                                    <i class="far fa-thumbs-up"></i>
+                                </button>
+                            <?php } ?>
+                            <span class="ms-2"><?= $like_count ?></span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <a href="blog_details/<?= $blog_id; ?>" class="btn btn-outline-secondary btn-sm me-2">
+                                <i class="fas fa-comment-alt"></i>
                             </a>
+                            <span>50+</span>
+                            <button class="btn btn-outline-primary btn-sm ms-2" type="button" data-bs-toggle="modal"
+                                data-bs-target="#shareModal">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
                         </div>
                     </div>
-                </a>
-                <?php
+                    <p class="card-text"><?= $blog['content']; ?><br /><a href="blog_details/<?= $blog_id; ?>"
+                            class="text-primary text-decoration-none">Read more..</a></p>
+                </div>
+
+            </div>
+        </div>
+
+        <?php
             }
         } else {
             ?>
-            <h1 class="text-center">There is No Post yet..</h1>
-        <?php } ?>
-    </div>
+    <h1 class="text-center">There is No Post yet..</h1>
+<?php } ?>
+</div>
 </div>
 
 <script>

@@ -394,7 +394,7 @@
                     <img src="https://teliindia.in/images/Gaya_Sahu_samaj_Bhamashah_Jayanti.jpg"
                         class="img-fluid rounded w-100 h-100" alt="">
                     <div class="search-icon">
-                        <a href="https://th.bing.com/th/id/OIP.gljqo5eUWNCcMGczNfywrAHaE6?rs=1&pid=ImgDetMain"
+                        <a href="https://teliindia.in/images/Gaya_Sahu_samaj_Bhamashah_Jayanti.jpg"
                             class="btn btn-light btn-lg-square rounded-circle" data-lightbox="Gallery-1"><i
                                 class="fas fa-search-plus"></i></a>
                     </div>
@@ -405,7 +405,7 @@
                     <img src="https://th.bing.com/th/id/OIP.QkMVSP7ZF-scNkT2ZbBXRwHaEK?rs=1&pid=ImgDetMain"
                         class="img-fluid rounded w-100 h-100" alt="">
                     <div class="search-icon">
-                        <a href="https://teliindia.in/images/Guna_district_Sahu_Samaj_shaadi.jpg"
+                        <a href="https://th.bing.com/th/id/OIP.QkMVSP7ZF-scNkT2ZbBXRwHaEK?rs=1&pid=ImgDetMain"
                             class="btn btn-light btn-lg-square rounded-circle" data-lightbox="Gallery-2"><i
                                 class="fas fa-search-plus"></i></a>
                     </div>
@@ -416,7 +416,7 @@
                     <img src="https://teliindia.in/images/Guna_district_Sahu_Samaj_shaadi.jpg"
                         class="img-fluid rounded w-100 h-100" alt="">
                     <div class="search-icon">
-                        <a href="uploads/landing_img/gallery-3.jpg" class="btn btn-light btn-lg-square rounded-circle"
+                        <a href="https://teliindia.in/images/Guna_district_Sahu_Samaj_shaadi.jpg" class="btn btn-light btn-lg-square rounded-circle"
                             data-lightbox="Gallery-3"><i class="fas fa-search-plus"></i></a>
                     </div>
                 </div>
@@ -426,7 +426,7 @@
                     <img src="https://i.ytimg.com/vi/4uXYWXxPqtk/hqdefault.jpg" class="img-fluid rounded w-100 h-100"
                         alt="">
                     <div class="search-icon">
-                        <a href="uploads/landing_img/gallery-4.jpg" class="btn btn-light btn-lg-square rounded-circle"
+                        <a href="https://i.ytimg.com/vi/4uXYWXxPqtk/hqdefault.jpg" class="btn btn-light btn-lg-square rounded-circle"
                             data-lightbox="Gallery-4"><i class="fas fa-search-plus"></i></a>
                     </div>
                 </div>
@@ -436,7 +436,7 @@
                     <img src="https://images.bhaskarassets.com/web2images/521/2023/08/15/14bhilai-pullout-pg9-0_deb8c24e-e8b2-4bb0-86ba-ab1ea6fbd793-large.jpg"
                         class="img-fluid rounded w-100 h-100" alt="">
                     <div class="search-icon">
-                        <a href="uploads/landing_img/gallery-5.jpg" class="btn btn-light btn-lg-square rounded-circle"
+                        <a href="https://images.bhaskarassets.com/web2images/521/2023/08/15/14bhilai-pullout-pg9-0_deb8c24e-e8b2-4bb0-86ba-ab1ea6fbd793-large.jpg" class="btn btn-light btn-lg-square rounded-circle"
                             data-lightbox="Gallery-5"><i class="fas fa-search-plus"></i></a>
                     </div>
                 </div>
@@ -446,7 +446,7 @@
                     <img src="https://teliindia.in/Teli_Samaj_news_Image.php?ano=1441&Image=Chhabra_Sahu_Samaj_samuhik_Vivah_Sammelan_Sampanna.jpg"
                         class="img-fluid rounded w-100 h-100" alt="">
                     <div class="search-icon">
-                        <a href="uploads/landing_img/gallery-6.jpg" class="btn btn-light btn-lg-square rounded-circle"
+                        <a href="https://teliindia.in/Teli_Samaj_news_Image.php?ano=1441&Image=Chhabra_Sahu_Samaj_samuhik_Vivah_Sammelan_Sampanna.jpg" class="btn btn-light btn-lg-square rounded-circle"
                             data-lightbox="Gallery-6"><i class="fas fa-search-plus"></i></a>
                     </div>
                 </div>

@@ -1,3 +1,13 @@
+
+<?php if(!$this->session->has_userdata('login')): ?>
+    <script>
+        swal("Information..!", "You need to login first to view this page", "info");
+        setTimeout(function () {
+            window.location.href = "<?=base_url()?>login";
+        }, 2000);
+    </script>
+   
+<?php endif; ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
